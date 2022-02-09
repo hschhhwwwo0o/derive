@@ -2,30 +2,34 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, Text } from "react-native";
 
 interface ILogo {
+  textAlign?: "center" | "left";
+}
+
+interface IMainLogo extends ILogo {
   variant?: "default" | "big";
 }
 
-const DefaultLogo: FunctionComponent = () => {
+const DefaultLogo: FunctionComponent<ILogo> = ({ textAlign = "left" }) => {
   return (
     <>
-      <Text style={styles.defaultLogo}>Dérive</Text>
+      <Text style={[styles.defaultLogo, { textAlign }]}>Dérive</Text>
     </>
   );
 };
 
-const BigLogo: FunctionComponent = () => {
+const BigLogo: FunctionComponent<ILogo> = ({ textAlign = "left" }) => {
   return (
     <>
-      <Text style={styles.bigLogo}>Dérive</Text>
+      <Text style={[styles.bigLogo, { textAlign }]}>Dérive</Text>
     </>
   );
 };
 
-const Logo: FunctionComponent<ILogo> = ({ variant = "default" }) => {
+const Logo: FunctionComponent<IMainLogo> = ({ variant = "default", textAlign = "left" }) => {
   return (
     <>
-      {variant === "default" && <DefaultLogo />}
-      {variant === "big" && <BigLogo />}
+      {variant === "default" && <DefaultLogo textAlign={textAlign} />}
+      {variant === "big" && <BigLogo textAlign={textAlign} />}
     </>
   );
 };
