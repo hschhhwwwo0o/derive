@@ -10,7 +10,7 @@ interface IButton {
 const DefaultButton: FunctionComponent<IButton> = ({ children, onClickHandler }) => {
   return (
     <>
-      <LinearGradient colors={["#CCF0FA", "#E2D1F0"]} end={[0.1, -0.1]} style={styles.defaultButton}>
+      <LinearGradient colors={["#CCF0FA", "#E2D1F0"]} end={{ x: 0.9, y: 0.2 }} style={styles.defaultButton}>
         <Text style={styles.text}>{children}</Text>
       </LinearGradient>
     </>
@@ -20,7 +20,7 @@ const DefaultButton: FunctionComponent<IButton> = ({ children, onClickHandler })
 const DangerButton: FunctionComponent<IButton> = ({ children, onClickHandler }) => {
   return (
     <>
-      <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={[0.1, -0.1]} style={styles.defaultButton}>
+      <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.defaultButton}>
         <Text style={styles.text}>{children}</Text>
       </LinearGradient>
     </>
@@ -30,7 +30,7 @@ const DangerButton: FunctionComponent<IButton> = ({ children, onClickHandler }) 
 const WarningButton: FunctionComponent<IButton> = ({ children, onClickHandler }) => {
   return (
     <>
-      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={[0.1, -0.1]} style={styles.defaultButton}>
+      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={styles.defaultButton}>
         <Text style={styles.text}>{children}</Text>
       </LinearGradient>
     </>
@@ -40,7 +40,7 @@ const WarningButton: FunctionComponent<IButton> = ({ children, onClickHandler })
 const PrimaryButton: FunctionComponent<IButton> = ({ children, onClickHandler }) => {
   return (
     <>
-      <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={[0.1, -0.1]} style={styles.defaultButton}>
+      <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.defaultButton}>
         <Text style={styles.text}>{children}</Text>
       </LinearGradient>
     </>
