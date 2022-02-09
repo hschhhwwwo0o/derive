@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Button from "../../components/UI/Button";
-import Logo from "../../components/UI/Logo";
 import AndroidSafeArea from "../../styles/AndroidSafeArea";
 import Layout from "../../styles/Layout";
+import Button from "../../components/UI/Button";
+import Logo from "../../components/UI/Logo";
 
 const StartScreen: FunctionComponent = () => {
   return (
