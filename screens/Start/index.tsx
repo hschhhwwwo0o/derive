@@ -5,7 +5,11 @@ import Layout from "../../styles/Layout";
 import Button from "../../components/UI/Button";
 import Logo from "../../components/UI/Logo";
 
-const StartScreen: FunctionComponent = () => {
+const StartScreen: FunctionComponent<any> = ({ navigation }) => {
+  function onLetsStartPressHandler() {
+    navigation.navigate("AddCard");
+  }
+
   return (
     <>
       <View style={AndroidSafeArea.AndroidSafeArea}>
@@ -19,7 +23,7 @@ const StartScreen: FunctionComponent = () => {
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
               </Text>
               <View style={styles.bodyButton}>
-                <Button>Let’s start</Button>
+                <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
               </View>
             </View>
             <View style={styles.footer} />
