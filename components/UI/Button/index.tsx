@@ -37,8 +37,18 @@ const WarningButton: FunctionComponent<IButton> = ({ children, onClickHandler })
   );
 };
 
+const PrimaryButton: FunctionComponent<IButton> = ({ children, onClickHandler }) => {
+  return (
+    <>
+      <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={[0.1, -0.1]} style={styles.defaultButton}>
+        <Text style={styles.text}>{children}</Text>
+      </LinearGradient>
+    </>
+  );
+};
+
 interface IMainButton extends IButton {
-  variant?: "default" | "warning" | "danger";
+  variant?: "default" | "warning" | "danger" | "primary";
 }
 
 const Button: FunctionComponent<IMainButton> = ({ children, variant = "default", onClickHandler = () => {} }) => {
@@ -47,6 +57,7 @@ const Button: FunctionComponent<IMainButton> = ({ children, variant = "default",
       {variant === "default" && <DefaultButton>{children}</DefaultButton>}
       {variant === "danger" && <DangerButton>{children}</DangerButton>}
       {variant === "warning" && <WarningButton>{children}</WarningButton>}
+      {variant === "primary" && <PrimaryButton>{children}</PrimaryButton>}
     </>
   );
 };
