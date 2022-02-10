@@ -4,7 +4,7 @@
     "slug": "derive",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/derive-icon.png",
     "splash": {
       "image": "./assets/splash-derive.png",
       "resizeMode": "cover",
