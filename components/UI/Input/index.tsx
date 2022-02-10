@@ -1,15 +1,24 @@
-import React, { FunctionComponent } from "react";
+import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
 interface IInput {
+  state: string;
+  setState: Dispatch<SetStateAction<string>>;
   placeholder: string;
   keyboardType?: "default" | "decimal-pad" | "number-pad";
 }
 
-const Input: FunctionComponent<IInput> = ({ placeholder = "Enter a value...", keyboardType = "default" }) => {
+const Input: FunctionComponent<IInput> = ({
+  placeholder = "Enter a value...",
+  keyboardType = "default",
+  state = "",
+  setState = () => {},
+}) => {
   return (
     <>
       <TextInput
+        value={state}
+        onChangeText={newText => setState(newText)}
         keyboardAppearance="dark"
         keyboardType={keyboardType}
         style={styles.input}

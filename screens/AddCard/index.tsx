@@ -20,6 +20,9 @@ const Skins = [
 const AddCardScreen: FunctionComponent = () => {
   const [activeSkin, setActiveSkin] = useState<number>(0);
   const [activePaymentSystem, setActivePaymentSystem] = useState<"visa" | "paypal">("visa");
+  const [initialSum, setInitialSum] = useState<string>("");
+  const [cardNumber, setCardNumber] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
 
   return (
     <>
@@ -38,9 +41,24 @@ const AddCardScreen: FunctionComponent = () => {
               <View style={styles.mt}>
                 <Label>Card info</Label>
                 <View style={styles.cardInfoContent}>
-                  <Input keyboardType="number-pad" placeholder="Enter initial sum..." />
-                  <Input keyboardType="number-pad" placeholder="Enter card number..." />
-                  <Input keyboardType="number-pad" placeholder="Enter end date..." />
+                  <Input
+                    state={initialSum}
+                    setState={setInitialSum}
+                    keyboardType="decimal-pad"
+                    placeholder="Enter initial sum..."
+                  />
+                  <Input
+                    state={cardNumber}
+                    setState={setCardNumber}
+                    keyboardType="decimal-pad"
+                    placeholder="Enter card number..."
+                  />
+                  <Input
+                    state={endDate}
+                    setState={setEndDate}
+                    keyboardType="decimal-pad"
+                    placeholder="Enter end date..."
+                  />
                 </View>
               </View>
               <View style={styles.mt}>
