@@ -7,11 +7,13 @@ import AddCardScreen from "../screens/AddCard";
 const Stack = createNativeStackNavigator();
 
 const Router: FunctionComponent = () => {
+  const StackScreenOptions: any = { headerShown: false, animation: "none", animationTypeForReplace: "push" };
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Start" component={StartScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="AddCard" component={AddCardScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Start" component={StartScreen} options={StackScreenOptions} />
+        <Stack.Screen name="AddCard" component={AddCardScreen} options={StackScreenOptions} />
       </Stack.Navigator>
     </NavigationContainer>
   );

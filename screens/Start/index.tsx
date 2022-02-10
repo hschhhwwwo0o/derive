@@ -7,7 +7,7 @@ import Logo from "../../components/UI/Logo";
 
 const StartScreen: FunctionComponent<any> = ({ navigation }) => {
   function onLetsStartPressHandler() {
-    navigation.navigate("AddCard");
+    navigation.push("AddCard");
   }
 
   return (

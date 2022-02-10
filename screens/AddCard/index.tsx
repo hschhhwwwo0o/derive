@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Logo from "../../components/UI/Logo";
 import AndroidSafeArea from "../../styles/AndroidSafeArea";
 import Layout from "../../styles/Layout";
 
@@ -8,7 +9,9 @@ const AddCardScreen: FunctionComponent = () => {
     <>
       <View style={AndroidSafeArea.AndroidSafeArea}>
         <View style={Layout.Layout}>
-          <View style={styles.body}></View>
+          <View style={styles.body}>
+            <Logo textAlign="center" />
+          </View>
         </View>
       </View>
     </>
