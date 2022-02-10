@@ -68,14 +68,14 @@ const styles = StyleSheet.create({
   defaultButton: {
     paddingVertical: 28,
     borderRadius: 20,
-    shadowColor: "#fff",
+    shadowColor: "#eeeeee",
     shadowOffset: {
       width: 0,
-      height: 11,
+      height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 24.78,
-    elevation: 22,
+    shadowRadius: 14.78,
+    elevation: 14,
   },
   text: {
     textAlign: "center",
