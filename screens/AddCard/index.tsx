@@ -32,7 +32,7 @@ const AddCardScreen: FunctionComponent = () => {
               <Label>Choose skin</Label>
               <View style={styles.skins}>
                 {Skins.map(skin => {
-                  return <Skin setState={setActiveSkin} state={activeSkin} {...skin} />;
+                  return <Skin key={skin.id} setState={setActiveSkin} state={activeSkin} {...skin} />;
                 })}
               </View>
               <View style={styles.mt}>
