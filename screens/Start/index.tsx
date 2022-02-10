@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { StatusBar, StyleSheet, Text, View } from "react-native";
-import AndroidSafeArea from "../../styles/AndroidSafeArea";
-import Layout from "../../styles/Layout";
+import { StyleSheet, Text, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Button from "../../components/UI/Button";
 import Logo from "../../components/UI/Logo";
+import TheLayout from "../../layouts";
 
 const StartScreen: FunctionComponent<any> = ({ navigation }) => {
   function onLetsStartPressHandler() {
@@ -12,25 +12,22 @@ const StartScreen: FunctionComponent<any> = ({ navigation }) => {
 
   return (
     <>
-      <StatusBar hidden={true} />
-      <View style={AndroidSafeArea.AndroidSafeArea}>
-        <View style={Layout.Layout}>
-          <View style={styles.body}>
-            <Logo textAlign="center" />
-            <View>
-              <Logo variant="big" />
-              <Text style={styles.bodyText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              </Text>
-              <View style={styles.bodyButton}>
-                <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
-              </View>
+      <TheLayout>
+        <View style={styles.body}>
+          <Logo textAlign="center" />
+          <View>
+            <Logo variant="big" />
+            <Text style={styles.bodyText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            </Text>
+            <View style={styles.bodyButton}>
+              <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
             </View>
-            <View style={styles.footer} />
           </View>
+          <View style={styles.footer} />
         </View>
-      </View>
+      </TheLayout>
     </>
   );
 };
