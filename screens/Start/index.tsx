@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 import AndroidSafeArea from "../../styles/AndroidSafeArea";
 import Layout from "../../styles/Layout";
 import Button from "../../components/UI/Button";
@@ -12,6 +12,7 @@ const StartScreen: FunctionComponent<any> = ({ navigation }) => {
 
   return (
     <>
+      <StatusBar hidden={true} />
       <View style={AndroidSafeArea.AndroidSafeArea}>
         <View style={Layout.Layout}>
           <View style={styles.body}>
