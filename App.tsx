@@ -1,5 +1,5 @@
-import Router from "./router/index";
 import { useFonts } from "expo-font";
+import Router from "router";
 
 function App() {
   const [loaded] = useFonts({

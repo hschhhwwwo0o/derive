@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Button from "../../components/UI/Button";
-import Logo from "../../components/UI/Logo";
-import TheLayout from "../../layouts";
+import Button from "components/UI/Button";
+import Logo from "components/UI/Logo";
+import TheLayout from "layouts";
 
 const StartScreen: FunctionComponent<any> = ({ navigation }) => {
   function onLetsStartPressHandler() {

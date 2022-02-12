@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import StartScreen from "../screens/Start";
-import AddCardScreen from "../screens/AddCard";
+import StartScreen from "screens/Start";
+import AddCardScreen from "screens/AddCard";
 
 const Stack = createNativeStackNavigator();
 
