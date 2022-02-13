@@ -27,8 +27,8 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
               <AddCard onPressHandler={onAddCardPressHandler} />
-              <MinCard />
-              <MinCard />
+              <MinCard navigation={navigation} />
+              <MinCard navigation={navigation} />
             </ScrollView>
           </View>
           <View style={styles.body}>

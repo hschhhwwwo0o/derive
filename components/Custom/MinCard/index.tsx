@@ -25,12 +25,20 @@ const VisaSVG: FunctionComponent = () => {
   );
 };
 
-interface IMinCard {}
+interface IMinCard {
+  navigation: INavigation;
+}
 
-const MinCard: FunctionComponent = () => {
+const MinCard: FunctionComponent<IMinCard> = ({ navigation }) => {
+  function navigateToCard() {
+    navigation.push("Card", {
+      id: 1,
+    });
+  }
+
   return (
     <>
-      <TouchableOpacity activeOpacity={0.95}>
+      <TouchableOpacity activeOpacity={0.95} onPress={navigateToCard}>
         <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
           <VisaSVG />
           <View>

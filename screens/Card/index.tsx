@@ -4,11 +4,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 
-const CardScreen: FunctionComponent<IScreen> = () => {
+const CardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   return (
     <>
       <TheLayout>
-        <TopPanel />
+        <TopPanel withBack navigation={navigation} />
         <View style={styles.body}></View>
       </TheLayout>
     </>
