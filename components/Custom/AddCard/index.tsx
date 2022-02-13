@@ -8,7 +8,7 @@ interface IAddCard {
 
 const AddCard: FunctionComponent<IAddCard> = ({ onPressHandler = () => {} }) => {
   return (
-    <TouchableOpacity onPress={onPressHandler}>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.9}>
       <View style={styles.addCard}>
         <Plus />
       </View>

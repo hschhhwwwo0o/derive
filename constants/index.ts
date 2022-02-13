@@ -1,6 +1,7 @@
 const AppConstants = {
   BackgroundColor: "#161622",
   BackgroundSecondColor: "#1E1E2D",
+  ActiveOpacity: 0.9,
   PaddingHorizontal: 31,
   LayoutPaddingTop: 43,
   FontExtra: "Lato-Black",
