@@ -15,7 +15,7 @@ const Goal: FunctionComponent<IGoal> = ({ navigation }) => {
   }
 
   return (
-    <TouchableOpacity activeOpacity={0.95} onPress={navigateToGoal}>
+    <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToGoal}>
       <View style={styles.block}></View>
       <LinearGradient
         colors={["#A8D2DF", "#CAD7A5"]}

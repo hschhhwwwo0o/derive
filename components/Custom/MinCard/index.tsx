@@ -17,7 +17,7 @@ const MinCard: FunctionComponent<IMinCard> = ({ navigation }) => {
 
   return (
     <>
-      <TouchableOpacity activeOpacity={0.95} onPress={navigateToCard}>
+      <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToCard}>
         <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
           <VisaSVG />
           <View>

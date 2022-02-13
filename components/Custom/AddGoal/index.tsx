@@ -1,6 +1,7 @@
 import Plus from "components/UI/Plus";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import AppConstants from "styles/constants";
 
 interface IAddGoal {
   navigation: INavigation;
@@ -12,7 +13,7 @@ const AddGoal: FunctionComponent<IAddGoal> = ({ navigation }) => {
   }
 
   return (
-    <TouchableOpacity onPress={onAddGoalPressHandler} activeOpacity={0.95}>
+    <TouchableOpacity onPress={onAddGoalPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
       <View style={styles.addGoal}>
         <Plus />
       </View>

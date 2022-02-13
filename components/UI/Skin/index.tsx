@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { TouchableOpacity, StyleSheet, Dimensions } from "react-native";
+import AppConstants from "styles/constants";
 
 interface ISkin {
   id: number;
@@ -13,7 +14,7 @@ const Skin: FunctionComponent<ISkin> = ({ id, state, colors = [], setState = () 
   return (
     <>
       <TouchableOpacity
-        activeOpacity={0.95}
+        activeOpacity={AppConstants.ActiveOpacity}
         onPress={() => {
           setState(id);
         }}

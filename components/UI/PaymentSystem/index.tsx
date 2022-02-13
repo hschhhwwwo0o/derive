@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
+import AppConstants from "styles/constants";
 
 const VisaSystem: FunctionComponent<{ isActive: boolean }> = ({ isActive }) => {
   return (
@@ -54,7 +55,7 @@ const PaymentSystem: FunctionComponent<IPaymentSystem> = ({
 }) => {
   return (
     <>
-      <TouchableOpacity activeOpacity={0.95} onPress={onPress}>
+      <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={onPress}>
         <View style={[styles.tag]}>
           {system === "visa" && <VisaSystem isActive={isActive} />}
           {system === "paypal" && <PayPalSystem isActive={isActive} />}

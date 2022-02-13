@@ -1,6 +1,7 @@
 import Plus from "components/UI/Plus";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import AppConstants from "styles/constants";
 
 interface IAddCard {
   navigation: INavigation;
@@ -12,7 +13,7 @@ const AddCard: FunctionComponent<IAddCard> = ({ navigation }) => {
   }
 
   return (
-    <TouchableOpacity onPress={onAddCardPressHandler} activeOpacity={0.95}>
+    <TouchableOpacity onPress={onAddCardPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
       <View style={styles.addCard}>
         <Plus />
       </View>
