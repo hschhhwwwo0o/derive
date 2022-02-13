@@ -16,7 +16,7 @@ const MultilineInput: FunctionComponent<IMultilineInput> = ({
     <>
       <TextInput
         multiline={true}
-        numberOfLines={4}
+        numberOfLines={6}
         value={state}
         onChangeText={newText => setState(newText)}
         keyboardAppearance="dark"
@@ -30,6 +30,7 @@ const MultilineInput: FunctionComponent<IMultilineInput> = ({
 
 const styles = StyleSheet.create({
   input: {
+    textAlignVertical: "top",
     fontSize: 14,
     fontFamily: "Lato-Bold",
     color: "#9393A2",
