@@ -16,7 +16,11 @@ const Goal: FunctionComponent<IGoal> = ({ navigation }) => {
   return (
     <TouchableOpacity activeOpacity={0.95} onPress={navigateToGoal}>
       <View style={styles.block}></View>
-      <LinearGradient colors={["#A8D2DF", "#CAD7A5"]} style={[styles.gradient, { width: "10%" }]}></LinearGradient>
+      <LinearGradient
+        colors={["#A8D2DF", "#CAD7A5"]}
+        end={{ x: 0.9, y: 0.2 }}
+        style={[styles.gradient, { width: "30%" }]}
+      />
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
           <Text style={styles.goalText}>For a gift</Text>

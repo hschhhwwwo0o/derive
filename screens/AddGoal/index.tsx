@@ -21,7 +21,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.goalName}>
             <Input state={goal} setState={setGoal} placeholder="Enter goal name..." />
           </View>
-          <View style={styles.goalName}>
+          <View style={styles.goalDescription}>
             <MultilineInput
               state={goalDescription}
               setState={setGoalDescription}
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
   },
   goalName: {
     marginTop: 23,
+  },
+  goalDescription: {
+    marginTop: 12,
   },
   createButton: {
     marginTop: 82,
