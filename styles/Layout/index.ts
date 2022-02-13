@@ -7,4 +7,9 @@ export default StyleSheet.create({
     paddingHorizontal: 31,
     paddingTop: 43,
   },
+  LayoutWithoutHorizontalPaddings: {
+    backgroundColor: "#161622",
+    flex: 1,
+    paddingTop: 43,
+  },
 });

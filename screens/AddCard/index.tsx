@@ -17,12 +17,16 @@ const Skins = [
   { colors: ["#C7F0FC", "#FACCD1", "#FFDEC2"], id: 4 },
 ];
 
-const AddCardScreen: FunctionComponent = () => {
+const AddCardScreen: FunctionComponent<any> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);
   const [activePaymentSystem, setActivePaymentSystem] = useState<"visa" | "paypal">("visa");
   const [initialSum, setInitialSum] = useState<string>("");
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
+
+  async function onCreateCardHandler() {
+    navigation.push("Home");
+  }
 
   return (
     <>
@@ -69,7 +73,9 @@ const AddCardScreen: FunctionComponent = () => {
             </View>
           </View>
           <View style={styles.createButton}>
-            <Button variant="primary">Create</Button>
+            <Button variant="primary" onPressHandler={onCreateCardHandler}>
+              Create
+            </Button>
           </View>
         </View>
       </TheLayout>

@@ -3,13 +3,19 @@ import { ScrollView, StatusBar, View } from "react-native";
 import AndroidSafeArea from "styles/AndroidSafeArea";
 import Layout from "styles/Layout";
 
-const TheLayout: FunctionComponent = ({ children }) => {
+interface ITheLayout {
+  withHorizontalPaddings?: boolean;
+}
+
+const TheLayout: FunctionComponent<ITheLayout> = ({ children, withHorizontalPaddings = true }) => {
   return (
     <>
       <StatusBar hidden={true} />
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={AndroidSafeArea.AndroidSafeArea}>
-          <View style={Layout.Layout}>{children}</View>
+          <View style={withHorizontalPaddings ? Layout.Layout : Layout.LayoutWithoutHorizontalPaddings}>
+            {children}
+          </View>
         </View>
       </ScrollView>
     </>
