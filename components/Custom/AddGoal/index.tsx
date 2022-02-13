@@ -1,12 +1,18 @@
 import Plus from "components/UI/Plus";
 import React, { FunctionComponent } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
-const AddGoal: FunctionComponent = () => {
+interface IAddGoal {
+  onPressHandler: () => any;
+}
+
+const AddGoal: FunctionComponent<IAddGoal> = ({ onPressHandler = () => {} }) => {
   return (
-    <View style={styles.addGoal}>
-      <Plus />
-    </View>
+    <TouchableOpacity onPress={onPressHandler}>
+      <View style={styles.addGoal}>
+        <Plus />
+      </View>
+    </TouchableOpacity>
   );
 };
 

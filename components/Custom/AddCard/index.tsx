@@ -1,16 +1,18 @@
 import Plus from "components/UI/Plus";
 import React, { FunctionComponent } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
-interface IAddCard {}
+interface IAddCard {
+  onPressHandler: () => any;
+}
 
-const AddCard: FunctionComponent = () => {
+const AddCard: FunctionComponent<IAddCard> = ({ onPressHandler = () => {} }) => {
   return (
-    <>
+    <TouchableOpacity onPress={onPressHandler}>
       <View style={styles.addCard}>
         <Plus />
       </View>
-    </>
+    </TouchableOpacity>
   );
 };
 

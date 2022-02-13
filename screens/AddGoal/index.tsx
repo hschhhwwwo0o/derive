@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 
-const CreateGoalScreen: FunctionComponent = () => {
+const AddGoalScreen: FunctionComponent = () => {
   return (
     <>
       <TheLayout>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateGoalScreen;
+export default AddGoalScreen;

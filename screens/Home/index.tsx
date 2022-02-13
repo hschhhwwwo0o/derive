@@ -10,7 +10,15 @@ import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
 
-const HomeScreen: FunctionComponent = () => {
+const HomeScreen: FunctionComponent<any> = ({ navigation }) => {
+  function onAddGoalPressHandler() {
+    navigation.push("AddGoal");
+  }
+
+  function onAddCardPressHandler() {
+    navigation.push("AddCard");
+  }
+
   return (
     <>
       <TheLayout withHorizontalPaddings={false}>
@@ -18,7 +26,7 @@ const HomeScreen: FunctionComponent = () => {
         <View style={styles.container}>
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
-              <AddCard />
+              <AddCard onPressHandler={onAddCardPressHandler} />
               <MinCard />
               <MinCard />
             </ScrollView>
@@ -30,7 +38,7 @@ const HomeScreen: FunctionComponent = () => {
               <Goal />
               <Goal />
               <View style={styles.addGoal}>
-                <AddGoal />
+                <AddGoal onPressHandler={onAddGoalPressHandler} />
               </View>
             </View>
             <View style={styles.transactionsHeader}>
