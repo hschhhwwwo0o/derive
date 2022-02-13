@@ -5,11 +5,11 @@ import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 
-const AddGoalScreen: FunctionComponent<IScreen> = () => {
+const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   return (
     <>
       <TheLayout>
-        <TopPanel withBack />
+        <TopPanel navigation={navigation} withBack />
         <View style={styles.body}></View>
       </TheLayout>
     </>

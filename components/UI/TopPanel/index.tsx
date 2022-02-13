@@ -4,6 +4,7 @@ import BackButton from "components/UI/BackButton";
 import Logo from "components/UI/Logo";
 
 interface ITopPanel {
+  navigation?: INavigation;
   withBack?: boolean;
 }
 
@@ -21,7 +22,7 @@ const WithBack: FunctionComponent = () => {
   );
 };
 
-const TopPanel: FunctionComponent<ITopPanel> = ({ withBack = false }) => {
+const TopPanel: FunctionComponent<ITopPanel> = ({ withBack = false, navigation }) => {
   return (
     <>
       {withBack === true && <WithBack />}
