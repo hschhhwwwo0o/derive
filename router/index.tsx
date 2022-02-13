@@ -6,6 +6,7 @@ import AddCardScreen from "screens/AddCard";
 import HomeScreen from "screens/Home";
 import AddGoalScreen from "screens/AddGoal";
 import CardScreen from "screens/Card";
+import GoalScreen from "screens/Goal";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const Router: FunctionComponent = () => {
         <Stack.Screen name="Home" component={HomeScreen} options={StackScreenOptions} />
         <Stack.Screen name="AddGoal" component={AddGoalScreen} options={StackScreenOptions} />
         <Stack.Screen name="Card" component={CardScreen} options={StackScreenOptions} />
+        <Stack.Screen name="Goal" component={GoalScreen} options={StackScreenOptions} />
       </Stack.Navigator>
     </NavigationContainer>
   );

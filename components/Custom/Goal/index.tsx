@@ -2,11 +2,19 @@ import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-interface IGoal {}
+interface IGoal {
+  navigation: INavigation;
+}
 
-const Goal: FunctionComponent = () => {
+const Goal: FunctionComponent<IGoal> = ({ navigation }) => {
+  function navigateToGoal() {
+    navigation.push("Goal", {
+      id: 1,
+    });
+  }
+
   return (
-    <TouchableOpacity activeOpacity={0.95}>
+    <TouchableOpacity activeOpacity={0.95} onPress={navigateToGoal}>
       <View style={styles.block}></View>
       <LinearGradient colors={["#A8D2DF", "#CAD7A5"]} style={[styles.gradient, { width: "10%" }]}></LinearGradient>
       <View style={styles.textBlock}>
