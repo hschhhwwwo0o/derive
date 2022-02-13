@@ -1,6 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
 const VisaSVG: FunctionComponent = () => {
@@ -30,17 +30,19 @@ interface IMinCard {}
 const MinCard: FunctionComponent = () => {
   return (
     <>
-      <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
-        <VisaSVG />
-        <View>
-          <Text style={styles.price}>4,450.00 ₽</Text>
-          <Text style={styles.typeBalance}>Visa Balance</Text>
-        </View>
-        <View style={styles.cardInfo}>
-          <Text style={styles.cardInfoText}>**** 5454</Text>
-          <Text style={[styles.cardInfoText, styles.cardInfoDate]}>08/23</Text>
-        </View>
-      </LinearGradient>
+      <TouchableOpacity activeOpacity={0.9}>
+        <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
+          <VisaSVG />
+          <View>
+            <Text style={styles.price}>4,450.00 ₽</Text>
+            <Text style={styles.typeBalance}>Visa Balance</Text>
+          </View>
+          <View style={styles.cardInfo}>
+            <Text style={styles.cardInfoText}>**** 5454</Text>
+            <Text style={[styles.cardInfoText, styles.cardInfoDate]}>08/23</Text>
+          </View>
+        </LinearGradient>
+      </TouchableOpacity>
     </>
   );
 };
