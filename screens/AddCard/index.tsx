@@ -8,14 +8,7 @@ import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
-
-const Skins = [
-  { colors: ["#FFDEC2", "#FACCD1", "#C7F0FC"], id: 0 },
-  { colors: ["#F5BCE9", "#C7F0FC"], id: 1 },
-  { colors: ["#CCF0FA", "#E6F5BC"], id: 2 },
-  { colors: ["#FFDEC2", "#C7F0FC"], id: 3 },
-  { colors: ["#C7F0FC", "#FACCD1", "#FFDEC2"], id: 4 },
-];
+import AppConstants from "styles/constants";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);
@@ -35,7 +28,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <View style={styles.body}>
           <Label>Choose skin</Label>
           <View style={styles.skins}>
-            {Skins.map(skin => {
+            {AppConstants.CardSkins.map(skin => {
               return <Skin key={skin.id} setState={setActiveSkin} state={activeSkin} {...skin} />;
             })}
           </View>
