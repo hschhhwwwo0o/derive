@@ -10,7 +10,7 @@ import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
 
-const HomeScreen: FunctionComponent<any> = ({ navigation }) => {
+const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onAddGoalPressHandler() {
     navigation.push("AddGoal");
   }

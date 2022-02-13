@@ -5,7 +5,7 @@ import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 
-const AddGoalScreen: FunctionComponent = () => {
+const AddGoalScreen: FunctionComponent<IScreen> = () => {
   return (
     <>
       <TheLayout>

@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 
-const GoalScreen: FunctionComponent = () => {
+const GoalScreen: FunctionComponent<IScreen> = () => {
   return (
     <>
       <TheLayout>

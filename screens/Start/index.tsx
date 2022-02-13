@@ -6,7 +6,7 @@ import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 
-const StartScreen: FunctionComponent<any> = ({ navigation }) => {
+const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onLetsStartPressHandler() {
     navigation.push("AddCard");
   }

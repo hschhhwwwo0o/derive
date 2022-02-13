@@ -17,7 +17,7 @@ const Skins = [
   { colors: ["#C7F0FC", "#FACCD1", "#FFDEC2"], id: 4 },
 ];
 
-const AddCardScreen: FunctionComponent<any> = ({ navigation }) => {
+const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);
   const [activePaymentSystem, setActivePaymentSystem] = useState<"visa" | "paypal">("visa");
   const [initialSum, setInitialSum] = useState<string>("");
