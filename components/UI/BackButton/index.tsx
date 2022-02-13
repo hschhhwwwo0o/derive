@@ -2,7 +2,9 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Svg, { ClipPath, Defs, G, Path, Rect } from "react-native-svg";
 
-interface IBackButton {}
+interface IBackButton {
+  onPressHandler: () => any;
+}
 
 const AngleLeft: FunctionComponent = () => {
   return (
@@ -24,9 +26,9 @@ const AngleLeft: FunctionComponent = () => {
   );
 };
 
-const BackButton: FunctionComponent = () => {
+const BackButton: FunctionComponent<IBackButton> = ({ onPressHandler = () => {} }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.9}>
       <View style={styles.backButton}>
         <AngleLeft />
       </View>

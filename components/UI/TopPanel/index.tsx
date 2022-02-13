@@ -12,10 +12,14 @@ const WithoutBack: FunctionComponent = () => {
   return <Logo textAlign="center" />;
 };
 
-const WithBack: FunctionComponent = () => {
+const WithBack: FunctionComponent<{ navigation: INavigation | undefined }> = ({ navigation }) => {
+  function onPressBackHandler() {
+    navigation?.goBack();
+  }
+
   return (
     <View style={styles.topPanel}>
-      <BackButton />
+      <BackButton onPressHandler={onPressBackHandler} />
       <Logo textAlign="center" />
       <View style={styles.empty} />
     </View>
@@ -25,7 +29,7 @@ const WithBack: FunctionComponent = () => {
 const TopPanel: FunctionComponent<ITopPanel> = ({ withBack = false, navigation }) => {
   return (
     <>
-      {withBack === true && <WithBack />}
+      {withBack === true && <WithBack navigation={navigation} />}
       {withBack === false && <WithoutBack />}
     </>
   );
