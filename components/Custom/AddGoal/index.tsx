@@ -8,7 +8,7 @@ interface IAddGoal {
 
 const AddGoal: FunctionComponent<IAddGoal> = ({ onPressHandler = () => {} }) => {
   return (
-    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.9}>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.95}>
       <View style={styles.addGoal}>
         <Plus />
       </View>

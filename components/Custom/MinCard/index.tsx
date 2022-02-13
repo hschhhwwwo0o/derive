@@ -30,7 +30,7 @@ interface IMinCard {}
 const MinCard: FunctionComponent = () => {
   return (
     <>
-      <TouchableOpacity activeOpacity={0.9}>
+      <TouchableOpacity activeOpacity={0.95}>
         <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
           <VisaSVG />
           <View>

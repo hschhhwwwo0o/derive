@@ -28,7 +28,7 @@ const AngleLeft: FunctionComponent = () => {
 
 const BackButton: FunctionComponent<IBackButton> = ({ onPressHandler = () => {} }) => {
   return (
-    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.9}>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.95}>
       <View style={styles.backButton}>
         <AngleLeft />
       </View>

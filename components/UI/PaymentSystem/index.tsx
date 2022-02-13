@@ -54,7 +54,7 @@ const PaymentSystem: FunctionComponent<IPaymentSystem> = ({
 }) => {
   return (
     <>
-      <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+      <TouchableOpacity activeOpacity={0.95} onPress={onPress}>
         <View style={[styles.tag]}>
           {system === "visa" && <VisaSystem isActive={isActive} />}
           {system === "paypal" && <PayPalSystem isActive={isActive} />}

@@ -13,7 +13,7 @@ const Skin: FunctionComponent<ISkin> = ({ id, state, colors = [], setState = () 
   return (
     <>
       <TouchableOpacity
-        activeOpacity={0.9}
+        activeOpacity={0.95}
         onPress={() => {
           setState(id);
         }}

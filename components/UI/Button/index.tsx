@@ -54,7 +54,7 @@ interface IMainButton extends IButton {
 const Button: FunctionComponent<IMainButton> = ({ children, variant = "default", onPressHandler = () => {} }) => {
   return (
     <>
-      <TouchableOpacity activeOpacity={0.9} onPress={onPressHandler}>
+      <TouchableOpacity activeOpacity={0.95} onPress={onPressHandler}>
         {variant === "default" && <DefaultButton>{children}</DefaultButton>}
         {variant === "danger" && <DangerButton>{children}</DangerButton>}
         {variant === "warning" && <WarningButton>{children}</WarningButton>}

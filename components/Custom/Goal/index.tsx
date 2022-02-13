@@ -1,12 +1,12 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 interface IGoal {}
 
 const Goal: FunctionComponent = () => {
   return (
-    <>
+    <TouchableOpacity activeOpacity={0.95}>
       <View style={styles.block}></View>
       <LinearGradient colors={["#A8D2DF", "#CAD7A5"]} style={[styles.gradient, { width: "10%" }]}></LinearGradient>
       <View style={styles.textBlock}>
@@ -15,7 +15,7 @@ const Goal: FunctionComponent = () => {
           <Text style={styles.goalTextMin}>100,000.00 ₽</Text>
         </View>
       </View>
-    </>
+    </TouchableOpacity>
   );
 };
 
