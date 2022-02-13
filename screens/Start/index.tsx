@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Button from "components/UI/Button";
 import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
+import TopPanel from "components/UI/TopPanel";
 
 const StartScreen: FunctionComponent<any> = ({ navigation }) => {
   function onLetsStartPressHandler() {
@@ -14,7 +15,7 @@ const StartScreen: FunctionComponent<any> = ({ navigation }) => {
     <>
       <TheLayout>
         <View style={styles.body}>
-          <Logo textAlign="center" />
+          <TopPanel />
           <View>
             <Logo variant="big" />
             <Text style={styles.bodyText}>

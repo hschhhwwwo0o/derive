@@ -2,12 +2,12 @@ import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Label from "components/UI/Label";
-import Logo from "components/UI/Logo";
 import Skin from "components/UI/Skin";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
 import TheLayout from "layouts";
+import TopPanel from "components/UI/TopPanel";
 
 const Skins = [
   { colors: ["#FFDEC2", "#FACCD1", "#C7F0FC"], id: 0 },
@@ -31,7 +31,7 @@ const AddCardScreen: FunctionComponent<any> = ({ navigation }) => {
   return (
     <>
       <TheLayout>
-        <Logo textAlign="center" />
+        <TopPanel />
         <View style={styles.body}>
           <Label>Choose skin</Label>
           <View style={styles.skins}>

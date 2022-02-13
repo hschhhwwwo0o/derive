@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 import AddCard from "components/Custom/AddCard";
 import MinCard from "components/Custom/MinCard";
@@ -9,6 +8,7 @@ import Label from "components/UI/Label";
 import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
+import TopPanel from "components/UI/TopPanel";
 
 const HomeScreen: FunctionComponent<any> = ({ navigation }) => {
   function onAddGoalPressHandler() {
@@ -22,7 +22,7 @@ const HomeScreen: FunctionComponent<any> = ({ navigation }) => {
   return (
     <>
       <TheLayout withHorizontalPaddings={false}>
-        <Logo textAlign="center" />
+        <TopPanel />
         <View style={styles.container}>
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
