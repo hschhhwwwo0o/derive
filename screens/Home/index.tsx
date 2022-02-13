@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
 import AddCard from "components/Custom/AddCard";
@@ -11,12 +11,8 @@ import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  function onAddGoalPressHandler() {
-    navigation.push("AddGoal");
-  }
-
-  function onAddCardPressHandler() {
-    navigation.push("AddCard");
+  function onGoToTransactions() {
+    navigation.push("Transactions");
   }
 
   return (
@@ -26,7 +22,7 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <View style={styles.container}>
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
-              <AddCard onPressHandler={onAddCardPressHandler} />
+              <AddCard navigation={navigation} />
               <MinCard navigation={navigation} />
               <MinCard navigation={navigation} />
             </ScrollView>
@@ -36,12 +32,14 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             <View style={styles.goalsContent}>
               <Goal navigation={navigation} />
               <View style={styles.addGoal}>
-                <AddGoal onPressHandler={onAddGoalPressHandler} />
+                <AddGoal navigation={navigation} />
               </View>
             </View>
             <View style={styles.transactionsHeader}>
               <Label>Last Transactions</Label>
-              <Text style={styles.allTransactions}>All</Text>
+              <Pressable onPress={onGoToTransactions}>
+                <Text style={styles.allTransactions}>All</Text>
+              </Pressable>
             </View>
             <View style={styles.transactionsBody}>
               <Transaction />

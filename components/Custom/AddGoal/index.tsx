@@ -3,12 +3,16 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 interface IAddGoal {
-  onPressHandler: () => any;
+  navigation: INavigation;
 }
 
-const AddGoal: FunctionComponent<IAddGoal> = ({ onPressHandler = () => {} }) => {
+const AddGoal: FunctionComponent<IAddGoal> = ({ navigation }) => {
+  function onAddGoalPressHandler() {
+    navigation.push("AddGoal");
+  }
+
   return (
-    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.95}>
+    <TouchableOpacity onPress={onAddGoalPressHandler} activeOpacity={0.95}>
       <View style={styles.addGoal}>
         <Plus />
       </View>

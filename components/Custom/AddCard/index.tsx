@@ -3,12 +3,16 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 interface IAddCard {
-  onPressHandler: () => any;
+  navigation: INavigation;
 }
 
-const AddCard: FunctionComponent<IAddCard> = ({ onPressHandler = () => {} }) => {
+const AddCard: FunctionComponent<IAddCard> = ({ navigation }) => {
+  function onAddCardPressHandler() {
+    navigation.push("AddCard");
+  }
+
   return (
-    <TouchableOpacity onPress={onPressHandler} activeOpacity={0.95}>
+    <TouchableOpacity onPress={onAddCardPressHandler} activeOpacity={0.95}>
       <View style={styles.addCard}>
         <Plus />
       </View>
