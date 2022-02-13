@@ -9,6 +9,7 @@ import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
+import AppConstants from "styles/constants";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onGoToTransactions() {
@@ -61,11 +62,11 @@ const styles = StyleSheet.create({
   },
   body: {
     marginTop: 22,
-    paddingHorizontal: 31,
+    paddingHorizontal: AppConstants.PaddingHorizontal,
     paddingBottom: 40,
   },
   cardsContainer: {
-    paddingLeft: 31,
+    paddingLeft: AppConstants.PaddingHorizontal,
     height: 220,
   },
   goalsContent: {
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     marginTop: 11,
   },
   allTransactions: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     color: "#585858",
   },
 });

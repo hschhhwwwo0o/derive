@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text } from "react-native";
+import AppConstants from "styles/constants";
 
 const SpendButton: FunctionComponent = () => {
   return (
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     fontSize: 14,
   },
 });

@@ -40,7 +40,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  empty: { width: 42, height: 42 },
+  empty: {
+    width: 42,
+    height: 42,
+  },
 });
 
 export default TopPanel;

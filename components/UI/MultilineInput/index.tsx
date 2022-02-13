@@ -1,5 +1,6 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { StyleSheet, TextInput } from "react-native";
+import AppConstants from "styles/constants";
 
 interface IMultilineInput {
   state: string;
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   input: {
     textAlignVertical: "top",
     fontSize: 14,
-    fontFamily: "Lato-Bold",
+    fontFamily: AppConstants.FontBold,
     color: "#9393A2",
     paddingVertical: 18,
     paddingHorizontal: 18,

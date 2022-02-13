@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text } from "react-native";
+import AppConstants from "styles/constants";
 
 const Label: FunctionComponent = ({ children }) => {
   return (
@@ -11,7 +12,7 @@ const Label: FunctionComponent = ({ children }) => {
 
 const styles = StyleSheet.create({
   label: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     fontSize: 18,
     color: "#F9F9F9",
   },

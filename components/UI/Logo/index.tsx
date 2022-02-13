@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text } from "react-native";
+import AppConstants from "styles/constants";
 
 interface ILogo {
   textAlign?: "center" | "left";
@@ -36,12 +37,12 @@ const Logo: FunctionComponent<IMainLogo> = ({ variant = "default", textAlign = "
 
 const styles = StyleSheet.create({
   defaultLogo: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     fontSize: 18,
     color: "#F9F9F9",
   },
   bigLogo: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     fontSize: 36,
     color: "#F9F9F9",
   },

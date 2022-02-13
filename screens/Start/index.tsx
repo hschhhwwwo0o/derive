@@ -5,6 +5,7 @@ import Button from "components/UI/Button";
 import Logo from "components/UI/Logo";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
+import AppConstants from "styles/constants";
 
 const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onLetsStartPressHandler() {
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     paddingBottom: 43,
   },
   bodyText: {
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
     color: "#F9F9F9",
     marginTop: 13,
   },

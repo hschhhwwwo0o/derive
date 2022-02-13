@@ -2,6 +2,7 @@ import VisaSVG from "components/SVGs/Visa";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import AppConstants from "styles/constants";
 
 interface IMinCard {
   navigation: INavigation;
@@ -55,22 +56,26 @@ const styles = StyleSheet.create({
     elevation: 14,
   },
   price: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     fontSize: 16,
   },
   typeBalance: {
     fontSize: 11,
     marginTop: 7,
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
   },
   cardInfo: {
     flexDirection: "row",
     justifyContent: "space-between",
     fontSize: 11,
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
   },
-  cardInfoText: { fontSize: 11 },
-  cardInfoDate: { fontFamily: "Lato-Black" },
+  cardInfoText: {
+    fontSize: 11,
+  },
+  cardInfoDate: {
+    fontFamily: AppConstants.FontExtra,
+  },
 });
 
 export default MinCard;

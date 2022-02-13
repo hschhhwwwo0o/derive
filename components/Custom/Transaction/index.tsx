@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import AppConstants from "styles/constants";
 
 interface ITransaction {}
 
@@ -49,11 +50,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   transactionInfoHeader: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     color: "#E2E2E2",
   },
   transactionInfoDate: {
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
     fontSize: 11,
     color: "#9E9E9E",
     marginTop: 4,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   transactionText: {
-    fontFamily: "Lato-Bold",
+    fontFamily: AppConstants.FontExtra,
     color: "#E2E2E2",
   },
 });

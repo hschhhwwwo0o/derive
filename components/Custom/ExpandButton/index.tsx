@@ -2,6 +2,7 @@ import BigBlackPlus from "components/SVGs/BigBlackPlus";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, View, Text } from "react-native";
+import AppConstants from "styles/constants";
 
 const ExpandButton: FunctionComponent = () => {
   return (
@@ -22,12 +23,12 @@ const styles = StyleSheet.create({
     paddingTop: 26,
   },
   header: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     marginTop: 18,
     fontSize: 16,
   },
   desc: {
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
     marginTop: 8,
     fontSize: 10,
   },

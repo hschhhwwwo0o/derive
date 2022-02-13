@@ -1,15 +1,16 @@
 import { StyleSheet } from "react-native";
+import AppConstants from "styles/constants";
 
 export default StyleSheet.create({
   Layout: {
-    backgroundColor: "#161622",
+    backgroundColor: AppConstants.BackgroundColor,
     flex: 1,
-    paddingHorizontal: 31,
-    paddingTop: 43,
+    paddingHorizontal: AppConstants.PaddingHorizontal,
+    paddingTop: AppConstants.PaddingTop,
   },
   LayoutWithoutHorizontalPaddings: {
-    backgroundColor: "#161622",
+    backgroundColor: AppConstants.BackgroundColor,
     flex: 1,
-    paddingTop: 43,
+    paddingTop: AppConstants.PaddingTop,
   },
 });

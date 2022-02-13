@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import AppConstants from "styles/constants";
 
 interface IGoal {
   navigation: INavigation;
@@ -45,17 +46,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: -75,
   },
-  gradient: { borderRadius: 20, height: 75, marginTop: -75 },
+  gradient: {
+    borderRadius: 20,
+    height: 75,
+    marginTop: -75,
+  },
   textContent: {
     marginTop: -2,
   },
   goalText: {
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
     color: "white",
     textAlign: "center",
   },
   goalTextMin: {
-    fontFamily: "Lato-Regular",
+    fontFamily: AppConstants.FontRegular,
     color: "white",
     textAlign: "center",
     marginTop: 5,

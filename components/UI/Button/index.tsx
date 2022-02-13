@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import AppConstants from "styles/constants";
 
 interface IButton {
   children: ReactNode;
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontFamily: "Lato-Black",
+    fontFamily: AppConstants.FontExtra,
   },
 });
 
