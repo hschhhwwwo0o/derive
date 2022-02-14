@@ -16,21 +16,19 @@ const MinCard: FunctionComponent<IMinCard> = ({ navigation }) => {
   }
 
   return (
-    <>
-      <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToCard}>
-        <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
-          <VisaSVG />
-          <View>
-            <Text style={styles.price}>4,450.00 ₽</Text>
-            <Text style={styles.typeBalance}>Visa Balance</Text>
-          </View>
-          <View style={styles.cardInfo}>
-            <Text style={styles.cardInfoText}>**** 5454</Text>
-            <Text style={[styles.cardInfoText, styles.cardInfoDate]}>08/23</Text>
-          </View>
-        </LinearGradient>
-      </TouchableOpacity>
-    </>
+    <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToCard}>
+      <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
+        <VisaSVG />
+        <View>
+          <Text style={styles.price}>4,450.00 ₽</Text>
+          <Text style={styles.typeBalance}>Visa Balance</Text>
+        </View>
+        <View style={styles.cardInfo}>
+          <Text style={styles.cardInfoText}>**** 5454</Text>
+          <Text style={[styles.cardInfoText, styles.cardInfoDate]}>08/23</Text>
+        </View>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 

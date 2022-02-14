@@ -11,19 +11,11 @@ interface IMainLogo extends ILogo {
 }
 
 const DefaultLogo: FunctionComponent<ILogo> = ({ textAlign = "left" }) => {
-  return (
-    <>
-      <Text style={[styles.defaultLogo, { textAlign }]}>Dérive</Text>
-    </>
-  );
+  return <Text style={[styles.defaultLogo, { textAlign }]}>Dérive</Text>;
 };
 
 const BigLogo: FunctionComponent<ILogo> = ({ textAlign = "left" }) => {
-  return (
-    <>
-      <Text style={[styles.bigLogo, { textAlign }]}>Dérive</Text>
-    </>
-  );
+  return <Text style={[styles.bigLogo, { textAlign }]}>Dérive</Text>;
 };
 
 const Logo: FunctionComponent<IMainLogo> = ({ variant = "default", textAlign = "left" }) => {

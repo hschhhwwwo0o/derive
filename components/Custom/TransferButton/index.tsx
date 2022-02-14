@@ -5,11 +5,9 @@ import AppConstants from "styles/constants";
 
 const TransferButton: FunctionComponent = () => {
   return (
-    <>
-      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
-        <Text style={styles.text}>Transfer</Text>
-      </LinearGradient>
-    </>
+    <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
+      <Text style={styles.text}>Transfer</Text>
+    </LinearGradient>
   );
 };
 

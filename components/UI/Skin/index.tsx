@@ -12,16 +12,14 @@ interface ISkin {
 
 const Skin: FunctionComponent<ISkin> = ({ id, state, colors = [], setState = () => {} }) => {
   return (
-    <>
-      <TouchableOpacity
-        activeOpacity={AppConstants.ActiveOpacity}
-        onPress={() => {
-          setState(id);
-        }}
-      >
-        <LinearGradient style={[styles.skin, state === id && styles.withShadow]} colors={colors}></LinearGradient>
-      </TouchableOpacity>
-    </>
+    <TouchableOpacity
+      activeOpacity={AppConstants.ActiveOpacity}
+      onPress={() => {
+        setState(id);
+      }}
+    >
+      <LinearGradient style={[styles.skin, state === id && styles.withShadow]} colors={colors}></LinearGradient>
+    </TouchableOpacity>
   );
 };
 

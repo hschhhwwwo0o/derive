@@ -3,11 +3,7 @@ import { StyleSheet, Text } from "react-native";
 import AppConstants from "styles/constants";
 
 const Label: FunctionComponent = ({ children }) => {
-  return (
-    <>
-      <Text style={styles.label}>{children}</Text>
-    </>
-  );
+  return <Text style={styles.label}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({

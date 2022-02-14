@@ -5,11 +5,9 @@ import AppConstants from "styles/constants";
 
 const SpendButton: FunctionComponent = () => {
   return (
-    <>
-      <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
-        <Text style={styles.text}>Spend</Text>
-      </LinearGradient>
-    </>
+    <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
+      <Text style={styles.text}>Spend</Text>
+    </LinearGradient>
   );
 };
 

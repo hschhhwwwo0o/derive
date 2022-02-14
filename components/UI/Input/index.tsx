@@ -16,17 +16,15 @@ const Input: FunctionComponent<IInput> = ({
   setState = () => {},
 }) => {
   return (
-    <>
-      <TextInput
-        value={state}
-        onChangeText={newText => setState(newText)}
-        keyboardAppearance="dark"
-        keyboardType={keyboardType}
-        style={styles.input}
-        placeholder={placeholder}
-        placeholderTextColor="#595968"
-      />
-    </>
+    <TextInput
+      value={state}
+      onChangeText={newText => setState(newText)}
+      keyboardAppearance="dark"
+      keyboardType={keyboardType}
+      style={styles.input}
+      placeholder={placeholder}
+      placeholderTextColor="#595968"
+    />
   );
 };
 

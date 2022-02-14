@@ -14,18 +14,16 @@ const MultilineInput: FunctionComponent<IMultilineInput> = ({
   setState = () => {},
 }) => {
   return (
-    <>
-      <TextInput
-        multiline={true}
-        numberOfLines={6}
-        value={state}
-        onChangeText={newText => setState(newText)}
-        keyboardAppearance="dark"
-        style={styles.input}
-        placeholder={placeholder}
-        placeholderTextColor="#595968"
-      />
-    </>
+    <TextInput
+      multiline={true}
+      numberOfLines={6}
+      value={state}
+      onChangeText={newText => setState(newText)}
+      keyboardAppearance="dark"
+      style={styles.input}
+      placeholder={placeholder}
+      placeholderTextColor="#595968"
+    />
   );
 };
 
