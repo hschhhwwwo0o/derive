@@ -1,16 +1,22 @@
 import BigBlackPlus from "components/SVGs/BigBlackPlus";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
-import { Dimensions, StyleSheet, View, Text } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 import AppConstants from "styles/constants";
 
 const IncomeButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
+  function onPressHandler() {
+    navigation.push("Income");
+  }
+
   return (
-    <LinearGradient style={styles.expandButton} colors={["#CCF0FA", "#E5E5E5"]}>
-      <BigBlackPlus />
-      <Text style={styles.header}>Income</Text>
-      <Text style={styles.desc}>Add a transaction</Text>
-    </LinearGradient>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
+      <LinearGradient style={styles.expandButton} colors={["#CCF0FA", "#E5E5E5"]}>
+        <BigBlackPlus />
+        <Text style={styles.header}>Income</Text>
+        <Text style={styles.desc}>Add a transaction</Text>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 

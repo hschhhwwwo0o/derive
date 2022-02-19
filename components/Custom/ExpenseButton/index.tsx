@@ -1,13 +1,19 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
-import { Dimensions, StyleSheet, Text } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 import AppConstants from "styles/constants";
 
 const ExpenseButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
+  function onPressHandler() {
+    navigation.push("Expense");
+  }
+
   return (
-    <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
-      <Text style={styles.text}>Expense</Text>
-    </LinearGradient>
+    <TouchableOpacity onPress={onPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
+      <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
+        <Text style={styles.text}>Expense</Text>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 
