@@ -4,7 +4,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
-import Transaction from "components/Custom/Transaction";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   return (
