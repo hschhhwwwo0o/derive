@@ -2,11 +2,11 @@ import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
+import AppConstants from "styles/constants";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import EmptyCard from "components/Custom/EmptyCard";
-import AppConstants from "styles/constants";
 import Card from "components/Custom/Card";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation }) => {

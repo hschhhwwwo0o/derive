@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
+import AppConstants from "styles/constants";
 import AddCard from "components/Custom/AddCard";
 import MinCard from "components/Custom/MinCard";
 import Label from "components/UI/Label";
@@ -9,7 +10,6 @@ import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
-import AppConstants from "styles/constants";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onGoToTransactions() {

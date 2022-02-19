@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import TheLayout from "layouts";
+import AppConstants from "styles/constants";
 import Button from "components/UI/Button";
 import Logo from "components/UI/Logo";
-import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
-import AppConstants from "styles/constants";
 
 const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onLetsStartPressHandler() {

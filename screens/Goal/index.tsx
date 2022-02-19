@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { LinearGradient } from "expo-linear-gradient";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
-import { LinearGradient } from "expo-linear-gradient";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";

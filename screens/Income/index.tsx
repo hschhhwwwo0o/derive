@@ -5,8 +5,8 @@ import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
-import IncomeType from "components/Custom/IncomeType";
 import Button from "components/UI/Button";
+import IncomeType from "components/Custom/IncomeType";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState("");

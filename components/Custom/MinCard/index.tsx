@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import VisaSVG from "components/SVGs/Visa";
 import AppConstants from "styles/constants";
+import VisaSVG from "components/SVGs/Visa";
 
 interface IMinCard {
   navigation: INavigation;

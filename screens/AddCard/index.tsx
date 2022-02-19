@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import TheLayout from "layouts";
+import AppConstants from "styles/constants";
 import Label from "components/UI/Label";
 import Skin from "components/UI/Skin";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
-import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
-import AppConstants from "styles/constants";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);

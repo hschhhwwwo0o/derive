@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
-import BigBlackPlus from "components/SVGs/BigBlackPlus";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
+import BigBlackPlus from "components/SVGs/BigBlackPlus";
 
 const IncomeButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
   function onPressHandler() {
