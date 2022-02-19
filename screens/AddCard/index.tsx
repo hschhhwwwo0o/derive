@@ -52,7 +52,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           </View>
           <View style={styles.mt}>
             <Label>Payment System</Label>
-            <View style={styles.paymentSystyms}>
+            <View style={styles.paymentSystems}>
               <PaymentSystem
                 system="visa"
                 isActive={activePaymentSystem === "visa"}
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  paymentSystyms: {
+  paymentSystems: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 23,
