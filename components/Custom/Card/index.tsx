@@ -1,7 +1,7 @@
-import VisaSVG from "components/SVGs/Visa";
-import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import VisaSVG from "components/SVGs/Visa";
+import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
 interface ICard {

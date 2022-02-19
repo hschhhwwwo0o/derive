@@ -1,7 +1,7 @@
-import BigBlackPlus from "components/SVGs/BigBlackPlus";
-import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
+import BigBlackPlus from "components/SVGs/BigBlackPlus";
+import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
 const IncomeButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {

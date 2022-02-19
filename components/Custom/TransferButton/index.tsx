@@ -1,6 +1,6 @@
-import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
 const TransferButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {

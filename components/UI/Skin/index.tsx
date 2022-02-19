@@ -1,6 +1,6 @@
-import { LinearGradient } from "expo-linear-gradient";
 import React, { FunctionComponent } from "react";
 import { TouchableOpacity, StyleSheet, Dimensions } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
 interface ISkin {
