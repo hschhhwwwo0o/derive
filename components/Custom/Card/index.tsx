@@ -4,9 +4,11 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AppConstants from "styles/constants";
 
-interface ICard {}
+interface ICard {
+  onPressHandler: () => any;
+}
 
-const Card: FunctionComponent<ICard> = () => {
+const Card: FunctionComponent<ICard> = ({ onPressHandler = () => {} }) => {
   return (
     <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
       <VisaSVG />

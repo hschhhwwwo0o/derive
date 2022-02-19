@@ -3,7 +3,11 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, Image, Text, StyleSheet } from "react-native";
 import AppConstants from "styles/constants";
 
-const IncomeType: FunctionComponent = () => {
+interface IIncomeType {
+  onPressHandler: () => any;
+}
+
+const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {} }) => {
   return (
     <>
       <LinearGradient style={styles.incomeType} colors={["#CCF0FA", "#E5E5E5"]}>
