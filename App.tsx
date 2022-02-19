@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator, NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import router from "router";
@@ -7,7 +7,7 @@ import router from "router";
 const Stack = createNativeStackNavigator();
 
 const Application: FunctionComponent = () => {
-  const [loadedFonts] = useFonts({
+  const [loadedFonts]: [boolean, Error | null] = useFonts({
     "Lato-Black": require("./assets/fonts/Lato-Black.ttf"),
     "Lato-Bold": require("./assets/fonts/Lato-Bold.ttf"),
     "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
@@ -17,7 +17,11 @@ const Application: FunctionComponent = () => {
     return null;
   }
 
-  const StackScreenOptions: any = { headerShown: false, animation: "none", animationTypeForReplace: "push" };
+  const StackScreenOptions: NativeStackNavigationOptions = {
+    headerShown: false,
+    animation: "none",
+    animationTypeForReplace: "push",
+  };
 
   return (
     <NavigationContainer>
