@@ -5,9 +5,9 @@ import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Card from "components/Custom/Card";
 import Label from "components/UI/Label";
-import ExpandButton from "components/Custom/ExpandButton";
+import IncomeButton from "components/Custom/IncomeButton";
 import TransferButton from "components/Custom/TransferButton";
-import SpendButton from "components/Custom/SpendButton";
+import ExpenseButton from "components/Custom/ExpenseButton";
 import Transaction from "components/Custom/Transaction";
 
 const CardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
@@ -20,10 +20,10 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.block}>
             <Label>Actions</Label>
             <View style={styles.blockContent}>
-              <ExpandButton />
+              <IncomeButton />
               <View style={styles.rightButtons}>
                 <TransferButton />
-                <SpendButton />
+                <ExpenseButton />
               </View>
             </View>
           </View>

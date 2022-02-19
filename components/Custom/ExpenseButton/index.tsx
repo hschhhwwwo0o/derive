@@ -3,10 +3,10 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text } from "react-native";
 import AppConstants from "styles/constants";
 
-const SpendButton: FunctionComponent = () => {
+const ExpenseButton: FunctionComponent = () => {
   return (
     <LinearGradient colors={["#FACCD2", "#FECDF4"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
-      <Text style={styles.text}>Spend</Text>
+      <Text style={styles.text}>Expense</Text>
     </LinearGradient>
   );
 };
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpendButton;
+export default ExpenseButton;

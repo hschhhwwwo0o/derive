@@ -4,11 +4,11 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, View, Text } from "react-native";
 import AppConstants from "styles/constants";
 
-const ExpandButton: FunctionComponent = () => {
+const IncomeButton: FunctionComponent = () => {
   return (
     <LinearGradient style={styles.expandButton} colors={["#CCF0FA", "#E5E5E5"]}>
       <BigBlackPlus />
-      <Text style={styles.header}>Expand</Text>
+      <Text style={styles.header}>Income</Text>
       <Text style={styles.desc}>Add a transaction </Text>
     </LinearGradient>
   );
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExpandButton;
+export default IncomeButton;
