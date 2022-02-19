@@ -8,6 +8,9 @@ import AddGoalScreen from "screens/AddGoal";
 import CardScreen from "screens/Card";
 import GoalScreen from "screens/Goal";
 import TransactionsScreen from "screens/Transactions";
+import ExpenseScreen from "screens/Expense";
+import TransferScreen from "screens/Transfer";
+import IncomeScreen from "screens/Income";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +27,9 @@ const Router: FunctionComponent = () => {
         <Stack.Screen name="Card" component={CardScreen} options={StackScreenOptions} />
         <Stack.Screen name="Goal" component={GoalScreen} options={StackScreenOptions} />
         <Stack.Screen name="Transactions" component={TransactionsScreen} options={StackScreenOptions} />
+        <Stack.Screen name="Expense" component={ExpenseScreen} options={StackScreenOptions} />
+        <Stack.Screen name="Transfer" component={TransferScreen} options={StackScreenOptions} />
+        <Stack.Screen name="Income" component={IncomeScreen} options={StackScreenOptions} />
       </Stack.Navigator>
     </NavigationContainer>
   );
