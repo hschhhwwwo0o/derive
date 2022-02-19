@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import AppConstants from "styles/constants";
-import Plus from "components/UI/Plus";
+import Plus from "components/SVGs/Plus";
 
 interface IAddCard {
   navigation: INavigation;
