@@ -9,12 +9,10 @@ interface IIncomeType {
 
 const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {} }) => {
   return (
-    <>
-      <LinearGradient style={styles.incomeType} colors={["#CCF0FA", "#E5E5E5"]}>
-        <Image source={require("assets/payments-types/fellowship.png")} style={styles.image} />
-        <Text style={styles.text}>Scholarship</Text>
-      </LinearGradient>
-    </>
+    <LinearGradient style={styles.incomeType} colors={["#CCF0FA", "#E5E5E5"]}>
+      <Image source={require("assets/payments-types/fellowship.png")} style={styles.image} />
+      <Text style={styles.text}>Scholarship</Text>
+    </LinearGradient>
   );
 };
 

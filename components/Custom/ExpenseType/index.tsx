@@ -9,12 +9,10 @@ interface IExpenseType {
 
 const ExpenseType: FunctionComponent<IExpenseType> = ({ onPressHandler = () => {} }) => {
   return (
-    <>
-      <LinearGradient style={styles.incomeType} colors={["#FACCD2", "#FECDF4"]}>
-        <Image source={require("assets/payments-types/saving.png")} style={styles.image} />
-        <Text style={styles.text}>Scholarship</Text>
-      </LinearGradient>
-    </>
+    <LinearGradient style={styles.incomeType} colors={["#FACCD2", "#FECDF4"]}>
+      <Image source={require("assets/payments-types/saving.png")} style={styles.image} />
+      <Text style={styles.text}>Scholarship</Text>
+    </LinearGradient>
   );
 };
 
