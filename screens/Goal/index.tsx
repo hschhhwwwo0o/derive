@@ -28,13 +28,13 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           </Text>
           <View style={styles.action}>
-            <Label>Spend</Label>
+            <Label>Add amount</Label>
             <View style={styles.actionInput}>
               <Input />
             </View>
           </View>
           <View style={styles.action}>
-            <Label>Expand</Label>
+            <Label>Withdraw the amount</Label>
             <View style={styles.actionInput}>
               <Input />
             </View>
