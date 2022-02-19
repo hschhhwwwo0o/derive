@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, Text } from "react-native";
 import AppConstants from "styles/constants";
 
-const TransferButton: FunctionComponent = () => {
+const TransferButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
   return (
     <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
       <Text style={styles.text}>Transfer</Text>

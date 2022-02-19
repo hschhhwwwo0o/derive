@@ -4,7 +4,7 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, StyleSheet, View, Text } from "react-native";
 import AppConstants from "styles/constants";
 
-const IncomeButton: FunctionComponent = () => {
+const IncomeButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
   return (
     <LinearGradient style={styles.expandButton} colors={["#CCF0FA", "#E5E5E5"]}>
       <BigBlackPlus />

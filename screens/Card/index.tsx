@@ -20,10 +20,10 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.block}>
             <Label>Actions</Label>
             <View style={styles.blockContent}>
-              <IncomeButton />
+              <IncomeButton navigation={navigation} />
               <View style={styles.rightButtons}>
-                <TransferButton />
-                <ExpenseButton />
+                <TransferButton navigation={navigation} />
+                <ExpenseButton navigation={navigation} />
               </View>
             </View>
           </View>
