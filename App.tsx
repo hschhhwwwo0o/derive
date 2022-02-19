@@ -1,7 +1,12 @@
+import React, { FunctionComponent } from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Router from "router";
+import router from "router";
 
-function App() {
+const Stack = createNativeStackNavigator();
+
+const Application: FunctionComponent = () => {
   const [loadedFonts] = useFonts({
     "Lato-Black": require("./assets/fonts/Lato-Black.ttf"),
     "Lato-Bold": require("./assets/fonts/Lato-Bold.ttf"),
@@ -12,7 +17,19 @@ function App() {
     return null;
   }
 
-  return <Router />;
-}
+  const StackScreenOptions: any = { headerShown: false, animation: "none", animationTypeForReplace: "push" };
 
-export default App;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {router.map(route => {
+          return (
+            <Stack.Screen key={route.name} name={route.name} component={route.component} options={StackScreenOptions} />
+          );
+        })}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Application;
