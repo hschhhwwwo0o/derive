@@ -20,16 +20,22 @@ const Router: FunctionComponent = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Start" component={StartScreen} options={StackScreenOptions} />
-        <Stack.Screen name="AddCard" component={AddCardScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Home" component={HomeScreen} options={StackScreenOptions} />
-        <Stack.Screen name="AddGoal" component={AddGoalScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Card" component={CardScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Goal" component={GoalScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Transactions" component={TransactionsScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Expense" component={ExpenseScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Transfer" component={TransferScreen} options={StackScreenOptions} />
-        <Stack.Screen name="Income" component={IncomeScreen} options={StackScreenOptions} />
+        {[
+          { name: "Start", component: StartScreen },
+          { name: "AddCard", component: AddCardScreen },
+          { name: "Home", component: HomeScreen },
+          { name: "AddGoal", component: AddGoalScreen },
+          { name: "Card", component: CardScreen },
+          { name: "Goal", component: GoalScreen },
+          { name: "Transactions", component: TransactionsScreen },
+          { name: "Expense", component: ExpenseScreen },
+          { name: "Transfer", component: TransferScreen },
+          { name: "Income", component: IncomeScreen },
+        ].map(route => {
+          return (
+            <Stack.Screen key={route.name} name={route.name} component={route.component} options={StackScreenOptions} />
+          );
+        })}
       </Stack.Navigator>
     </NavigationContainer>
   );
