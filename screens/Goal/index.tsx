@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
@@ -9,6 +9,9 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 
 const GoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+  const [amountToAdd, setAmountToAdd] = useState<string>("");
+  const [amountToWithdraw, setAmountToWithdraw] = useState<string>("");
+
   return (
     <>
       <TheLayout>
@@ -30,13 +33,17 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.action}>
             <Label>Add amount</Label>
             <View style={styles.actionInput}>
-              <Input />
+              <Input state={amountToAdd} setState={setAmountToAdd} placeholder="Enter the amount to add..." />
             </View>
           </View>
           <View style={styles.action}>
             <Label>Withdraw the amount</Label>
             <View style={styles.actionInput}>
-              <Input />
+              <Input
+                state={amountToWithdraw}
+                setState={setAmountToWithdraw}
+                placeholder="Enter the amount to withdraw..."
+              />
             </View>
           </View>
           <View style={styles.saveButton}>
