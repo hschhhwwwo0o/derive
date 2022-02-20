@@ -31,7 +31,7 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.body}>
             <Label>Goals</Label>
             <View style={styles.goalsContent}>
-              <Goal navigation={navigation} />
+              <Goal name="For a gift" price={100000} navigation={navigation} />
               <View style={styles.addGoal}>
                 <AddGoal navigation={navigation} />
               </View>

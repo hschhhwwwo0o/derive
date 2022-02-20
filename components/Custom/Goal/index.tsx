@@ -5,9 +5,11 @@ import AppConstants from "styles/constants";
 
 interface IGoal {
   navigation: INavigation;
+  name: string;
+  price: number;
 }
 
-const Goal: FunctionComponent<IGoal> = ({ navigation }) => {
+const Goal: FunctionComponent<IGoal> = ({ navigation, name, price }) => {
   function navigateToGoal() {
     navigation.push("Goal", {
       id: 1,
@@ -24,8 +26,8 @@ const Goal: FunctionComponent<IGoal> = ({ navigation }) => {
       />
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
-          <Text style={styles.goalText}>For a gift</Text>
-          <Text style={styles.goalTextMin}>100,000.00 ₽</Text>
+          <Text style={styles.goalText}>{name}</Text>
+          <Text style={styles.goalTextMin}>{price} ₽</Text>
         </View>
       </View>
     </TouchableOpacity>
