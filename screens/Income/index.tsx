@@ -24,9 +24,6 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             <Label>Income Type</Label>
             <View style={styles.bodyTypes}>
               <IncomeType />
-              <IncomeType />
-              <IncomeType />
-              <IncomeType />
             </View>
           </View>
           <View style={styles.actionButton}>

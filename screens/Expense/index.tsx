@@ -24,9 +24,6 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             <Label>Expense Type</Label>
             <View style={styles.bodyTypes}>
               <ExpenseType />
-              <ExpenseType />
-              <ExpenseType />
-              <ExpenseType />
             </View>
           </View>
           <View style={styles.actionButton}>

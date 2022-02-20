@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, Image, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
+import expenseImages from "./images";
 
 interface IExpenseType {
   onPressHandler: () => any;
@@ -10,8 +11,8 @@ interface IExpenseType {
 const ExpenseType: FunctionComponent<IExpenseType> = ({ onPressHandler = () => {} }) => {
   return (
     <LinearGradient style={styles.incomeType} colors={["#FACCD2", "#FECDF4"]}>
-      <Image source={require("assets/payments-types/saving.png")} style={styles.image} />
-      <Text style={styles.text}>Scholarship</Text>
+      <Image source={expenseImages.Saving} style={styles.image} />
+      <Text style={styles.text}>Saving</Text>
     </LinearGradient>
   );
 };
