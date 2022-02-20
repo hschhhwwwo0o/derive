@@ -1,38 +1,65 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
+import Goal from "components/Custom/Goal";
 
-const GoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
+  const [goal, setGoal] = useState<IGoal>();
   const [amountToAdd, setAmountToAdd] = useState<string>("");
   const [amountToWithdraw, setAmountToWithdraw] = useState<string>("");
+
+  useEffect(() => {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "SELECT * FROM goals WHERE id = ?",
+        [route.params.id],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setGoal(result.rows._array[0]);
+        }
+      );
+    });
+  }, [navigation]);
+
+  function updateGoal() {
+    const currentAmount = goal?.currentAmount || 0;
+    const newAmount = currentAmount + Number(amountToAdd) + -Number(amountToWithdraw);
+    const completeAmount = newAmount >= 0 ? newAmount : 0;
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "UPDATE goals SET currentAmount = ? WHERE id = ?",
+        [completeAmount, route.params.id],
+        () => {
+          navigation.push("Home");
+        }
+      );
+    });
+  }
 
   return (
     <>
       <TheLayout>
         <TopPanel withBack navigation={navigation} />
         <View style={styles.body}>
-          <Label>For a Gift</Label>
+          <Label>{goal?.name}</Label>
           <View style={styles.goalProgress}>
-            <View style={styles.progressLine} />
-            <LinearGradient
-              style={[styles.progress, { width: "30%" }]}
-              colors={["#A8D2DF", "#CAD7A5"]}
-              end={{ x: 0.9, y: 0.2 }}
-            />
+            <Goal currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
           </View>
-          <Text style={styles.goalDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          </Text>
+          <Text style={styles.goalDescription}>{goal?.description}</Text>
           <View style={styles.action}>
             <Label>Add amount</Label>
             <View style={styles.actionInput}>
-              <Input state={amountToAdd} setState={setAmountToAdd} placeholder="Enter the amount to add..." />
+              <Input
+                state={amountToAdd}
+                setState={setAmountToAdd}
+                keyboardType="decimal-pad"
+                placeholder="Enter the amount to add..."
+              />
             </View>
           </View>
           <View style={styles.action}>
@@ -41,12 +68,13 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
               <Input
                 state={amountToWithdraw}
                 setState={setAmountToWithdraw}
+                keyboardType="decimal-pad"
                 placeholder="Enter the amount to withdraw..."
               />
             </View>
           </View>
           <View style={styles.saveButton}>
-            <Button>Save</Button>
+            <Button onPressHandler={updateGoal}>Save</Button>
           </View>
         </View>
       </TheLayout>

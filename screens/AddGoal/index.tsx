@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import Database from "sql";
+import { SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
@@ -9,7 +11,20 @@ import Button from "components/UI/Button";
 
 const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [goal, setGoal] = useState<string>("");
+  const [goalFinalAmount, setGoalFinalAmount] = useState<string>("");
   const [goalDescription, setGoalDescription] = useState<string>("");
+
+  function insertGoal() {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "INSERT INTO goals (name, description, finalAmount, currentAmount) VALUES (?, ?, ?, ?);",
+        [goal, goalDescription, goalFinalAmount, 0],
+        () => {
+          navigation.push("Home");
+        }
+      );
+    });
+  }
 
   return (
     <>
@@ -17,6 +32,14 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <TopPanel navigation={navigation} withBack />
         <View style={styles.body}>
           <Label>Create a Goal</Label>
+          <View style={styles.finalAmount}>
+            <Input
+              state={goalFinalAmount}
+              setState={setGoalFinalAmount}
+              placeholder="Enter the final amount..."
+              keyboardType="decimal-pad"
+            />
+          </View>
           <View style={styles.goalName}>
             <Input state={goal} setState={setGoal} placeholder="Enter goal name..." />
           </View>
@@ -28,7 +51,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             />
           </View>
           <View style={styles.createButton}>
-            <Button>Create</Button>
+            <Button onPressHandler={insertGoal}>Create</Button>
           </View>
         </View>
       </TheLayout>
@@ -41,10 +64,13 @@ const styles = StyleSheet.create({
     marginTop: 39,
   },
   goalName: {
-    marginTop: 23,
+    marginTop: 12,
   },
   goalDescription: {
     marginTop: 12,
+  },
+  finalAmount: {
+    marginTop: 23,
   },
   createButton: {
     marginTop: 82,

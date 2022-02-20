@@ -27,7 +27,12 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         setCards(result.rows._array);
       });
     });
-  }, []);
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("SELECT * FROM goals", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        setGoals(result.rows._array);
+      });
+    });
+  }, [navigation]);
 
   return (
     <>
@@ -57,7 +62,16 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             <Label>Goals</Label>
             <View style={styles.goalsContent}>
               {goals.map(goal => {
-                return <Goal name="For a gift" price={100000} navigation={navigation} />;
+                return (
+                  <Goal
+                    key={goal.id}
+                    id={goal.id}
+                    name={goal.name}
+                    currentAmount={goal.currentAmount}
+                    finalAmount={goal.finalAmount}
+                    navigation={navigation}
+                  />
+                );
               })}
               <View style={styles.addGoal}>
                 <AddGoal navigation={navigation} />

@@ -1,21 +1,33 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import toPriceFormat from "libs/toPriceFormat";
 
 interface IGoal {
-  navigation: INavigation;
-  name: string;
-  price: number;
+  navigation?: INavigation;
+  name?: string;
+  finalAmount?: number;
+  id?: number;
+  currentAmount?: number;
 }
 
-const Goal: FunctionComponent<IGoal> = ({ navigation, name, price }) => {
+const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, currentAmount, id = 0 }) => {
+  const [progress, setProgress] = useState<number>(0);
+
   function navigateToGoal() {
-    navigation.push("Goal", {
-      id: 1,
-    });
+    if (navigation) {
+      navigation.push("Goal", {
+        id,
+      });
+    }
   }
+
+  useEffect(() => {
+    if (currentAmount !== undefined && finalAmount !== undefined) {
+      setProgress((currentAmount / finalAmount) * 100);
+    }
+  }, [currentAmount, finalAmount]);
 
   return (
     <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToGoal}>
@@ -23,12 +35,12 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, price }) => {
       <LinearGradient
         colors={["#A8D2DF", "#CAD7A5"]}
         end={{ x: 0.9, y: 0.2 }}
-        style={[styles.gradient, { width: "30%" }]}
+        style={[styles.gradient, { width: `${progress}%` }]}
       />
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
           <Text style={styles.goalText}>{name}</Text>
-          <Text style={styles.goalTextMin}>{toPriceFormat(price)} ₽</Text>
+          <Text style={styles.goalTextMin}>{toPriceFormat(finalAmount || 0)} ₽</Text>
         </View>
       </View>
     </TouchableOpacity>
