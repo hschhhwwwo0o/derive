@@ -8,9 +8,11 @@ import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import Goal from "components/Custom/Goal";
+import toPriceFormat from "libs/toPriceFormat";
 
 const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [goal, setGoal] = useState<IGoal>();
+  const [left, setLeft] = useState<number>(0);
   const [amountToAdd, setAmountToAdd] = useState<string>("");
   const [amountToWithdraw, setAmountToWithdraw] = useState<string>("");
 
@@ -21,6 +23,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         [route.params.id],
         (transaction: SQLTransaction, result: SQLResultSet) => {
           setGoal(result.rows._array[0]);
+          setLeft(result.rows._array[0].finalAmount - result.rows._array[0].currentAmount);
         }
       );
     });
@@ -48,9 +51,10 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         <View style={styles.body}>
           <Label>{goal?.name}</Label>
           <View style={styles.goalProgress}>
-            <Goal currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
+            <Goal type="B" currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
           </View>
           <Text style={styles.goalDescription}>{goal?.description}</Text>
+          <Text style={styles.left}>Left: {toPriceFormat(left)} ₽</Text>
           <View style={styles.action}>
             <Label>Add amount</Label>
             <View style={styles.actionInput}>
@@ -103,7 +107,13 @@ const styles = StyleSheet.create({
   },
   goalDescription: {
     marginTop: 19,
-    fontFamily: "Lato-Regular",
+    fontFamily: "Lato-Bold",
+    color: "#F9F9F9",
+    fontSize: 12,
+  },
+  left: {
+    marginTop: 19,
+    fontFamily: "Lato-Bold",
     color: "#F9F9F9",
     fontSize: 12,
   },

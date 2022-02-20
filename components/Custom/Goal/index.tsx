@@ -10,9 +10,10 @@ interface IGoal {
   finalAmount?: number;
   id?: number;
   currentAmount?: number;
+  type?: "A" | "B";
 }
 
-const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, currentAmount, id = 0 }) => {
+const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, currentAmount, id = 0, type = "A" }) => {
   const [progress, setProgress] = useState<number>(0);
 
   function navigateToGoal() {
@@ -40,7 +41,12 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, current
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
           <Text style={styles.goalText}>{name}</Text>
-          <Text style={styles.goalTextMin}>{toPriceFormat(finalAmount || 0)} ₽</Text>
+          {type === "A" && <Text style={styles.goalTextMin}>{toPriceFormat(finalAmount || 0)} ₽</Text>}
+          {type === "B" && (
+            <Text style={styles.goalTextMin}>
+              {toPriceFormat(currentAmount || 0)} / {toPriceFormat(finalAmount || 0)} ₽
+            </Text>
+          )}
         </View>
       </View>
     </TouchableOpacity>
