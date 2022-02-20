@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
@@ -9,6 +9,8 @@ import Logo from "components/UI/Logo";
 import TopPanel from "components/UI/TopPanel";
 
 const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   function onLetsStartPressHandler() {
     navigation.push("AddCard");
   }
@@ -23,6 +25,8 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
       transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
         if (result.rows.length) {
           navigation.push("Home");
+        } else {
+          setIsLoading(false);
         }
       });
     });
@@ -31,20 +35,22 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   return (
     <>
       <TheLayout>
-        <View style={styles.body}>
-          <TopPanel />
-          <View>
-            <Logo variant="big" />
-            <Text style={styles.bodyText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            </Text>
-            <View style={styles.bodyButton}>
-              <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
+        {!isLoading && (
+          <View style={styles.body}>
+            <TopPanel />
+            <View>
+              <Logo variant="big" />
+              <Text style={styles.bodyText}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              </Text>
+              <View style={styles.bodyButton}>
+                <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
+              </View>
             </View>
+            <View style={styles.footer} />
           </View>
-          <View style={styles.footer} />
-        </View>
+        )}
       </TheLayout>
     </>
   );
