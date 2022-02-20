@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
@@ -40,9 +40,11 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation }) => {
               </View>
               <View style={styles.transferBody}>
                 <EmptyCard onPressHandler={onChooseCardPressHandler} />
-                <View style={styles.chooseCardButton}>
-                  <Text style={styles.chooseCardButtonText}>Choose card</Text>
-                </View>
+                <TouchableOpacity onPress={onChooseCardPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
+                  <View style={styles.chooseCardButton}>
+                    <Text style={styles.chooseCardButtonText}>Choose card</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             </View>
           </>
