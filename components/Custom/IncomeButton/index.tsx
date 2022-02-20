@@ -4,7 +4,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import BigBlackPlus from "components/SVGs/BigBlackPlus";
 
-const IncomeButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
+interface IIncomeButton {
+  navigation: INavigation;
+  route: IRoute;
+}
+
+const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation }) => {
   function onPressHandler() {
     navigation.push("Income");
   }

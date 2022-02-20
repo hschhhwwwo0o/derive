@@ -3,7 +3,12 @@ import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
-const ExpenseButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
+interface IExpenseButton {
+  navigation: INavigation;
+  route: IRoute;
+}
+
+const ExpenseButton: FunctionComponent<IExpenseButton> = ({ navigation }) => {
   function onPressHandler() {
     navigation.push("Expense");
   }

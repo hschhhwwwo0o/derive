@@ -58,10 +58,10 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           <View style={styles.block}>
             <Label>Actions</Label>
             <View style={styles.blockContent}>
-              <IncomeButton navigation={navigation} />
+              <IncomeButton navigation={navigation} route={route} />
               <View style={styles.rightButtons}>
-                <TransferButton navigation={navigation} />
-                <ExpenseButton navigation={navigation} />
+                <TransferButton navigation={navigation} route={route} />
+                <ExpenseButton navigation={navigation} route={route} />
               </View>
             </View>
           </View>

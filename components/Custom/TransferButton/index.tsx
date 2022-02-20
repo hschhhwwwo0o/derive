@@ -3,7 +3,12 @@ import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
-const TransferButton: FunctionComponent<{ navigation: INavigation }> = ({ navigation }) => {
+interface ITransferButton {
+  navigation: INavigation;
+  route: IRoute;
+}
+
+const TransferButton: FunctionComponent<ITransferButton> = ({ navigation }) => {
   function onPressHandler() {
     navigation.push("Transfer");
   }
