@@ -7,28 +7,38 @@ import VisaSVG from "components/SVGs/Visa";
 import PayPalSVG from "components/SVGs/PayPal";
 
 interface ICard {
-  onPressHandler: () => any;
-  paymentSystem?: "Visa" | "PayPal";
+  onPressHandler?: () => any;
+  paymentSystem?: string;
+  number?: string;
   balance: number;
   date: string;
+  colorId: number;
 }
 
 const Card: FunctionComponent<ICard> = ({
   onPressHandler = () => {},
   paymentSystem = "Visa",
   balance = 45000,
+  number = "0000 0000 0000 0000",
   date = "08/23",
+  colorId = 0,
 }) => {
   return (
-    <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
+    <LinearGradient colors={AppConstants.CardSkins[colorId].colors} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
       {paymentSystem === "Visa" ? <VisaSVG /> : <PayPalSVG />}
       <View>
         <Text style={styles.price}>{toPriceFormat(balance)} ₽</Text>
         <Text style={styles.typeBalance}>{paymentSystem} Balance</Text>
       </View>
       <View style={styles.cardInfo}>
-        <Text style={styles.cardInfoText}>**** 5454</Text>
-        <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date}</Text>
+        <Text style={styles.cardInfoText}>
+          ****{" "}
+          {number[number.length - 4] +
+            number[number.length - 3] +
+            number[number.length - 2] +
+            number[number.length - 1]}
+        </Text>
+        <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date.replace(".", "/")}</Text>
       </View>
     </LinearGradient>
   );

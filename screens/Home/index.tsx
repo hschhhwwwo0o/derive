@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Pressable, FlatList } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
@@ -13,7 +13,9 @@ import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  const [cards, setCards] = useState<any[]>([]);
+  const [cards, setCards] = useState<ICard[]>([]);
+  const [goals, setGoals] = useState<IGoal[]>([]);
+  const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   function onGoToTransactions() {
     navigation.push("Transactions");
@@ -35,26 +37,45 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
               <AddCard navigation={navigation} />
-              <MinCard navigation={navigation} />
+              {cards.map(card => {
+                return (
+                  <MinCard
+                    key={card.id}
+                    id={card.id}
+                    number={card.number}
+                    date={card.endDate}
+                    colorId={card.colorId}
+                    balance={card.balance}
+                    paymentSystem={card.paymentSystem}
+                    navigation={navigation}
+                  />
+                );
+              })}
             </ScrollView>
           </View>
           <View style={styles.body}>
             <Label>Goals</Label>
             <View style={styles.goalsContent}>
-              <Goal name="For a gift" price={100000} navigation={navigation} />
+              {goals.map(goal => {
+                return <Goal name="For a gift" price={100000} navigation={navigation} />;
+              })}
               <View style={styles.addGoal}>
                 <AddGoal navigation={navigation} />
               </View>
             </View>
-            <View style={styles.transactionsHeader}>
-              <Label>Last Transactions</Label>
-              <Pressable onPress={onGoToTransactions}>
-                <Text style={styles.allTransactions}>All</Text>
-              </Pressable>
-            </View>
-            <View style={styles.transactionsBody}>
-              <Transaction />
-            </View>
+            {Boolean(transactions.length) && (
+              <View>
+                <View style={styles.transactionsHeader}>
+                  <Label>Last Transactions</Label>
+                  <Pressable onPress={onGoToTransactions}>
+                    <Text style={styles.allTransactions}>All</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.transactionsBody}>
+                  <Transaction />
+                </View>
+              </View>
+            )}
           </View>
         </View>
       </TheLayout>

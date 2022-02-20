@@ -14,3 +14,29 @@ interface IScreen {
   navigation: INavigation;
   route: IRoute;
 }
+
+interface ICard {
+  id: number;
+  balance: number;
+  paymentSystem: string;
+  number: string;
+  endDate: string;
+  colorId: number;
+}
+
+interface IGoal {
+  id: number;
+  name: string;
+  description: string;
+  finalAmount: number;
+  currentAmount: number;
+}
+
+interface ITransaction {
+  id: number;
+  cardId: number;
+  amount: number;
+  date: string;
+  type: string;
+  actionType: string;
+}

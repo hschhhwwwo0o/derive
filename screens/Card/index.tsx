@@ -1,5 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
@@ -9,13 +11,40 @@ import TransferButton from "components/Custom/TransferButton";
 import ExpenseButton from "components/Custom/ExpenseButton";
 import Transaction from "components/Custom/Transaction";
 
-const CardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
+  const [card, setCard] = useState<ICard>({
+    id: 0,
+    balance: 0,
+    paymentSystem: "",
+    number: "",
+    endDate: "",
+    colorId: 1,
+  });
+
+  useEffect(() => {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "SELECT * FROM cards WHERE id = ?",
+        [route.params.id],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setCard(result.rows._array[0]);
+        }
+      );
+    });
+  }, []);
+
   return (
     <>
       <TheLayout>
         <TopPanel withBack navigation={navigation} />
         <View style={styles.body}>
-          <Card />
+          <Card
+            number={card.number}
+            colorId={card.colorId}
+            balance={card.balance}
+            paymentSystem={card.paymentSystem}
+            date={card.endDate}
+          />
           <View style={styles.block}>
             <Label>Actions</Label>
             <View style={styles.blockContent}>

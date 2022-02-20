@@ -21,8 +21,8 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   async function onCreateCardHandler() {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
-        "INSERT INTO cards (balance, paymentSystem, number, endDate) VALUES (?, ?, ?, ?);",
-        [initialSum, activePaymentSystem, cardNumber, endDate],
+        "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",
+        [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin],
         () => {
           console.log("oki doki");
         }
