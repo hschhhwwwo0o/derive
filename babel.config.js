@@ -14,6 +14,7 @@ module.exports = function (api) {
             layouts: "./layouts",
             router: "./router",
             styles: "./styles",
+            libs: "./libs",
           },
         },
       ],

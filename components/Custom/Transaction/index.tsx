@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import AppConstants from "styles/constants";
+import toPriceFormat from "libs/toPriceFormat";
 
 interface ITransaction {
   date?: string;
@@ -25,7 +26,7 @@ const Transaction: FunctionComponent<ITransaction> = ({
           <Text style={styles.transactionInfoDate}>{date}</Text>
         </View>
       </View>
-      <Text style={styles.transactionText}>+ {price} ₽ </Text>
+      <Text style={styles.transactionText}>+ {toPriceFormat(price)} ₽ </Text>
     </View>
   );
 };

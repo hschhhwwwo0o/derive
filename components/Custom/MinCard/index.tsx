@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
+import toPriceFormat from "libs/toPriceFormat";
 import VisaSVG from "components/SVGs/Visa";
 import PayPalSVG from "components/SVGs/PayPal";
 
@@ -29,7 +30,7 @@ const MinCard: FunctionComponent<IMinCard> = ({
       <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
         {paymentSystem === "Visa" ? <VisaSVG /> : <PayPalSVG />}
         <View>
-          <Text style={styles.price}>{balance} ₽</Text>
+          <Text style={styles.price}>{toPriceFormat(balance)} ₽</Text>
           <Text style={styles.typeBalance}>{paymentSystem} Balance</Text>
         </View>
         <View style={styles.cardInfo}>

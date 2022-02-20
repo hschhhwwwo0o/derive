@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
+import toPriceFormat from "libs/toPriceFormat";
 
 interface IGoal {
   navigation: INavigation;
@@ -27,7 +28,7 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, price }) => {
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
           <Text style={styles.goalText}>{name}</Text>
-          <Text style={styles.goalTextMin}>{price} ₽</Text>
+          <Text style={styles.goalTextMin}>{toPriceFormat(price)} ₽</Text>
         </View>
       </View>
     </TouchableOpacity>
