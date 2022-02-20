@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LinearGradient } from "expo-linear-gradient";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
