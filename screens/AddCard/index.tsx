@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Database from "sql";
+import { SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import Label from "components/UI/Label";
@@ -12,12 +13,22 @@ import TopPanel from "components/UI/TopPanel";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);
-  const [activePaymentSystem, setActivePaymentSystem] = useState<"visa" | "paypal">("visa");
+  const [activePaymentSystem, setActivePaymentSystem] = useState<"Visa" | "Paypal">("Visa");
   const [initialSum, setInitialSum] = useState<string>("");
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
 
   async function onCreateCardHandler() {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "INSERT INTO cards (balance, paymentSystem, number, endDate) VALUES (?, ?, ?, ?);",
+        [initialSum, activePaymentSystem, cardNumber, endDate],
+        () => {
+          console.log("oki doki");
+        }
+      );
+    });
+
     navigation.push("Home");
   }
 
@@ -55,13 +66,13 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             <View style={styles.paymentSystems}>
               <PaymentSystem
                 system="visa"
-                isActive={activePaymentSystem === "visa"}
-                onPress={() => setActivePaymentSystem("visa")}
+                isActive={activePaymentSystem === "Visa"}
+                onPress={() => setActivePaymentSystem("Visa")}
               />
               <PaymentSystem
                 system="paypal"
-                isActive={activePaymentSystem === "paypal"}
-                onPress={() => setActivePaymentSystem("paypal")}
+                isActive={activePaymentSystem === "Paypal"}
+                onPress={() => setActivePaymentSystem("Paypal")}
               />
             </View>
           </View>

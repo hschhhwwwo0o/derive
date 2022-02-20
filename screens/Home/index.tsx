@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import AddCard from "components/Custom/AddCard";
@@ -12,9 +13,19 @@ import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+  const [cards, setCards] = useState<any[]>([]);
+
   function onGoToTransactions() {
     navigation.push("Transactions");
   }
+
+  useEffect(() => {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        setCards(result.rows._array);
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -24,7 +35,6 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View style={styles.cardsContainer}>
             <ScrollView horizontal>
               <AddCard navigation={navigation} />
-              <MinCard navigation={navigation} />
               <MinCard navigation={navigation} />
             </ScrollView>
           </View>

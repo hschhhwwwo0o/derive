@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import Button from "components/UI/Button";
@@ -11,6 +12,21 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   function onLetsStartPressHandler() {
     navigation.push("AddCard");
   }
+
+  useEffect(() => {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, balance INT, paymentSystem TEXT, number TEXT, endDate TEXT);",
+        []
+      );
+
+      transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        if (result.rows.length) {
+          navigation.push("Home");
+        }
+      });
+    });
+  }, []);
 
   return (
     <>

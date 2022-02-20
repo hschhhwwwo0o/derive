@@ -15,6 +15,7 @@ module.exports = function (api) {
             router: "./router",
             styles: "./styles",
             libs: "./libs",
+            sql: "./sql",
           },
         },
       ],
