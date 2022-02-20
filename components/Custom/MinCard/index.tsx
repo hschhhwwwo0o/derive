@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
   },
   price: {
     fontFamily: AppConstants.FontExtra,
-    fontSize: 16,
+    fontSize: 14,
   },
   typeBalance: {
-    fontSize: 11,
+    fontSize: 10,
     marginTop: 7,
     fontFamily: AppConstants.FontRegular,
   },
@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
   cardInfo: {
     flexDirection: "row",
     justifyContent: "space-between",
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: AppConstants.FontRegular,
   },
   cardInfoText: {
-    fontSize: 11,
+    fontSize: 10,
   },
   cardInfoDate: {
     fontFamily: AppConstants.FontExtra,
