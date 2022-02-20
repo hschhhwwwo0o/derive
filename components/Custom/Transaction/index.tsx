@@ -2,9 +2,18 @@ import React, { FunctionComponent } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import AppConstants from "styles/constants";
 
-interface ITransaction {}
+interface ITransaction {
+  date?: string;
+  typeTransaction?: "Income" | "Expense" | "Transfer";
+  image?: string;
+  price?: number;
+}
 
-const Transaction: FunctionComponent = () => {
+const Transaction: FunctionComponent<ITransaction> = ({
+  typeTransaction = "Income",
+  date = "12/02/2022",
+  price = 2250,
+}) => {
   return (
     <View style={styles.transaction}>
       <View style={styles.transactionInfo}>
@@ -12,11 +21,11 @@ const Transaction: FunctionComponent = () => {
           <Image source={require("assets/payments-types/salary.png")} style={styles.transactionImage} />
         </View>
         <View style={styles.transactionInfoText}>
-          <Text style={styles.transactionInfoHeader}>Spend</Text>
-          <Text style={styles.transactionInfoDate}>12/02/2022</Text>
+          <Text style={styles.transactionInfoHeader}>{typeTransaction}</Text>
+          <Text style={styles.transactionInfoDate}>{date}</Text>
         </View>
       </View>
-      <Text style={styles.transactionText}>+ 2,250.00 ₽ </Text>
+      <Text style={styles.transactionText}>+ {price} ₽ </Text>
     </View>
   );
 };

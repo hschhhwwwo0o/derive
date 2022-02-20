@@ -44,10 +44,6 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             </View>
             <View style={styles.transactionsBody}>
               <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
             </View>
           </View>
         </View>
