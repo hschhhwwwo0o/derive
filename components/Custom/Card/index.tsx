@@ -3,22 +3,31 @@ import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import VisaSVG from "components/SVGs/Visa";
+import PayPalSVG from "components/SVGs/PayPal";
 
 interface ICard {
   onPressHandler: () => any;
+  paymentSystem?: "Visa" | "PayPal";
+  balance: number;
+  date: string;
 }
 
-const Card: FunctionComponent<ICard> = ({ onPressHandler = () => {} }) => {
+const Card: FunctionComponent<ICard> = ({
+  onPressHandler = () => {},
+  paymentSystem = "Visa",
+  balance = 45000,
+  date = "08/23",
+}) => {
   return (
     <LinearGradient colors={["#CCF0FA", "#E5E5E5"]} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
-      <VisaSVG />
+      {paymentSystem === "Visa" ? <VisaSVG /> : <PayPalSVG />}
       <View>
-        <Text style={styles.price}>4,450.00 ₽</Text>
-        <Text style={styles.typeBalance}>Visa Balance</Text>
+        <Text style={styles.price}>{balance} ₽</Text>
+        <Text style={styles.typeBalance}>{paymentSystem} Balance</Text>
       </View>
       <View style={styles.cardInfo}>
         <Text style={styles.cardInfoText}>**** 5454</Text>
-        <Text style={[styles.cardInfoText, styles.cardInfoDate]}>08/23</Text>
+        <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date}</Text>
       </View>
     </LinearGradient>
   );
