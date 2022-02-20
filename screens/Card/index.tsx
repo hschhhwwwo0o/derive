@@ -20,6 +20,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     endDate: "",
     colorId: 1,
   });
+  const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   useEffect(() => {
     Database.transaction((transaction: SQLTransaction) => {
@@ -28,6 +29,15 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         [route.params.id],
         (transaction: SQLTransaction, result: SQLResultSet) => {
           setCard(result.rows._array[0]);
+        }
+      );
+    });
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "SELECT * FROM transactions WHERE cardId = ?",
+        [route.params.id],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setTransactions(result.rows._array);
         }
       );
     });
@@ -55,16 +65,18 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
               </View>
             </View>
           </View>
-          <View style={styles.block}>
-            <Label>Transactions</Label>
-            <View style={styles.transactionsData}>
-              <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
+          {Boolean(transactions.length) && (
+            <View style={styles.block}>
+              <Label>Transactions</Label>
+              <View style={styles.transactionsData}>
+                <Transaction />
+                <Transaction />
+                <Transaction />
+                <Transaction />
+                <Transaction />
+              </View>
             </View>
-          </View>
+          )}
         </View>
       </TheLayout>
     </>
