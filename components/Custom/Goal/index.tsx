@@ -6,8 +6,8 @@ import toPriceFormat from "libs/toPriceFormat";
 
 interface IGoal {
   navigation: INavigation;
-  name?: string;
-  price?: number;
+  name: string;
+  price: number;
 }
 
 const Goal: FunctionComponent<IGoal> = ({ navigation, name, price }) => {
