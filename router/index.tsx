@@ -9,7 +9,7 @@ import ExpenseScreen from "screens/Expense";
 import TransferScreen from "screens/Transfer";
 import IncomeScreen from "screens/Income";
 
-export default [
+const router = [
   { name: "Start", component: StartScreen },
   { name: "AddCard", component: AddCardScreen },
   { name: "Home", component: HomeScreen },
@@ -21,3 +21,5 @@ export default [
   { name: "Transfer", component: TransferScreen },
   { name: "Income", component: IncomeScreen },
 ];
+
+export default router;
