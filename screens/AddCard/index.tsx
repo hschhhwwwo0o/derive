@@ -25,7 +25,6 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin]
       );
     });
-
     navigation.push("Home");
   }
 
