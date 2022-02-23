@@ -12,7 +12,7 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
   const [isOpenChooseCardScreen, setIsOpenChooseCardScreen] = useState<boolean>(false);
 
-  function onChooseCardPressHandler() {
+  function onChooseCardPressHandler(): void {
     setIsOpenChooseCardScreen(true);
   }
 

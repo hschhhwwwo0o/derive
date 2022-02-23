@@ -18,7 +18,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
 
-  async function onCreateCardHandler() {
+  function onCreateCardHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",

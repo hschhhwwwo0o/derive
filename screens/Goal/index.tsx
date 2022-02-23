@@ -29,7 +29,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }, [navigation]);
 
-  function updateGoal() {
+  function updateGoal(): void {
     const currentAmount = goal?.currentAmount || 0;
     const newAmount = currentAmount + Number(amountToAdd) + -Number(amountToWithdraw);
     const completeAmount = newAmount >= 0 ? newAmount : 0;

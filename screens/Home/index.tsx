@@ -17,7 +17,7 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [goals, setGoals] = useState<IGoal[]>([]);
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
-  function onGoToTransactions() {
+  function onGoToTransactions(): void {
     navigation.push("Transactions");
   }
 

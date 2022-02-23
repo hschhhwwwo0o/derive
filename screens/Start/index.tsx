@@ -11,7 +11,7 @@ import TopPanel from "components/UI/TopPanel";
 const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  function onLetsStartPressHandler() {
+  function onLetsStartPressHandler(): void {
     navigation.push("AddCard");
   }
 

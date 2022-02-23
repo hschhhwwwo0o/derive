@@ -14,7 +14,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [goalFinalAmount, setGoalFinalAmount] = useState<string>("");
   const [goalDescription, setGoalDescription] = useState<string>("");
 
-  function insertGoal() {
+  function insertGoal(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO goals (name, description, finalAmount, currentAmount) VALUES (?, ?, ?, ?);",
