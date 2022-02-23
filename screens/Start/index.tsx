@@ -37,26 +37,24 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   }, []);
 
   return (
-    <>
-      <TheLayout>
-        {!isLoading && (
-          <View style={styles.body}>
-            <TopPanel />
-            <View>
-              <Logo variant="big" />
-              <Text style={styles.bodyText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              </Text>
-              <View style={styles.bodyButton}>
-                <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
-              </View>
+    <TheLayout>
+      {!isLoading && (
+        <View style={styles.body}>
+          <TopPanel />
+          <View>
+            <Logo variant="big" />
+            <Text style={styles.bodyText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            </Text>
+            <View style={styles.bodyButton}>
+              <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
             </View>
-            <View style={styles.footer} />
           </View>
-        )}
-      </TheLayout>
-    </>
+          <View style={styles.footer} />
+        </View>
+      )}
+    </TheLayout>
   );
 };
 

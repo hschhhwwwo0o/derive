@@ -44,42 +44,40 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   }, []);
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel withBack navigation={navigation} />
-        <View style={styles.body}>
-          <Card
-            number={card.number}
-            colorId={card.colorId}
-            balance={card.balance}
-            paymentSystem={card.paymentSystem}
-            date={card.endDate}
-          />
-          <View style={styles.block}>
-            <Label>Actions</Label>
-            <View style={styles.blockContent}>
-              <IncomeButton navigation={navigation} route={route} />
-              <View style={styles.rightButtons}>
-                <TransferButton navigation={navigation} route={route} />
-                <ExpenseButton navigation={navigation} route={route} />
-              </View>
+    <TheLayout>
+      <TopPanel withBack navigation={navigation} />
+      <View style={styles.body}>
+        <Card
+          number={card.number}
+          colorId={card.colorId}
+          balance={card.balance}
+          paymentSystem={card.paymentSystem}
+          date={card.endDate}
+        />
+        <View style={styles.block}>
+          <Label>Actions</Label>
+          <View style={styles.blockContent}>
+            <IncomeButton navigation={navigation} route={route} />
+            <View style={styles.rightButtons}>
+              <TransferButton navigation={navigation} route={route} />
+              <ExpenseButton navigation={navigation} route={route} />
             </View>
           </View>
-          {Boolean(transactions.length) && (
-            <View style={styles.block}>
-              <Label>Transactions</Label>
-              <View style={styles.transactionsData}>
-                <Transaction />
-                <Transaction />
-                <Transaction />
-                <Transaction />
-                <Transaction />
-              </View>
-            </View>
-          )}
         </View>
-      </TheLayout>
-    </>
+        {Boolean(transactions.length) && (
+          <View style={styles.block}>
+            <Label>Transactions</Label>
+            <View style={styles.transactionsData}>
+              <Transaction />
+              <Transaction />
+              <Transaction />
+              <Transaction />
+              <Transaction />
+            </View>
+          </View>
+        )}
+      </View>
+    </TheLayout>
   );
 };
 

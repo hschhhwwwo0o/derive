@@ -11,26 +11,24 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel withBack navigation={navigation} />
-        <View style={styles.body}>
-          <Label>Expense</Label>
-          <View style={styles.headerInput}>
-            <Input state={sum} setState={setSum} placeholder="Enter expense sum..." keyboardType="decimal-pad" />
-          </View>
-          <View style={styles.headerType}>
-            <Label>Expense Type</Label>
-            <View style={styles.bodyTypes}>
-              <ExpenseType />
-            </View>
-          </View>
-          <View style={styles.actionButton}>
-            <Button variant="danger">Expense</Button>
+    <TheLayout>
+      <TopPanel withBack navigation={navigation} />
+      <View style={styles.body}>
+        <Label>Expense</Label>
+        <View style={styles.headerInput}>
+          <Input state={sum} setState={setSum} placeholder="Enter expense sum..." keyboardType="decimal-pad" />
+        </View>
+        <View style={styles.headerType}>
+          <Label>Expense Type</Label>
+          <View style={styles.bodyTypes}>
+            <ExpenseType />
           </View>
         </View>
-      </TheLayout>
-    </>
+        <View style={styles.actionButton}>
+          <Button variant="danger">Expense</Button>
+        </View>
+      </View>
+    </TheLayout>
   );
 };
 

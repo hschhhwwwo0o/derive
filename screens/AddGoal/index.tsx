@@ -27,35 +27,33 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   }
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel navigation={navigation} withBack />
-        <View style={styles.body}>
-          <Label>Create a Goal</Label>
-          <View style={styles.finalAmount}>
-            <Input
-              state={goalFinalAmount}
-              setState={setGoalFinalAmount}
-              placeholder="Enter the final amount..."
-              keyboardType="decimal-pad"
-            />
-          </View>
-          <View style={styles.goalName}>
-            <Input state={goal} setState={setGoal} placeholder="Enter goal name..." />
-          </View>
-          <View style={styles.goalDescription}>
-            <MultilineInput
-              state={goalDescription}
-              setState={setGoalDescription}
-              placeholder="Enter goal description..."
-            />
-          </View>
-          <View style={styles.createButton}>
-            <Button onPressHandler={insertGoal}>Create</Button>
-          </View>
+    <TheLayout>
+      <TopPanel navigation={navigation} withBack />
+      <View style={styles.body}>
+        <Label>Create a Goal</Label>
+        <View style={styles.finalAmount}>
+          <Input
+            state={goalFinalAmount}
+            setState={setGoalFinalAmount}
+            placeholder="Enter the final amount..."
+            keyboardType="decimal-pad"
+          />
         </View>
-      </TheLayout>
-    </>
+        <View style={styles.goalName}>
+          <Input state={goal} setState={setGoal} placeholder="Enter goal name..." />
+        </View>
+        <View style={styles.goalDescription}>
+          <MultilineInput
+            state={goalDescription}
+            setState={setGoalDescription}
+            placeholder="Enter goal description..."
+          />
+        </View>
+        <View style={styles.createButton}>
+          <Button onPressHandler={insertGoal}>Create</Button>
+        </View>
+      </View>
+    </TheLayout>
   );
 };
 

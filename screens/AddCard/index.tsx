@@ -29,57 +29,55 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   }
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel navigation={navigation} withBack />
-        <View style={styles.body}>
-          <Label>Choose skin</Label>
-          <View style={styles.skins}>
-            {AppConstants.CardSkins.map(skin => {
-              return <Skin key={skin.id} setState={setActiveSkin} state={activeSkin} {...skin} />;
-            })}
-          </View>
-          <View style={styles.mt}>
-            <Label>Card info</Label>
-            <View style={styles.cardInfoContent}>
-              <Input
-                state={initialSum}
-                setState={setInitialSum}
-                keyboardType="decimal-pad"
-                placeholder="Enter initial sum..."
-              />
-              <Input
-                state={cardNumber}
-                setState={setCardNumber}
-                keyboardType="decimal-pad"
-                placeholder="Enter card number..."
-              />
-              <Input state={endDate} setState={setEndDate} keyboardType="decimal-pad" placeholder="Enter end date..." />
-            </View>
-          </View>
-          <View style={styles.mt}>
-            <Label>Payment System</Label>
-            <View style={styles.paymentSystems}>
-              <PaymentSystem
-                system="visa"
-                isActive={activePaymentSystem === "Visa"}
-                onPress={() => setActivePaymentSystem("Visa")}
-              />
-              <PaymentSystem
-                system="paypal"
-                isActive={activePaymentSystem === "Paypal"}
-                onPress={() => setActivePaymentSystem("Paypal")}
-              />
-            </View>
-          </View>
-          <View style={styles.createButton}>
-            <Button variant="primary" onPressHandler={onCreateCardHandler}>
-              Create
-            </Button>
+    <TheLayout>
+      <TopPanel navigation={navigation} withBack />
+      <View style={styles.body}>
+        <Label>Choose skin</Label>
+        <View style={styles.skins}>
+          {AppConstants.CardSkins.map(skin => {
+            return <Skin key={skin.id} setState={setActiveSkin} state={activeSkin} {...skin} />;
+          })}
+        </View>
+        <View style={styles.mt}>
+          <Label>Card info</Label>
+          <View style={styles.cardInfoContent}>
+            <Input
+              state={initialSum}
+              setState={setInitialSum}
+              keyboardType="decimal-pad"
+              placeholder="Enter initial sum..."
+            />
+            <Input
+              state={cardNumber}
+              setState={setCardNumber}
+              keyboardType="decimal-pad"
+              placeholder="Enter card number..."
+            />
+            <Input state={endDate} setState={setEndDate} keyboardType="decimal-pad" placeholder="Enter end date..." />
           </View>
         </View>
-      </TheLayout>
-    </>
+        <View style={styles.mt}>
+          <Label>Payment System</Label>
+          <View style={styles.paymentSystems}>
+            <PaymentSystem
+              system="visa"
+              isActive={activePaymentSystem === "Visa"}
+              onPress={() => setActivePaymentSystem("Visa")}
+            />
+            <PaymentSystem
+              system="paypal"
+              isActive={activePaymentSystem === "Paypal"}
+              onPress={() => setActivePaymentSystem("Paypal")}
+            />
+          </View>
+        </View>
+        <View style={styles.createButton}>
+          <Button variant="primary" onPressHandler={onCreateCardHandler}>
+            Create
+          </Button>
+        </View>
+      </View>
+    </TheLayout>
   );
 };
 

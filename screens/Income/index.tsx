@@ -11,26 +11,24 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel withBack navigation={navigation} />
-        <View style={styles.body}>
-          <Label>Income</Label>
-          <View style={styles.headerInput}>
-            <Input state={sum} setState={setSum} placeholder="Enter income sum..." keyboardType="decimal-pad" />
-          </View>
-          <View style={styles.headerType}>
-            <Label>Income Type</Label>
-            <View style={styles.bodyTypes}>
-              <IncomeType />
-            </View>
-          </View>
-          <View style={styles.actionButton}>
-            <Button>Income</Button>
+    <TheLayout>
+      <TopPanel withBack navigation={navigation} />
+      <View style={styles.body}>
+        <Label>Income</Label>
+        <View style={styles.headerInput}>
+          <Input state={sum} setState={setSum} placeholder="Enter income sum..." keyboardType="decimal-pad" />
+        </View>
+        <View style={styles.headerType}>
+          <Label>Income Type</Label>
+          <View style={styles.bodyTypes}>
+            <IncomeType />
           </View>
         </View>
-      </TheLayout>
-    </>
+        <View style={styles.actionButton}>
+          <Button>Income</Button>
+        </View>
+      </View>
+    </TheLayout>
   );
 };
 

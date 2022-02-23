@@ -17,39 +17,37 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   }
 
   return (
-    <>
-      <TheLayout>
-        {isOpenChooseCardScreen ? (
-          <>
-            <TopPanel />
-            <View style={styles.body}>
-              <Label>Transfer amount to different card</Label>
-              <View style={styles.headerInput}>
-                <Card />
-              </View>
+    <TheLayout>
+      {isOpenChooseCardScreen ? (
+        <>
+          <TopPanel />
+          <View style={styles.body}>
+            <Label>Transfer amount to different card</Label>
+            <View style={styles.headerInput}>
+              <Card />
             </View>
-          </>
-        ) : (
-          <>
-            <TopPanel withBack navigation={navigation} />
-            <View style={styles.body}>
-              <Label>Transfer amount to different card</Label>
-              <View style={styles.headerInput}>
-                <Input state={sum} setState={setSum} placeholder="Enter transfer sum..." keyboardType="decimal-pad" />
-              </View>
-              <View style={styles.transferBody}>
-                <EmptyCard onPressHandler={onChooseCardPressHandler} />
-                <TouchableOpacity onPress={onChooseCardPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
-                  <View style={styles.chooseCardButton}>
-                    <Text style={styles.chooseCardButtonText}>Choose card</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
+          </View>
+        </>
+      ) : (
+        <>
+          <TopPanel withBack navigation={navigation} />
+          <View style={styles.body}>
+            <Label>Transfer amount to different card</Label>
+            <View style={styles.headerInput}>
+              <Input state={sum} setState={setSum} placeholder="Enter transfer sum..." keyboardType="decimal-pad" />
             </View>
-          </>
-        )}
-      </TheLayout>
-    </>
+            <View style={styles.transferBody}>
+              <EmptyCard onPressHandler={onChooseCardPressHandler} />
+              <TouchableOpacity onPress={onChooseCardPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
+                <View style={styles.chooseCardButton}>
+                  <Text style={styles.chooseCardButtonText}>Choose card</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </>
+      )}
+    </TheLayout>
   );
 };
 

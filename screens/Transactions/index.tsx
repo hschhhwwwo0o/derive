@@ -7,30 +7,28 @@ import Transaction from "components/Custom/Transaction";
 
 const TransactionsScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   return (
-    <>
-      <TheLayout>
-        <TopPanel withBack navigation={navigation} />
-        <View style={styles.body}>
-          <Label>All Transactions</Label>
-          <View style={styles.data}>
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-          </View>
+    <TheLayout>
+      <TopPanel withBack navigation={navigation} />
+      <View style={styles.body}>
+        <Label>All Transactions</Label>
+        <View style={styles.data}>
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
+          <Transaction />
         </View>
-      </TheLayout>
-    </>
+      </View>
+    </TheLayout>
   );
 };
 

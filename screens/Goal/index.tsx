@@ -45,44 +45,42 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   }
 
   return (
-    <>
-      <TheLayout>
-        <TopPanel withBack navigation={navigation} />
-        <View style={styles.body}>
-          <Label>{goal?.name}</Label>
-          <View style={styles.goalProgress}>
-            <Goal type="B" currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
-          </View>
-          <Text style={styles.goalDescription}>{goal?.description}</Text>
-          <Text style={styles.left}>Left: {toPriceFormat(left)} ₽</Text>
-          <View style={styles.action}>
-            <Label>Add amount</Label>
-            <View style={styles.actionInput}>
-              <Input
-                state={amountToAdd}
-                setState={setAmountToAdd}
-                keyboardType="decimal-pad"
-                placeholder="Enter the amount to add..."
-              />
-            </View>
-          </View>
-          <View style={styles.action}>
-            <Label>Withdraw the amount</Label>
-            <View style={styles.actionInput}>
-              <Input
-                state={amountToWithdraw}
-                setState={setAmountToWithdraw}
-                keyboardType="decimal-pad"
-                placeholder="Enter the amount to withdraw..."
-              />
-            </View>
-          </View>
-          <View style={styles.saveButton}>
-            <Button onPressHandler={updateGoal}>Save</Button>
+    <TheLayout>
+      <TopPanel withBack navigation={navigation} />
+      <View style={styles.body}>
+        <Label>{goal?.name}</Label>
+        <View style={styles.goalProgress}>
+          <Goal type="B" currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
+        </View>
+        <Text style={styles.goalDescription}>{goal?.description}</Text>
+        <Text style={styles.left}>Left: {toPriceFormat(left)} ₽</Text>
+        <View style={styles.action}>
+          <Label>Add amount</Label>
+          <View style={styles.actionInput}>
+            <Input
+              state={amountToAdd}
+              setState={setAmountToAdd}
+              keyboardType="decimal-pad"
+              placeholder="Enter the amount to add..."
+            />
           </View>
         </View>
-      </TheLayout>
-    </>
+        <View style={styles.action}>
+          <Label>Withdraw the amount</Label>
+          <View style={styles.actionInput}>
+            <Input
+              state={amountToWithdraw}
+              setState={setAmountToWithdraw}
+              keyboardType="decimal-pad"
+              placeholder="Enter the amount to withdraw..."
+            />
+          </View>
+        </View>
+        <View style={styles.saveButton}>
+          <Button onPressHandler={updateGoal}>Save</Button>
+        </View>
+      </View>
+    </TheLayout>
   );
 };
 

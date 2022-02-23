@@ -35,65 +35,63 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <>
-      <TheLayout withHorizontalPaddings={false}>
-        <TopPanel />
-        <View style={styles.container}>
-          <View style={styles.cardsContainer}>
-            <ScrollView horizontal>
-              <AddCard navigation={navigation} />
-              {cards.map(card => {
-                return (
-                  <MinCard
-                    key={card.id}
-                    id={card.id}
-                    number={card.number}
-                    date={card.endDate}
-                    colorId={card.colorId}
-                    balance={card.balance}
-                    paymentSystem={card.paymentSystem}
-                    navigation={navigation}
-                  />
-                );
-              })}
-            </ScrollView>
+    <TheLayout withHorizontalPaddings={false}>
+      <TopPanel />
+      <View style={styles.container}>
+        <View style={styles.cardsContainer}>
+          <ScrollView horizontal>
+            <AddCard navigation={navigation} />
+            {cards.map(card => {
+              return (
+                <MinCard
+                  key={card.id}
+                  id={card.id}
+                  number={card.number}
+                  date={card.endDate}
+                  colorId={card.colorId}
+                  balance={card.balance}
+                  paymentSystem={card.paymentSystem}
+                  navigation={navigation}
+                />
+              );
+            })}
+          </ScrollView>
+        </View>
+        <View style={styles.body}>
+          <Label>Goals</Label>
+          <View style={styles.goalsContent}>
+            {goals.map(goal => {
+              return (
+                <Goal
+                  key={goal.id}
+                  id={goal.id}
+                  name={goal.name}
+                  currentAmount={goal.currentAmount}
+                  finalAmount={goal.finalAmount}
+                  navigation={navigation}
+                />
+              );
+            })}
+            <View style={styles.addGoal}>
+              <AddGoal navigation={navigation} />
+            </View>
           </View>
-          <View style={styles.body}>
-            <Label>Goals</Label>
-            <View style={styles.goalsContent}>
-              {goals.map(goal => {
-                return (
-                  <Goal
-                    key={goal.id}
-                    id={goal.id}
-                    name={goal.name}
-                    currentAmount={goal.currentAmount}
-                    finalAmount={goal.finalAmount}
-                    navigation={navigation}
-                  />
-                );
-              })}
-              <View style={styles.addGoal}>
-                <AddGoal navigation={navigation} />
+          {Boolean(transactions.length) && (
+            <View>
+              <View style={styles.transactionsHeader}>
+                <Label>Last Transactions</Label>
+                <Pressable onPress={onGoToTransactions}>
+                  <Text style={styles.allTransactions}>All</Text>
+                </Pressable>
+              </View>
+              <View style={styles.transactionsBody}>
+                <Transaction />
               </View>
             </View>
-            {Boolean(transactions.length) && (
-              <View>
-                <View style={styles.transactionsHeader}>
-                  <Label>Last Transactions</Label>
-                  <Pressable onPress={onGoToTransactions}>
-                    <Text style={styles.allTransactions}>All</Text>
-                  </Pressable>
-                </View>
-                <View style={styles.transactionsBody}>
-                  <Transaction />
-                </View>
-              </View>
-            )}
-          </View>
+          )}
         </View>
-      </TheLayout>
-    </>
+      </View>
+    </TheLayout>
   );
 };
 
