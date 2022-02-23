@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { SQLTransaction } from "expo-sqlite";
 import Database from "sql";
+import { SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import Label from "components/UI/Label";
