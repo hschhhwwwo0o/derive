@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import Database from "sql";
 import { SQLTransaction } from "expo-sqlite";
+import Database from "sql";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import Label from "components/UI/Label";
@@ -22,10 +22,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",
-        [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin],
-        () => {
-          console.log("oki doki");
-        }
+        [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin]
       );
     });
 

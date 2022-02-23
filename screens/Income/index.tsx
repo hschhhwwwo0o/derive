@@ -8,7 +8,7 @@ import Button from "components/UI/Button";
 import IncomeType from "components/Custom/IncomeType";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  const [sum, setSum] = useState("");
+  const [sum, setSum] = useState<string>("");
 
   return (
     <>

@@ -8,7 +8,7 @@ import Button from "components/UI/Button";
 import ExpenseType from "components/Custom/ExpenseType";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  const [sum, setSum] = useState("");
+  const [sum, setSum] = useState<string>("");
 
   return (
     <>
