@@ -1,8 +1,12 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { StyleSheet, Text } from "react-native";
 import AppConstants from "styles/constants";
 
-const Label: FunctionComponent = ({ children }) => {
+interface ILabel {
+  children: ReactNode;
+}
+
+const Label: FunctionComponent<ILabel> = ({ children }) => {
   return <Text style={styles.label}>{children}</Text>;
 };
 

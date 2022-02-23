@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { ScrollView, StatusBar, View } from "react-native";
 import AndroidSafeArea from "styles/AndroidSafeArea";
 import Layout from "styles/Layout";
 
 interface ITheLayout {
+  children: ReactNode;
   withHorizontalPaddings?: boolean;
 }
 
