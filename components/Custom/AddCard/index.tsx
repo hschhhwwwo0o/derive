@@ -8,7 +8,7 @@ interface IAddCard {
 }
 
 const AddCard: FunctionComponent<IAddCard> = ({ navigation }) => {
-  function onAddCardPressHandler() {
+  function onAddCardPressHandler(): void {
     navigation.push("AddCard");
   }
 

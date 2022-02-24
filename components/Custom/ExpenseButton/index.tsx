@@ -9,7 +9,7 @@ interface IExpenseButton {
 }
 
 const ExpenseButton: FunctionComponent<IExpenseButton> = ({ navigation }) => {
-  function onPressHandler() {
+  function onPressHandler(): void {
     navigation.push("Expense");
   }
 

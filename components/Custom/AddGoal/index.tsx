@@ -8,7 +8,7 @@ interface IAddGoal {
 }
 
 const AddGoal: FunctionComponent<IAddGoal> = ({ navigation }) => {
-  function onAddGoalPressHandler() {
+  function onAddGoalPressHandler(): void {
     navigation.push("AddGoal");
   }
 

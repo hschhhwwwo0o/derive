@@ -16,7 +16,7 @@ interface IGoal {
 const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, currentAmount, id = 0, type = "A" }) => {
   const [progress, setProgress] = useState<number>(0);
 
-  function navigateToGoal() {
+  function navigateToGoal(): void {
     if (navigation) {
       navigation.push("Goal", {
         id,

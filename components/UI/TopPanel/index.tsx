@@ -13,7 +13,7 @@ const WithoutBack: FunctionComponent = () => {
 };
 
 const WithBack: FunctionComponent<{ navigation: INavigation | undefined }> = ({ navigation }) => {
-  function onPressBackHandler() {
+  function onPressBackHandler(): void {
     navigation?.goBack();
   }
 

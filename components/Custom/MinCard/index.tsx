@@ -25,7 +25,7 @@ const MinCard: FunctionComponent<IMinCard> = ({
   date = "08/23",
   colorId = 0,
 }) => {
-  function navigateToCard() {
+  function navigateToCard(): void {
     navigation.push("Card", {
       id,
     });

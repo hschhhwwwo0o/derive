@@ -10,7 +10,7 @@ interface IIncomeButton {
 }
 
 const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation }) => {
-  function onPressHandler() {
+  function onPressHandler(): void {
     navigation.push("Income");
   }
 

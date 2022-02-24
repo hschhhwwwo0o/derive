@@ -9,7 +9,7 @@ interface ITransferButton {
 }
 
 const TransferButton: FunctionComponent<ITransferButton> = ({ navigation }) => {
-  function onPressHandler() {
+  function onPressHandler(): void {
     navigation.push("Transfer");
   }
 
