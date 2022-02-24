@@ -2,15 +2,12 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
+import { IIncomeExpenseType } from "libs/config";
 
 interface IIncomeType {
   onPressHandler: () => any;
   isActive: boolean;
-  data: {
-    id: number;
-    image: any;
-    title: string;
-  };
+  data: IIncomeExpenseType;
 }
 
 const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {}, data, isActive = false }) => {
