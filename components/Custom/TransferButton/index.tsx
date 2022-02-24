@@ -15,7 +15,7 @@ const TransferButton: FunctionComponent<ITransferButton> = ({ navigation }) => {
 
   return (
     <TouchableOpacity onPress={onPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
-      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={styles.button}>
+      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={[styles.button, styles.shadow]}>
         <Text style={styles.text}>Transfer</Text>
       </LinearGradient>
     </TouchableOpacity>
@@ -29,6 +29,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
+  },
+  shadow: {
+    shadowColor: "#eeeeee",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 14.78,
+    elevation: 14,
   },
   text: {
     fontFamily: AppConstants.FontExtra,

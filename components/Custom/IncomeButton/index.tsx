@@ -16,7 +16,7 @@ const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation }) => {
 
   return (
     <TouchableOpacity onPress={onPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
-      <LinearGradient style={styles.expandButton} colors={["#CCF0FA", "#E5E5E5"]}>
+      <LinearGradient style={[styles.expandButton, styles.shadow]} colors={["#CCF0FA", "#E5E5E5"]}>
         <BigBlackPlus />
         <Text style={styles.header}>Income</Text>
         <Text style={styles.desc}>Add a transaction</Text>
@@ -32,6 +32,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingLeft: 25,
     paddingTop: 26,
+  },
+  shadow: {
+    shadowColor: "#eeeeee",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 14.78,
+    elevation: 14,
   },
   header: {
     fontFamily: AppConstants.FontExtra,
