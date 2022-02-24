@@ -6,6 +6,7 @@ import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import IncomeType from "components/Custom/IncomeType";
+import returnConfigurationData from "libs/config";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
@@ -21,7 +22,9 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <View style={styles.headerType}>
           <Label>Income Type</Label>
           <View style={styles.bodyTypes}>
-            <IncomeType />
+            {returnConfigurationData().IncomeTypes.map(incomeType => {
+              return <IncomeType key={incomeType.id} data={incomeType} onPressHandler={() => {}} />;
+            })}
           </View>
         </View>
         <View style={styles.actionButton}>

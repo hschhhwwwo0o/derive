@@ -2,17 +2,21 @@ import React, { FunctionComponent } from "react";
 import { Dimensions, Image, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
-import incomeImages from "./images";
 
 interface IIncomeType {
   onPressHandler: () => any;
+  data: {
+    id: number;
+    image: any;
+    title: string;
+  };
 }
 
-const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {} }) => {
+const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {}, data }) => {
   return (
     <LinearGradient style={styles.incomeType} colors={["#CCF0FA", "#E5E5E5"]}>
-      <Image source={incomeImages.Scholarship} style={styles.image} />
-      <Text style={styles.text}>Scholarship</Text>
+      <Image source={data.image} style={styles.image} />
+      <Text style={styles.text}>{data.title}</Text>
     </LinearGradient>
   );
 };

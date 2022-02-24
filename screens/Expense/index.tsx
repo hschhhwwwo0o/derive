@@ -6,6 +6,7 @@ import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import ExpenseType from "components/Custom/ExpenseType";
+import returnConfigurationData from "libs/config";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
@@ -21,7 +22,9 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <View style={styles.headerType}>
           <Label>Expense Type</Label>
           <View style={styles.bodyTypes}>
-            <ExpenseType />
+            {returnConfigurationData().ExpenseTypes.map(expenseType => {
+              return <ExpenseType key={expenseType.id} data={expenseType} onPressHandler={() => {}} />;
+            })}
           </View>
         </View>
         <View style={styles.actionButton}>
