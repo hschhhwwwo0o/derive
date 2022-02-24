@@ -22,6 +22,7 @@ function returnConfigurationData() {
   return {
     IncomeTypes,
     ExpenseTypes,
+    AllTransactionTypes: [...IncomeTypes, ...ExpenseTypes],
   };
 }
 
