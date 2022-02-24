@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   shadow: {
-    shadowColor: "#eeeeee",
+    shadowColor: "#FCD4CA",
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 2,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 14.78,
-    elevation: 14,
+    shadowRadius: 10.78,
+    elevation: 10,
   },
   text: {
     fontFamily: AppConstants.FontExtra,

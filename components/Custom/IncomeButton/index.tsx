@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
     paddingTop: 26,
   },
   shadow: {
-    shadowColor: "#eeeeee",
+    shadowColor: "#D6EBF1",
     shadowOffset: {
       width: 0,
       height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 14.78,
-    elevation: 14,
+    shadowRadius: 12.78,
+    elevation: 12,
   },
   header: {
     fontFamily: AppConstants.FontExtra,
