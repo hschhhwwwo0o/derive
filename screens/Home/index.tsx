@@ -1,16 +1,16 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { ScrollView, StyleSheet, View, Text, Pressable, FlatList } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
+import TopPanel from "components/UI/TopPanel";
+import Label from "components/UI/Label";
 import AddCard from "components/Custom/AddCard";
 import MinCard from "components/Custom/MinCard";
-import Label from "components/UI/Label";
 import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
-import TopPanel from "components/UI/TopPanel";
 
 const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [cards, setCards] = useState<ICard[]>([]);

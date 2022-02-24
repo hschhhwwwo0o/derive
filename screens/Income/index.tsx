@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import TheLayout from "layouts";
+import returnConfigurationData from "libs/config";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import IncomeType from "components/Custom/IncomeType";
-import returnConfigurationData from "libs/config";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
