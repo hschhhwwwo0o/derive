@@ -10,6 +10,7 @@ import returnConfigurationData from "libs/config";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
+  const [activeIncomeTypeID, setActiveIncomeTypeID] = useState<number>(0);
 
   return (
     <TheLayout>

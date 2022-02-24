@@ -10,6 +10,7 @@ import returnConfigurationData from "libs/config";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
+  const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(0);
 
   return (
     <TheLayout>
