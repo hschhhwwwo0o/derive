@@ -10,7 +10,7 @@ import returnConfigurationData from "libs/config";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
-  const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(0);
+  const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(returnConfigurationData().ExpenseTypes[0].id);
 
   return (
     <TheLayout>
@@ -24,7 +24,16 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <Label>Expense Type</Label>
           <View style={styles.bodyTypes}>
             {returnConfigurationData().ExpenseTypes.map(expenseType => {
-              return <ExpenseType key={expenseType.id} data={expenseType} onPressHandler={() => {}} />;
+              return (
+                <ExpenseType
+                  isActive={expenseType.id === activeExpenseTypeID}
+                  key={expenseType.id}
+                  data={expenseType}
+                  onPressHandler={() => {
+                    setActiveExpenseTypeID(expenseType.id);
+                  }}
+                />
+              );
             })}
           </View>
         </View>

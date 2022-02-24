@@ -10,7 +10,7 @@ import returnConfigurationData from "libs/config";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [sum, setSum] = useState<string>("");
-  const [activeIncomeTypeID, setActiveIncomeTypeID] = useState<number>(0);
+  const [activeIncomeTypeID, setActiveIncomeTypeID] = useState<number>(returnConfigurationData().IncomeTypes[0].id);
 
   return (
     <TheLayout>
@@ -24,7 +24,16 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <Label>Income Type</Label>
           <View style={styles.bodyTypes}>
             {returnConfigurationData().IncomeTypes.map(incomeType => {
-              return <IncomeType key={incomeType.id} data={incomeType} onPressHandler={() => {}} />;
+              return (
+                <IncomeType
+                  key={incomeType.id}
+                  data={incomeType}
+                  isActive={incomeType.id === activeIncomeTypeID}
+                  onPressHandler={() => {
+                    setActiveIncomeTypeID(incomeType.id);
+                  }}
+                />
+              );
             })}
           </View>
         </View>
