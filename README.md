@@ -1,4 +1,4 @@
-<img src="./md/cover.png" />
+<img src="./md/c.png" />
 
 ## Dérive
 
