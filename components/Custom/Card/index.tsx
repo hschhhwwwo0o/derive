@@ -46,7 +46,13 @@ const Card: FunctionComponent<ICard> = ({
               number[number.length - 2] +
               number[number.length - 1]}
           </Text>
-          <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date.replace(".", "/")}</Text>
+          <Text style={[styles.cardInfoText, styles.cardInfoDate]}>
+            {date.slice(3)[0]}
+            {date.slice(3)[1]}
+            {date.slice(3)[2]}
+            {date.slice(3)[5]}
+            {date.slice(3)[6]}
+          </Text>
         </View>
       </LinearGradient>
     </TouchableOpacity>
