@@ -44,6 +44,14 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }
 
+  function removeGoal(): void {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("DELETE FROM goals WHERE id = ?", [route.params.id], () => {
+        navigation.push("Home");
+      });
+    });
+  }
+
   return (
     <TheLayout>
       <TopPanel withBack navigation={navigation} backPathname="Home" />
@@ -123,6 +131,9 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     marginTop: 82,
+  },
+  removeButton: {
+    marginTop: 12,
   },
 });
 
