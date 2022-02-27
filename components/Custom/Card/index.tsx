@@ -10,9 +10,9 @@ interface ICard {
   onPressHandler?: () => any;
   paymentSystem?: string;
   number?: string;
-  balance: number;
-  date: string;
-  colorId: number;
+  balance?: number;
+  date?: string;
+  colorId?: number;
 }
 
 const Card: FunctionComponent<ICard> = ({

@@ -12,14 +12,7 @@ import ExpenseButton from "components/Custom/ExpenseButton";
 import Transaction from "components/Custom/Transaction";
 
 const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
-  const [card, setCard] = useState<ICard>({
-    id: 0,
-    balance: 0,
-    paymentSystem: "",
-    number: "",
-    endDate: "",
-    colorId: 1,
-  });
+  const [card, setCard] = useState<ICard>();
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   useEffect(() => {
@@ -48,11 +41,11 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
       <TopPanel withBack navigation={navigation} backPathname={"Home"} />
       <View style={styles.body}>
         <Card
-          number={card.number}
-          colorId={card.colorId}
-          balance={card.balance}
-          paymentSystem={card.paymentSystem}
-          date={card.endDate}
+          number={card?.number}
+          colorId={card?.colorId}
+          balance={card?.balance}
+          paymentSystem={card?.paymentSystem}
+          date={card?.endDate}
         />
         <View style={styles.block}>
           <Label>Actions</Label>
