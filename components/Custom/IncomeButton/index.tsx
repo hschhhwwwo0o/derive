@@ -9,9 +9,11 @@ interface IIncomeButton {
   route: IRoute;
 }
 
-const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation }) => {
+const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation, route }) => {
   function onPressHandler(): void {
-    navigation.push("Income");
+    navigation.push("Income", {
+      cardId: route.params.id,
+    });
   }
 
   return (

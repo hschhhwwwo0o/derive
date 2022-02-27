@@ -2,31 +2,42 @@ import React, { FunctionComponent } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import AppConstants from "styles/constants";
 import toPriceFormat from "libs/toPriceFormat";
+import toDateFormat from "libs/toDateFormat";
+import returnConfigurationData from "libs/config";
 
-interface ITransaction {
-  date?: string;
-  typeTransaction?: "Income" | "Expense" | "Transfer";
-  image?: string;
-  price?: number;
+interface ITransactionC {
+  data?: any;
 }
 
-const Transaction: FunctionComponent<ITransaction> = ({
-  typeTransaction = "Income",
-  date = "12/02/2022",
-  price = 2250,
-}) => {
+const Transaction: FunctionComponent<ITransactionC> = ({ data = {} }) => {
   return (
     <View style={styles.transaction}>
       <View style={styles.transactionInfo}>
         <View style={styles.transactionType}>
-          <Image source={require("assets/payments-types/salary.png")} style={styles.transactionImage} />
+          <Image
+            source={
+              returnConfigurationData().AllTransactionTypes.find(
+                transactionType => transactionType.id === Number(data.type)
+              )?.image
+            }
+            style={styles.transactionImage}
+          />
         </View>
         <View style={styles.transactionInfoText}>
-          <Text style={styles.transactionInfoHeader}>{typeTransaction}</Text>
-          <Text style={styles.transactionInfoDate}>{date}</Text>
+          <Text style={styles.transactionInfoHeader}>
+            {
+              returnConfigurationData().AllTransactionTypes.find(
+                transactionType => transactionType.id === Number(data.type)
+              )?.title
+            }
+          </Text>
+          <Text style={styles.transactionInfoDate}>{toDateFormat(data.date)}</Text>
         </View>
       </View>
-      <Text style={styles.transactionText}>+ {toPriceFormat(price)} ₽ </Text>
+      <Text style={styles.transactionText}>
+        {data.actionType === "income" ? "+ " : "- "}
+        {toPriceFormat(data.amount)} ₽
+      </Text>
     </View>
   );
 };

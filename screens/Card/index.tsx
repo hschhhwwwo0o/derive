@@ -34,7 +34,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
-        "SELECT * FROM transactions WHERE cardId = ?",
+        "SELECT * FROM transactions WHERE cardId = ? ORDER BY id DESC",
         [route.params.id],
         (transaction: SQLTransaction, result: SQLResultSet) => {
           setTransactions(result.rows._array);
@@ -68,11 +68,9 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           <View style={styles.block}>
             <Label>Transactions</Label>
             <View style={styles.transactionsData}>
-              <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
-              <Transaction />
+              {transactions.map((transaction: ITransaction) => {
+                return <Transaction key={transaction.id} data={transaction} />;
+              })}
             </View>
           </View>
         )}

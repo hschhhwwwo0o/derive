@@ -7,10 +7,36 @@ import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import IncomeType from "components/Custom/IncomeType";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 
-const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");
   const [activeIncomeTypeID, setActiveIncomeTypeID] = useState<number>(returnConfigurationData().IncomeTypes[0].id);
+
+  function createTransaction() {
+    Database.transaction(async (transaction: SQLTransaction) => {
+      await transaction.executeSql(
+        "INSERT INTO transactions (cardId, amount, date, type, actionType) VALUES (?, ?, ?, ?, ?);",
+        [route.params.cardId, sum, `${new Date().getTime()}`, activeIncomeTypeID, "income"]
+      );
+      await transaction.executeSql(
+        "SELECT * FROM cards WHERE id = ?",
+        [route.params.cardId],
+        (t: SQLTransaction, result: SQLResultSet) => {
+          transaction.executeSql(
+            "UPDATE cards SET balance = ? WHERE id = ?",
+            [Number(result.rows._array[0].balance) + Number(sum), route.params.cardId],
+            () => {
+              navigation.push("Card", {
+                id: route.params.cardId,
+              });
+            }
+          );
+        }
+      );
+    });
+  }
 
   return (
     <TheLayout>
@@ -38,7 +64,7 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button>Income</Button>
+          <Button onPressHandler={createTransaction}>Income</Button>
         </View>
       </View>
     </TheLayout>
