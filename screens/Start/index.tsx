@@ -17,6 +17,9 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
 
   useEffect(() => {
     Database.transaction((transaction: SQLTransaction) => {
+      // transaction.executeSql("DROP TABLE cards;");
+      // transaction.executeSql("DROP TABLE goals;");
+      // transaction.executeSql("DROP TABLE transactions;");
       transaction.executeSql(
         "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, balance INT, paymentSystem TEXT, number TEXT, endDate TEXT, colorId INT);"
       );
