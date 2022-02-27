@@ -20,6 +20,7 @@ Design instruments: [Figma]
 [expo]: https://docs.expo.dev/
 [flaticon]: https://www.flaticon.com/
 [iconicons]: https://icon-icons.com/ru/
+[figma]: https://www.figma.com/
 
 <br />
 
