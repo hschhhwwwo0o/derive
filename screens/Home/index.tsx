@@ -23,19 +23,31 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
   useEffect(() => {
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
-        setCards(result.rows._array);
-      });
+      transaction.executeSql(
+        "SELECT * FROM cards ORDER BY id DESC",
+        [],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setCards(result.rows._array);
+        }
+      );
     });
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql("SELECT * FROM goals", [], (transaction: SQLTransaction, result: SQLResultSet) => {
-        setGoals(result.rows._array);
-      });
+      transaction.executeSql(
+        "SELECT * FROM goals ORDER BY id DESC",
+        [],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setGoals(result.rows._array);
+        }
+      );
     });
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql("SELECT * FROM transactions", [], (transaction: SQLTransaction, result: SQLResultSet) => {
-        setTransactions(result.rows._array);
-      });
+      transaction.executeSql(
+        "SELECT * FROM transactions ORDER BY id DESC LIMIT 5",
+        [],
+        (transaction: SQLTransaction, result: SQLResultSet) => {
+          setTransactions(result.rows._array);
+        }
+      );
     });
   }, [route]);
 
