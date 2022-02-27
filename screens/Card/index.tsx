@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     marginTop: 43,
   },
   blockContent: {
-    marginTop: 14,
+    marginTop: 23,
     flexDirection: "row",
     justifyContent: "space-between",
   },
