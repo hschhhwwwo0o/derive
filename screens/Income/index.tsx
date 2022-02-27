@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import returnConfigurationData from "libs/config";
 import TopPanel from "components/UI/TopPanel";
@@ -7,8 +9,6 @@ import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import IncomeType from "components/Custom/IncomeType";
-import Database from "sql";
-import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 
 const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");

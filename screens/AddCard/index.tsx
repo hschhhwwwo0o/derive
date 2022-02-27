@@ -4,12 +4,12 @@ import Database from "sql";
 import { SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
+import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Skin from "components/UI/Skin";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
-import TopPanel from "components/UI/TopPanel";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [activeSkin, setActiveSkin] = useState<number>(0);

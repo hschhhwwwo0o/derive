@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import TheLayout from "layouts";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import returnConfigurationData from "libs/config";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import ExpenseType from "components/Custom/ExpenseType";
-import Database from "sql";
-import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");

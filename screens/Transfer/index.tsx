@@ -1,15 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
+import Button from "components/UI/Button";
 import Input from "components/UI/Input";
 import EmptyCard from "components/Custom/EmptyCard";
 import Card from "components/Custom/Card";
-import Database from "sql";
-import { SQLResultSet, SQLTransaction } from "expo-sqlite";
-import Button from "components/UI/Button";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [cards, setCards] = useState<any>([]);
@@ -113,11 +113,13 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
                   <Text style={styles.chooseCardButtonText}>Choose card</Text>
                 </View>
               </TouchableOpacity>
-              <View style={styles.actionButton}>
-                <Button variant="warning" onPressHandler={onTransferConfirmHandler}>
-                  Transfer
-                </Button>
-              </View>
+              {selectedCard?.id && (
+                <View style={styles.actionButton}>
+                  <Button variant="warning" onPressHandler={onTransferConfirmHandler}>
+                    Transfer
+                  </Button>
+                </View>
+              )}
             </View>
           </View>
         </>
