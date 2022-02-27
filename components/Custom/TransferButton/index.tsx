@@ -8,9 +8,11 @@ interface ITransferButton {
   route: IRoute;
 }
 
-const TransferButton: FunctionComponent<ITransferButton> = ({ navigation }) => {
+const TransferButton: FunctionComponent<ITransferButton> = ({ navigation, route }) => {
   function onPressHandler(): void {
-    navigation.push("Transfer");
+    navigation.push("Transfer", {
+      cardId: route.params.id,
+    });
   }
 
   return (

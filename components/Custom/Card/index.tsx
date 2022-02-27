@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import toPriceFormat from "libs/toPriceFormat";
@@ -16,7 +16,7 @@ interface ICard {
 }
 
 const Card: FunctionComponent<ICard> = ({
-  onPressHandler = () => {},
+  onPressHandler = undefined,
   paymentSystem = "Visa",
   balance = 45000,
   number = "0000 0000 0000 0000",
@@ -24,23 +24,32 @@ const Card: FunctionComponent<ICard> = ({
   colorId = 0,
 }) => {
   return (
-    <LinearGradient colors={AppConstants.CardSkins[colorId].colors} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
-      {paymentSystem === "Visa" ? <VisaSVG /> : <PayPalSVG />}
-      <View>
-        <Text style={styles.price}>{toPriceFormat(balance)} ₽</Text>
-        <Text style={styles.typeBalance}>{paymentSystem} Balance</Text>
-      </View>
-      <View style={styles.cardInfo}>
-        <Text style={styles.cardInfoText}>
-          ****{" "}
-          {number[number.length - 4] +
-            number[number.length - 3] +
-            number[number.length - 2] +
-            number[number.length - 1]}
-        </Text>
-        <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date.replace(".", "/")}</Text>
-      </View>
-    </LinearGradient>
+    <TouchableOpacity
+      activeOpacity={onPressHandler ? AppConstants.ActiveOpacity : 1}
+      onPress={() => {
+        if (onPressHandler) {
+          onPressHandler();
+        }
+      }}
+    >
+      <LinearGradient colors={AppConstants.CardSkins[colorId].colors} end={{ x: 0.9, y: 0.2 }} style={styles.minCard}>
+        {paymentSystem === "Visa" ? <VisaSVG /> : <PayPalSVG />}
+        <View>
+          <Text style={styles.price}>{toPriceFormat(balance)} ₽</Text>
+          <Text style={styles.typeBalance}>{paymentSystem} Balance</Text>
+        </View>
+        <View style={styles.cardInfo}>
+          <Text style={styles.cardInfoText}>
+            ****{" "}
+            {number[number.length - 4] +
+              number[number.length - 3] +
+              number[number.length - 2] +
+              number[number.length - 1]}
+          </Text>
+          <Text style={[styles.cardInfoText, styles.cardInfoDate]}>{date.replace(".", "/")}</Text>
+        </View>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 
