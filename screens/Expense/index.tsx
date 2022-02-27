@@ -8,13 +8,13 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import ExpenseType from "components/Custom/ExpenseType";
 
-const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");
   const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(returnConfigurationData().ExpenseTypes[0].id);
 
   return (
     <TheLayout>
-      <TopPanel withBack navigation={navigation} />
+      <TopPanel withBack navigation={navigation} backPathname="Card" backParams={{ id: route.params.cardId }} />
       <View style={styles.body}>
         <Label>Expense</Label>
         <View style={styles.headerInput}>

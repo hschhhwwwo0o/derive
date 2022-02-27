@@ -8,9 +8,11 @@ interface IExpenseButton {
   route: IRoute;
 }
 
-const ExpenseButton: FunctionComponent<IExpenseButton> = ({ navigation }) => {
+const ExpenseButton: FunctionComponent<IExpenseButton> = ({ navigation, route }) => {
   function onPressHandler(): void {
-    navigation.push("Expense");
+    navigation.push("Expense", {
+      cardId: route.params.id,
+    });
   }
 
   return (

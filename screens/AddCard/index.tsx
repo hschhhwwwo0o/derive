@@ -30,7 +30,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
 
   return (
     <TheLayout>
-      <TopPanel navigation={navigation} withBack />
+      <TopPanel navigation={navigation} withBack isGoBack />
       <View style={styles.body}>
         <Label>Choose skin</Label>
         <View style={styles.skins}>

@@ -46,7 +46,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
   return (
     <TheLayout>
-      <TopPanel withBack navigation={navigation} />
+      <TopPanel withBack navigation={navigation} backPathname="Home" />
       <View style={styles.body}>
         <Label>{goal?.name}</Label>
         <View style={styles.goalProgress}>

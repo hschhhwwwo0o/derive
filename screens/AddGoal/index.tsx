@@ -28,7 +28,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
 
   return (
     <TheLayout>
-      <TopPanel navigation={navigation} withBack />
+      <TopPanel navigation={navigation} withBack backPathname="Home" />
       <View style={styles.body}>
         <Label>Create a Goal</Label>
         <View style={styles.finalAmount}>

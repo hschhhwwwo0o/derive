@@ -12,7 +12,7 @@ import AddGoal from "components/Custom/AddGoal";
 import Goal from "components/Custom/Goal";
 import Transaction from "components/Custom/Transaction";
 
-const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
+const HomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [cards, setCards] = useState<ICard[]>([]);
   const [goals, setGoals] = useState<IGoal[]>([]);
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
@@ -32,7 +32,12 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         setGoals(result.rows._array);
       });
     });
-  }, [navigation]);
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("SELECT * FROM transactions", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        setTransactions(result.rows._array);
+      });
+    });
+  }, [route]);
 
   return (
     <TheLayout withHorizontalPaddings={false}>
@@ -85,7 +90,9 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation }) => {
                 </Pressable>
               </View>
               <View style={styles.transactionsBody}>
-                <Transaction />
+                {transactions.map((transaction: ITransaction) => {
+                  return <Transaction key={transaction.id} data={transaction} />;
+                })}
               </View>
             </View>
           )}

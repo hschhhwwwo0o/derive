@@ -6,15 +6,33 @@ import Logo from "components/UI/Logo";
 interface ITopPanel {
   navigation?: INavigation;
   withBack?: boolean;
+  backPathname?: string;
+  backParams?: any;
+  isGoBack?: boolean;
 }
 
 const WithoutBack: FunctionComponent = () => {
   return <Logo textAlign="center" />;
 };
 
-const WithBack: FunctionComponent<{ navigation: INavigation | undefined }> = ({ navigation }) => {
+const WithBack: FunctionComponent<{
+  navigation: INavigation | undefined;
+  backPathname?: string;
+  backParams?: any;
+  isGoBack?: boolean;
+}> = ({ navigation, backPathname, backParams, isGoBack }) => {
   function onPressBackHandler(): void {
-    navigation?.goBack();
+    if (isGoBack) {
+      navigation?.goBack();
+    } else {
+      if (backParams) {
+        navigation?.push(String(backPathname), {
+          ...backParams,
+        });
+      } else {
+        navigation?.push(String(backPathname));
+      }
+    }
   }
 
   return (
@@ -26,10 +44,18 @@ const WithBack: FunctionComponent<{ navigation: INavigation | undefined }> = ({ 
   );
 };
 
-const TopPanel: FunctionComponent<ITopPanel> = ({ withBack = false, navigation }) => {
+const TopPanel: FunctionComponent<ITopPanel> = ({
+  withBack = false,
+  navigation,
+  backPathname,
+  backParams,
+  isGoBack = false,
+}) => {
   return (
     <>
-      {withBack === true && <WithBack navigation={navigation} />}
+      {withBack === true && (
+        <WithBack navigation={navigation} backPathname={backPathname} backParams={backParams} isGoBack={isGoBack} />
+      )}
       {withBack === false && <WithoutBack />}
     </>
   );

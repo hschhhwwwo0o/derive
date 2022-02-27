@@ -45,7 +45,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
   return (
     <TheLayout>
-      <TopPanel withBack navigation={navigation} />
+      <TopPanel withBack navigation={navigation} backPathname={"Home"} />
       <View style={styles.body}>
         <Card
           number={card.number}

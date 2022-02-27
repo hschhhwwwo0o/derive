@@ -40,7 +40,7 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
   return (
     <TheLayout>
-      <TopPanel withBack navigation={navigation} />
+      <TopPanel withBack navigation={navigation} backPathname="Card" backParams={{ id: route.params.cardId }} />
       <View style={styles.body}>
         <Label>Income</Label>
         <View style={styles.headerInput}>
