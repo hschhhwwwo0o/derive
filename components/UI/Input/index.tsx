@@ -1,5 +1,6 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { StyleSheet, TextInput } from "react-native";
+import { MaskedTextInput } from "react-native-mask-text";
 import AppConstants from "styles/constants";
 
 interface IInput {
@@ -7,6 +8,7 @@ interface IInput {
   setState: Dispatch<SetStateAction<string>>;
   placeholder: string;
   keyboardType?: "default" | "decimal-pad" | "number-pad";
+  mask?: string;
 }
 
 const Input: FunctionComponent<IInput> = ({
@@ -14,17 +16,33 @@ const Input: FunctionComponent<IInput> = ({
   keyboardType = "default",
   state = "",
   setState = () => {},
+  mask = "",
 }) => {
   return (
-    <TextInput
-      value={state}
-      onChangeText={newText => setState(newText)}
-      keyboardAppearance="dark"
-      keyboardType={keyboardType}
-      style={styles.input}
-      placeholder={placeholder}
-      placeholderTextColor="#595968"
-    />
+    <>
+      {!mask ? (
+        <TextInput
+          value={state}
+          onChangeText={newText => setState(newText)}
+          keyboardAppearance="dark"
+          keyboardType={keyboardType}
+          style={styles.input}
+          placeholder={placeholder}
+          placeholderTextColor="#595968"
+        />
+      ) : (
+        <MaskedTextInput
+          mask={mask}
+          value={state}
+          onChangeText={newText => setState(newText)}
+          keyboardAppearance="dark"
+          keyboardType={keyboardType}
+          style={styles.input}
+          placeholder={placeholder}
+          placeholderTextColor="#595968"
+        />
+      )}
+    </>
   );
 };
 

@@ -48,12 +48,19 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
               placeholder="Enter initial sum..."
             />
             <Input
+              mask="9999 9999 9999 9999"
               state={cardNumber}
               setState={setCardNumber}
               keyboardType="decimal-pad"
               placeholder="Enter card number..."
             />
-            <Input state={endDate} setState={setEndDate} keyboardType="decimal-pad" placeholder="Enter end date..." />
+            <Input
+              mask="99/99/9999"
+              state={endDate}
+              setState={setEndDate}
+              keyboardType="decimal-pad"
+              placeholder="Enter end date..."
+            />
           </View>
         </View>
         <View style={styles.mt}>
