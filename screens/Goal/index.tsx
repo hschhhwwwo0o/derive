@@ -87,6 +87,11 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         <View style={styles.saveButton}>
           <Button onPressHandler={updateGoal}>Save</Button>
         </View>
+        <View style={styles.removeButton}>
+          <Button onPressHandler={removeGoal} variant="danger">
+            Remove
+          </Button>
+        </View>
       </View>
     </TheLayout>
   );
