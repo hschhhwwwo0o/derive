@@ -6,8 +6,10 @@ Dérive is a mobile app to control your finances written in React Native
 
 ## Tech Stack
 
-- **[ReactNative]** - is an open-source mobile app development platform created by Facebook
+- **[ReactNative]** - is an open-source mobile app development platform
 - **[Expo]** - is a toolkit for React Native
+- **[SQLite]** - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability,
+  full-featured, SQL database engine.
 
 ## Design
 
@@ -21,6 +23,7 @@ Design instruments: [Figma]
 [flaticon]: https://www.flaticon.com/
 [iconicons]: https://icon-icons.com/ru/
 [figma]: https://www.figma.com/
+[sqlite]: https://www.sqlite.org/index.html
 
 <br />
 
