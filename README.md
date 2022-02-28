@@ -8,6 +8,7 @@ Dérive is a mobile app to control your finances written in React Native
 
 - **[ReactNative]** - is an open-source mobile app development platform
 - **[Expo]** - is a toolkit for React Native
+- **[TypeScript]** - TypeScript extends JavaScript by adding types to the language.
 - **[SQLite]** - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability,
   full-featured, SQL database engine.
 
@@ -24,6 +25,7 @@ Design instruments: [Figma]
 [iconicons]: https://icon-icons.com/ru/
 [figma]: https://www.figma.com/
 [sqlite]: https://www.sqlite.org/index.html
+[typescript]: https://www.typescriptlang.org/
 
 <br />
 
