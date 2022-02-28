@@ -1,4 +1,4 @@
-<img src="./md/c.png" />
+![GitHub Dark](./md/c.png#gh-light-mode-only)
 
 ## Dérive
 
