@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Dimensions, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import { IIncomeExpenseType } from "libs/config";
@@ -13,13 +14,12 @@ interface IIncomeType {
 const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {}, data, isActive = false }) => {
   return (
     <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={onPressHandler}>
-      <LinearGradient
-        style={[styles.incomeType, { opacity: isActive ? 1 : 0.85 }, isActive ? styles.shadow : {}]}
-        colors={["#CCF0FA", "#E5E5E5"]}
-      >
-        <Image source={data.image} style={styles.image} />
-        <Text style={styles.text}>{data.title}</Text>
-      </LinearGradient>
+      <Animatable.View transition="opacity" style={{ opacity: isActive ? 1 : 0.85 }}>
+        <LinearGradient style={[styles.incomeType, isActive ? styles.shadow : {}]} colors={["#CCF0FA", "#E5E5E5"]}>
+          <Image source={data.image} style={styles.image} />
+          <Text style={styles.text}>{data.title}</Text>
+        </LinearGradient>
+      </Animatable.View>
     </TouchableOpacity>
   );
 };
