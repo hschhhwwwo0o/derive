@@ -30,7 +30,7 @@ class _CardsStore {
     cardNumber: string,
     endDate: string,
     activeSkin: string,
-    callback: () => {}
+    callback: () => any
   ) {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(

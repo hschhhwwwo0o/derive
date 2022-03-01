@@ -24,7 +24,7 @@ class _TransactionsStore {
     });
   }
 
-  income(cardId: string, sum: string, activeIncomeTypeID: string, callback: () => {}) {
+  income(cardId: string, sum: string, activeIncomeTypeID: string, callback: () => any) {
     Database.transaction(async (transaction: SQLTransaction) => {
       await transaction.executeSql(
         "INSERT INTO transactions (cardId, amount, date, type, actionType) VALUES (?, ?, ?, ?, ?);",

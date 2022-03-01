@@ -24,7 +24,7 @@ class _GoalsStore {
     });
   }
 
-  insert(goal: string, goalDescription: string, goalFinalAmount: string, callback: () => {}) {
+  insert(goal: string, goalDescription: string, goalFinalAmount: string, callback: () => any) {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO goals (name, description, finalAmount, currentAmount) VALUES (?, ?, ?, ?);",
