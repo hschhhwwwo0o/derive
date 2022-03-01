@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class _TransactionsStore {
-  transactions = [];
+  transactions: ITransaction | [] = [];
 
   constructor() {
     makeAutoObservable(this);

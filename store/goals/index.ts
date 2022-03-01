@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class _GoalsStore {
-  goals = [];
+  goals: IGoal | [] = [];
 
   constructor() {
     makeAutoObservable(this);

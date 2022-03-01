@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class _CardsStore {
-  cards = [];
+  cards: ICard | [] = [];
 
   constructor() {
     makeAutoObservable(this);
