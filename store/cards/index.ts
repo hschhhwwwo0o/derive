@@ -12,6 +12,9 @@ class _CardsStore {
   init() {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
+        "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, balance INT, paymentSystem TEXT, number TEXT, endDate TEXT, colorId INT);"
+      );
+      transaction.executeSql(
         "SELECT * FROM cards ORDER BY id DESC",
         [],
         (transaction: SQLTransaction, result: SQLResultSet) => {

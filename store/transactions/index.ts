@@ -12,6 +12,9 @@ class _TransactionsStore {
   init() {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
+        "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cardId INT, amount INT, date TEXT, type TEXT, actionType TEXT);"
+      );
+      transaction.executeSql(
         "SELECT * FROM transactions ORDER BY id DESC LIMIT 5",
         [],
         (transaction: SQLTransaction, result: SQLResultSet) => {

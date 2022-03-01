@@ -12,6 +12,9 @@ class _GoalsStore {
   init() {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
+        "CREATE TABLE IF NOT EXISTS goals (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, description TEXT, finalAmount INT, currentAmount INT);"
+      );
+      transaction.executeSql(
         "SELECT * FROM goals ORDER BY id DESC",
         [],
         (transaction: SQLTransaction, result: SQLResultSet) => {
