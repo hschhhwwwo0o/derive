@@ -28,6 +28,14 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     navigation.push("Home");
   }
 
+  function validateData() {
+    if (initialSum !== "" && cardNumber.length === 19 && endDate.length === 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <TheLayout>
       <TopPanel navigation={navigation} withBack isGoBack />
@@ -79,7 +87,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.createButton}>
-          <Button variant="primary" onPressHandler={onCreateCardHandler}>
+          <Button variant="primary" onPressHandler={onCreateCardHandler} isValidate={validateData()}>
             Create
           </Button>
         </View>

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode } from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
@@ -42,15 +42,23 @@ const PrimaryButton: FunctionComponent<IButton> = ({ children }) => {
 interface IMainButton extends IButton {
   variant?: "default" | "warning" | "danger" | "primary";
   onPressHandler?: () => void;
+  isValidate?: boolean;
 }
 
-const Button: FunctionComponent<IMainButton> = ({ children, variant = "default", onPressHandler = () => {} }) => {
+const Button: FunctionComponent<IMainButton> = ({
+  children,
+  variant = "default",
+  onPressHandler = () => {},
+  isValidate = true,
+}) => {
   return (
-    <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={onPressHandler}>
-      {variant === "default" && <DefaultButton>{children}</DefaultButton>}
-      {variant === "danger" && <DangerButton>{children}</DangerButton>}
-      {variant === "warning" && <WarningButton>{children}</WarningButton>}
-      {variant === "primary" && <PrimaryButton>{children}</PrimaryButton>}
+    <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={isValidate ? onPressHandler : () => {}}>
+      <View style={isValidate ? styles.validate : styles.noValidate}>
+        {variant === "default" && <DefaultButton>{children}</DefaultButton>}
+        {variant === "danger" && <DangerButton>{children}</DangerButton>}
+        {variant === "warning" && <WarningButton>{children}</WarningButton>}
+        {variant === "primary" && <PrimaryButton>{children}</PrimaryButton>}
+      </View>
     </TouchableOpacity>
   );
 };
@@ -71,6 +79,12 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     fontFamily: AppConstants.FontExtra,
+  },
+  validate: {
+    opacity: 1,
+  },
+  noValidate: {
+    opacity: 0.6,
   },
 });
 
