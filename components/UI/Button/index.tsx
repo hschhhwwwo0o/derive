@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   noValidate: {
-    opacity: 0.6,
+    opacity: 1,
   },
 });
 
