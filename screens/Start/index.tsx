@@ -47,8 +47,8 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           <View>
             <Logo variant="big" />
             <Text style={styles.bodyText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              Dérive is a mobile app for keeping track of your expenses and income, managing your financial goals, and
+              keeping track of your card balances.
             </Text>
             <View style={styles.bodyButton}>
               <Button onPressHandler={onLetsStartPressHandler}>Let’s start</Button>
