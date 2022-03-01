@@ -20,6 +20,26 @@ class _CardsStore {
       );
     });
   }
+
+  insert(
+    initialSum: string,
+    activePaymentSystem: string,
+    cardNumber: string,
+    endDate: string,
+    activeSkin: string,
+    callback: () => {}
+  ) {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",
+        [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin],
+        () => {
+          this.init();
+          callback();
+        }
+      );
+    });
+  }
 }
 
 export default new _CardsStore();

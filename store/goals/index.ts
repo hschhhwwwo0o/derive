@@ -20,6 +20,19 @@ class _GoalsStore {
       );
     });
   }
+
+  insert(goal: string, goalDescription: string, goalFinalAmount: string, callback: () => {}) {
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql(
+        "INSERT INTO goals (name, description, finalAmount, currentAmount) VALUES (?, ?, ?, ?);",
+        [goal, goalDescription, goalFinalAmount, 0],
+        () => {
+          this.init();
+          callback();
+        }
+      );
+    });
+  }
 }
 
 export default new _GoalsStore();
