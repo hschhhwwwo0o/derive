@@ -38,6 +38,13 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }
 
+  function validateData() {
+    if (sum) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <TheLayout>
       <TopPanel withBack navigation={navigation} backPathname="Card" backParams={{ id: route.params.cardId }} />
@@ -64,7 +71,7 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button variant="danger" onPressHandler={createTransaction}>
+          <Button variant="danger" onPressHandler={createTransaction} isValidate={validateData()}>
             Expense
           </Button>
         </View>

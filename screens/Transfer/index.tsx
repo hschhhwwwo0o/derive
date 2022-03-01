@@ -33,6 +33,13 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }, []);
 
+  function validateData() {
+    if (sum) {
+      return true;
+    }
+    return false;
+  }
+
   function onTransferConfirmHandler() {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("SELECT * FROM cards WHERE id = ?", [route.params.cardId], (t, result: SQLResultSet) => {
@@ -115,7 +122,7 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
               </TouchableOpacity>
               {selectedCard?.id && (
                 <View style={styles.actionButton}>
-                  <Button variant="warning" onPressHandler={onTransferConfirmHandler}>
+                  <Button variant="warning" onPressHandler={onTransferConfirmHandler} isValidate={validateData()}>
                     Transfer
                   </Button>
                 </View>

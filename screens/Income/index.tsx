@@ -38,6 +38,13 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }
 
+  function validateData() {
+    if (sum) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <TheLayout>
       <TopPanel withBack navigation={navigation} backPathname="Card" backParams={{ id: route.params.cardId }} />
@@ -64,7 +71,9 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button onPressHandler={createTransaction}>Income</Button>
+          <Button onPressHandler={createTransaction} isValidate={validateData()}>
+            Income
+          </Button>
         </View>
       </View>
     </TheLayout>
