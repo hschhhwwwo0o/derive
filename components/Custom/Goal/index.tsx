@@ -36,8 +36,12 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, current
   return (
     <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToGoal}>
       <View style={styles.block}></View>
-      <View style={{ marginTop: -75 }}>
-        <Animatable.View delay={50 * id} transition="width" style={{ overflow: "hidden", width: `${progress}%` }}>
+      <View style={{ marginTop: -75, overflow: "hidden" }}>
+        <Animatable.View
+          delay={50 * id}
+          transition="width"
+          style={{ overflow: "hidden", width: `${progress}%`, maxWidth: "100%" }}
+        >
           <LinearGradient
             colors={["#A8D2DF", "#CAD7A5"]}
             end={{ x: 0.9, y: 0.2 }}
