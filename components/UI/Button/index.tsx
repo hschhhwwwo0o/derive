@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 
@@ -53,12 +54,12 @@ const Button: FunctionComponent<IMainButton> = ({
 }) => {
   return (
     <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={isValidate ? onPressHandler : () => {}}>
-      <View style={isValidate ? styles.validate : styles.noValidate}>
+      <Animatable.View duration={2000} transition="opacity" style={isValidate ? styles.validate : styles.noValidate}>
         {variant === "default" && <DefaultButton>{children}</DefaultButton>}
         {variant === "danger" && <DangerButton>{children}</DangerButton>}
         {variant === "warning" && <WarningButton>{children}</WarningButton>}
         {variant === "primary" && <PrimaryButton>{children}</PrimaryButton>}
-      </View>
+      </Animatable.View>
     </TouchableOpacity>
   );
 };
