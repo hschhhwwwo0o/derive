@@ -26,6 +26,14 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     });
   }
 
+  function validateData() {
+    if (goal && goalFinalAmount) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <TheLayout>
       <TopPanel navigation={navigation} withBack backPathname="Home" />
@@ -50,7 +58,9 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           />
         </View>
         <View style={styles.createButton}>
-          <Button onPressHandler={insertGoal}>Create</Button>
+          <Button onPressHandler={insertGoal} isValidate={validateData()}>
+            Create
+          </Button>
         </View>
       </View>
     </TheLayout>
