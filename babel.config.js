@@ -17,6 +17,7 @@ module.exports = function (api) {
             libs: "./libs",
             sql: "./sql",
             config: "./config-app",
+            store: "./store",
           },
         },
       ],
