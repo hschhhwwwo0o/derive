@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AppConstants from "styles/constants";
 import toPriceFormat from "libs/toPriceFormat";
+import * as Animatable from "react-native-animatable";
 
 interface IGoal {
   navigation?: INavigation;
@@ -25,19 +26,25 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, current
   }
 
   useEffect(() => {
-    if (currentAmount !== undefined && finalAmount !== undefined) {
-      setProgress((currentAmount / finalAmount) * 100);
-    }
+    setTimeout(() => {
+      if (currentAmount !== undefined && finalAmount !== undefined) {
+        setProgress((currentAmount / finalAmount) * 100);
+      }
+    }, 100);
   }, [currentAmount, finalAmount]);
 
   return (
     <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={navigateToGoal}>
       <View style={styles.block}></View>
-      <LinearGradient
-        colors={["#A8D2DF", "#CAD7A5"]}
-        end={{ x: 0.9, y: 0.2 }}
-        style={[styles.gradient, { width: `${progress}%` }]}
-      />
+      <View style={{ marginTop: -75 }}>
+        <Animatable.View delay={50 * id} transition="width" style={{ overflow: "hidden", width: `${progress}%` }}>
+          <LinearGradient
+            colors={["#A8D2DF", "#CAD7A5"]}
+            end={{ x: 0.9, y: 0.2 }}
+            style={[styles.gradient, { width: `100%` }]}
+          />
+        </Animatable.View>
+      </View>
       <View style={styles.textBlock}>
         <View style={styles.textContent}>
           <Text style={styles.goalText}>{name}</Text>
@@ -70,7 +77,6 @@ const styles = StyleSheet.create({
   gradient: {
     borderRadius: 20,
     height: 75,
-    marginTop: -75,
   },
   textContent: {
     marginTop: -2,
