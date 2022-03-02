@@ -33,11 +33,15 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   function onRemoveCardHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("DELETE FROM cards WHERE id = ?", [route.params.id]);
-    });
-    Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("DELETE FROM transactions WHERE cardId = ?", [route.params.id]);
+      transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        if (result.rows.length) {
+          navigation.push("Home");
+        } else {
+          navigation.push("Start");
+        }
+      });
     });
-    navigation.push("Home");
   }
 
   useEffect(() => {
