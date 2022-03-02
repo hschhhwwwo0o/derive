@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { TouchableOpacity, StyleSheet, Dimensions, View } from "react-native";
+import { TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Animatable from "react-native-animatable";
 import AppConstants from "styles/constants";
