@@ -10,7 +10,12 @@ import TransferScreen from "screens/Transfer";
 import IncomeScreen from "screens/Income";
 import EditCardScreen from "screens/EditCard";
 
-const router = [
+interface IRouteScreen {
+  name: string;
+  component: React.FunctionComponent<IScreen>;
+}
+
+const router: IRouteScreen[] = [
   { name: "Start", component: StartScreen },
   { name: "AddCard", component: AddCardScreen },
   { name: "EditCard", component: EditCardScreen },
