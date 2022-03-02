@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
