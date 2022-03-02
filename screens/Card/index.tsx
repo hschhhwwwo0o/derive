@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
+import AppConstants from "styles/constants";
 import TheLayout from "layouts";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
@@ -14,6 +15,12 @@ import Transaction from "components/Custom/Transaction";
 const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [card, setCard] = useState<ICard>();
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
+
+  function goToChangeCardInformation() {
+    navigation.push("EditCard", {
+      id: route.params.id,
+    });
+  }
 
   useEffect(() => {
     Database.transaction((transaction: SQLTransaction) => {
@@ -47,6 +54,9 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           paymentSystem={card?.paymentSystem}
           date={card?.endDate}
         />
+        <TouchableOpacity onPress={goToChangeCardInformation} activeOpacity={AppConstants.ActiveOpacity}>
+          <Text style={styles.goChange}>Change a card information</Text>
+        </TouchableOpacity>
         <View style={styles.block}>
           <Label>Actions</Label>
           <View style={styles.blockContent}>
@@ -78,7 +88,7 @@ const styles = StyleSheet.create({
     paddingBottom: 46,
   },
   block: {
-    marginTop: 43,
+    marginTop: 28,
   },
   blockContent: {
     marginTop: 23,
@@ -91,6 +101,13 @@ const styles = StyleSheet.create({
   },
   transactionsData: {
     marginTop: 11,
+  },
+  goChange: {
+    fontFamily: AppConstants.FontBold,
+    textAlign: "center",
+    fontSize: 12,
+    color: "#F9F9F9",
+    marginTop: 28,
   },
 });
 

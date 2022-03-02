@@ -8,10 +8,12 @@ import TransactionsScreen from "screens/Transactions";
 import ExpenseScreen from "screens/Expense";
 import TransferScreen from "screens/Transfer";
 import IncomeScreen from "screens/Income";
+import EditCardScreen from "screens/EditCard";
 
 const router = [
   { name: "Start", component: StartScreen },
   { name: "AddCard", component: AddCardScreen },
+  { name: "EditCard", component: EditCardScreen },
   { name: "Home", component: HomeScreen },
   { name: "AddGoal", component: AddGoalScreen },
   { name: "Card", component: CardScreen },
