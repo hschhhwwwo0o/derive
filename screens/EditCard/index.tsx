@@ -19,14 +19,23 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
   function onUpdateCardHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql("", []);
+      transaction.executeSql("UPDATE cards SET number = ?, endDate = ?, paymentSystem = ?, colorId = ? WHERE id = ?", [
+        cardNumber,
+        endDate,
+        activePaymentSystem,
+        activeSkin,
+        route.params.id,
+      ]);
     });
     navigation.push("Home");
   }
 
   function onRemoveCardHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql("", []);
+      transaction.executeSql("DELETE FROM cards WHERE id = ?", [route.params.id]);
+    });
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("DELETE FROM transactions WHERE cardId = ?", [route.params.id]);
     });
     navigation.push("Home");
   }
