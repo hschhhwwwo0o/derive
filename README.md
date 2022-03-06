@@ -2,7 +2,9 @@
 
 ## Dérive
 
-Dérive - an android mobile app to control your finances written in React Native with Expo. The app allows you to add bank cards, monitor their balances, save transactions, add financial goals and monitor their progress. 
+Dérive - an android mobile app to control your finances written in React Native with Expo. The app allows you to add bank cards, monitor their balances, save transactions, add financial goals and monitor their progress.
+
+To test the application, you can use the free application available in the Google Play Store - Expo. You can try the test version of the application by following this link: expo.dev/@hschhhwwwo0o/derive
 
 ## Tech Stack
 
