@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import StartScreen from "screens/Start";
 import AddCardScreen from "screens/AddCard";
 import HomeScreen from "screens/Home";
@@ -12,7 +13,7 @@ import EditCardScreen from "screens/EditCard";
 
 interface IRouteScreen {
   name: string;
-  component: React.FunctionComponent<IScreen>;
+  component: FunctionComponent<IScreen>;
 }
 
 const router: IRouteScreen[] = [
