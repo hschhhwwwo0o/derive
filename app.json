@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/derive-icon.png",
         "backgroundColor": "#161622"
       },
       "package": "Derive.apk"
