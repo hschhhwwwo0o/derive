@@ -17,8 +17,6 @@
     "expo-linear-gradient": "~11.0.3",
     "expo-sqlite": "~10.1.0",
     "expo-status-bar": "~1.2.0",
-    "mobx": "^6.4.2",
-    "mobx-react": "^7.3.0",
     "moment": "^2.29.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
