@@ -2,7 +2,7 @@
 
 ## Dérive
 
-Dérive is a mobile app to control your finances written in React Native
+Dérive - an android mobile app to control your finances written in React Native with Expo
 
 ## Tech Stack
 
