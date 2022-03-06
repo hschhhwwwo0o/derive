@@ -12,7 +12,7 @@ import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  const [activePaymentSystem, setActivePaymentSystem] = useState<"Visa" | "Paypal">("Visa");
+  const [activePaymentSystem, setActivePaymentSystem] = useState<IPaymentSystem>("Visa");
   const [activeSkin, setActiveSkin] = useState<number>(0);
   const [initialSum, setInitialSum] = useState<string>("");
   const [cardNumber, setCardNumber] = useState<string>("");

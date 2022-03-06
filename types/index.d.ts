@@ -40,3 +40,5 @@ interface ITransaction {
   type: string;
   actionType: string;
 }
+
+type IPaymentSystem = "Visa" | "Paypal";
