@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { createNativeStackNavigator, NativeStackNavigationOptions } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import router from "router";
 
@@ -17,6 +17,8 @@ const Application: FunctionComponent = () => {
     return null;
   }
 
+  const Theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: "#161622" } };
+
   const StackScreenOptions: NativeStackNavigationOptions = {
     headerShown: false,
     animation: "fade_from_bottom",
@@ -24,7 +26,7 @@ const Application: FunctionComponent = () => {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={Theme}>
       <Stack.Navigator>
         {router.map(route => {
           return (
