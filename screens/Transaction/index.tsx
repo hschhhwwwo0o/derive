@@ -50,7 +50,11 @@ const TransactionScreen: FunctionComponent<IScreen> = ({ navigation, route }) =>
         </View>
         <View>
           <Text style={[styles.center, styles.transactionType]}>
-            {returnConfigurationData().AllTransactionTypes[Number(currentTransaction?.type) || 0].title}
+            {
+              returnConfigurationData().AllTransactionTypes.find(
+                transactionType => transactionType.id === Number(currentTransaction?.type)
+              )?.title
+            }
           </Text>
           <Text style={[styles.center, styles.transactionDate]}>{toDateFormat(currentTransaction?.date || "")}</Text>
           <Text style={[styles.center, styles.transactionAmount]}>
