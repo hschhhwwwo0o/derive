@@ -12,8 +12,8 @@ import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
 
 const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
-  const [activeSkin, setActiveSkin] = useState<number>(0);
   const [activePaymentSystem, setActivePaymentSystem] = useState<"Visa" | "Paypal">("Visa");
+  const [activeSkin, setActiveSkin] = useState<number>(0);
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
 
