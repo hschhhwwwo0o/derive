@@ -1,7 +1,6 @@
 const Scholarship = require("assets/payments-types/fellowship.png");
 const Investment = require("assets/payments-types/investment.png");
 const Salary = require("assets/payments-types/salary.png");
-
 const Saving = require("assets/payments-types/saving.png");
 const Spending = require("assets/payments-types/spending.png");
 const Shopping = require("assets/payments-types/shopping.png");
@@ -24,7 +23,13 @@ const ExpenseTypes: IIncomeExpenseType[] = [
   { id: 5, image: Shopping, title: "Shopping" },
 ];
 
-function returnConfigurationData() {
+interface IReturnConfigurationData {
+  IncomeTypes: IIncomeExpenseType[];
+  ExpenseTypes: IIncomeExpenseType[];
+  AllTransactionTypes: IIncomeExpenseType[];
+}
+
+function returnConfigurationData(): IReturnConfigurationData {
   return {
     IncomeTypes,
     ExpenseTypes,
