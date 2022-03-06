@@ -78,7 +78,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
             <Label>Transactions</Label>
             <View style={styles.transactionsData}>
               {transactions.map((transaction: ITransaction) => {
-                return <Transaction key={transaction.id} data={transaction} />;
+                return <Transaction navigation={navigation} key={transaction.id} data={transaction} />;
               })}
             </View>
           </View>

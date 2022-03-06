@@ -29,7 +29,7 @@ const TransactionsScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <Label>All Transactions</Label>
         <View style={styles.data}>
           {transactions.map((transaction: ITransaction) => {
-            return <Transaction key={transaction.id} data={transaction} />;
+            return <Transaction navigation={navigation} key={transaction.id} data={transaction} />;
           })}
         </View>
       </View>

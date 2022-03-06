@@ -103,7 +103,7 @@ const HomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
               </View>
               <View style={styles.transactionsBody}>
                 {transactions.map((transaction: ITransaction) => {
-                  return <Transaction key={transaction.id} data={transaction} />;
+                  return <Transaction navigation={navigation} key={transaction.id} data={transaction} />;
                 })}
               </View>
             </View>

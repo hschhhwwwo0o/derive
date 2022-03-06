@@ -1,44 +1,51 @@
 import React, { FunctionComponent } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppConstants from "styles/constants";
 import toPriceFormat from "libs/toPriceFormat";
 import toDateFormat from "libs/toDateFormat";
 import returnConfigurationData from "libs/config";
 
 interface ITransactionC {
+  navigation: INavigation;
   data?: ITransaction;
 }
 
-const Transaction: FunctionComponent<ITransactionC> = ({ data = {} }) => {
+const Transaction: FunctionComponent<ITransactionC> = ({ navigation, data = {} }) => {
+  function goToTransaction() {
+    navigation.push("Transaction", { id: data.id });
+  }
+
   return (
-    <View style={styles.transaction}>
-      <View style={styles.transactionInfo}>
-        <View style={styles.transactionType}>
-          <Image
-            source={
-              returnConfigurationData().AllTransactionTypes.find(
-                transactionType => transactionType.id === Number(data.type)
-              )?.image
-            }
-            style={styles.transactionImage}
-          />
+    <TouchableOpacity activeOpacity={AppConstants.ActiveOpacity} onPress={goToTransaction}>
+      <View style={styles.transaction}>
+        <View style={styles.transactionInfo}>
+          <View style={styles.transactionType}>
+            <Image
+              source={
+                returnConfigurationData().AllTransactionTypes.find(
+                  transactionType => transactionType.id === Number(data.type)
+                )?.image
+              }
+              style={styles.transactionImage}
+            />
+          </View>
+          <View style={styles.transactionInfoText}>
+            <Text style={styles.transactionInfoHeader}>
+              {
+                returnConfigurationData().AllTransactionTypes.find(
+                  transactionType => transactionType.id === Number(data.type)
+                )?.title
+              }
+            </Text>
+            <Text style={styles.transactionInfoDate}>{toDateFormat(data.date || "")}</Text>
+          </View>
         </View>
-        <View style={styles.transactionInfoText}>
-          <Text style={styles.transactionInfoHeader}>
-            {
-              returnConfigurationData().AllTransactionTypes.find(
-                transactionType => transactionType.id === Number(data.type)
-              )?.title
-            }
-          </Text>
-          <Text style={styles.transactionInfoDate}>{toDateFormat(data.date || "")}</Text>
-        </View>
+        <Text style={styles.transactionText}>
+          {data.actionType === "income" ? "+ " : "- "}
+          {toPriceFormat(data.amount || 0)} ₽
+        </Text>
       </View>
-      <Text style={styles.transactionText}>
-        {data.actionType === "income" ? "+ " : "- "}
-        {toPriceFormat(data.amount || 0)} ₽
-      </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
