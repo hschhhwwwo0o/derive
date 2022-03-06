@@ -28,7 +28,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     navigation.push("Home");
   }
 
-  function validateData() {
+  function validateData(): boolean {
     if (initialSum !== "" && cardNumber.length === 19 && endDate.length === 10) {
       return true;
     } else {

@@ -12,7 +12,7 @@ import EmptyCard from "components/Custom/EmptyCard";
 import Card from "components/Custom/Card";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
-  const [cards, setCards] = useState<any>([]);
+  const [cards, setCards] = useState<ICard[]>([]);
   const [selectedCard, setSelectedCard] = useState<ICard>();
   const [sum, setSum] = useState<string>("");
   const [isOpenChooseCardScreen, setIsOpenChooseCardScreen] = useState<boolean>(false);
@@ -33,14 +33,14 @@ const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }, []);
 
-  function validateData() {
+  function validateData(): boolean {
     if (sum) {
       return true;
     }
     return false;
   }
 
-  function onTransferConfirmHandler() {
+  function onTransferConfirmHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("SELECT * FROM cards WHERE id = ?", [route.params.cardId], (t, result: SQLResultSet) => {
         transaction.executeSql("UPDATE cards SET balance = ? WHERE id = ?", [

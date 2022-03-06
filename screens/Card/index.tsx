@@ -17,7 +17,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [cardsLength, setCardsLength] = useState<number>(0);
 
-  function goToChangeCardInformation() {
+  function goToChangeCardInformation(): void {
     navigation.push("EditCard", {
       id: route.params.id,
     });

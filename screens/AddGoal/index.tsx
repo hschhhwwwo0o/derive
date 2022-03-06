@@ -26,7 +26,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     });
   }
 
-  function validateData() {
+  function validateData(): boolean {
     if (goal && goalFinalAmount) {
       return true;
     } else {
