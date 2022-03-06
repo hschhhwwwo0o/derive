@@ -16,9 +16,10 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
+      "backgroundColor": "#161622",
       "adaptiveIcon": {
         "foregroundImage": "./assets/derive-icon.png",
         "backgroundColor": "#161622"
