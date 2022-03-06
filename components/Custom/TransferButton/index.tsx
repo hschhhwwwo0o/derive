@@ -6,9 +6,10 @@ import AppConstants from "styles/constants";
 interface ITransferButton {
   navigation: INavigation;
   route: IRoute;
+  isActive: boolean;
 }
 
-const TransferButton: FunctionComponent<ITransferButton> = ({ navigation, route }) => {
+const TransferButton: FunctionComponent<ITransferButton> = ({ navigation, route, isActive = true }) => {
   function onPressHandler(): void {
     navigation.push("Transfer", {
       cardId: route.params.id,
@@ -16,8 +17,12 @@ const TransferButton: FunctionComponent<ITransferButton> = ({ navigation, route 
   }
 
   return (
-    <TouchableOpacity onPress={onPressHandler} activeOpacity={AppConstants.ActiveOpacity}>
-      <LinearGradient colors={["#FACCD2", "#FCD4CA"]} end={{ x: 0.9, y: 0.2 }} style={[styles.button, styles.shadow]}>
+    <TouchableOpacity onPress={isActive ? onPressHandler : () => {}} activeOpacity={AppConstants.ActiveOpacity}>
+      <LinearGradient
+        colors={["#FACCD2", "#FCD4CA"]}
+        end={{ x: 0.9, y: 0.2 }}
+        style={[styles.button, styles.shadow, { opacity: isActive ? 1 : 0.7 }]}
+      >
         <Text style={styles.text}>Transfer</Text>
       </LinearGradient>
     </TouchableOpacity>

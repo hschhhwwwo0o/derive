@@ -15,6 +15,7 @@ import Transaction from "components/Custom/Transaction";
 const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [card, setCard] = useState<ICard>();
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
+  const [cardsLength, setCardsLength] = useState<number>(0);
 
   function goToChangeCardInformation() {
     navigation.push("EditCard", {
@@ -41,6 +42,11 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         }
       );
     });
+    Database.transaction((transaction: SQLTransaction) => {
+      transaction.executeSql("SELECT * FROM cards WHERE 1", [], (transaction: SQLTransaction, result: SQLResultSet) => {
+        setCardsLength(result.rows._array.length);
+      });
+    });
   }, []);
 
   return (
@@ -62,7 +68,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           <View style={styles.blockContent}>
             <IncomeButton navigation={navigation} route={route} />
             <View style={styles.rightButtons}>
-              <TransferButton navigation={navigation} route={route} />
+              <TransferButton navigation={navigation} route={route} isActive={cardsLength > 1} />
               <ExpenseButton navigation={navigation} route={route} />
             </View>
           </View>
