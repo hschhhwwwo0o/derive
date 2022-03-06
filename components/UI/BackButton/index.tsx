@@ -4,7 +4,7 @@ import Svg, { ClipPath, Defs, G, Path, Rect } from "react-native-svg";
 import AppConstants from "styles/constants";
 
 interface IBackButton {
-  onPressHandler: () => any;
+  onPressHandler: () => void;
 }
 
 const AngleLeft: FunctionComponent = () => {

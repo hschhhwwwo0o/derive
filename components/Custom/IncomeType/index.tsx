@@ -6,7 +6,7 @@ import AppConstants from "styles/constants";
 import { IIncomeExpenseType } from "libs/config";
 
 interface IIncomeType {
-  onPressHandler: () => any;
+  onPressHandler: () => void;
   isActive: boolean;
   data: IIncomeExpenseType;
 }

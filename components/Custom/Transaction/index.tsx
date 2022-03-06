@@ -6,7 +6,7 @@ import toDateFormat from "libs/toDateFormat";
 import returnConfigurationData from "libs/config";
 
 interface ITransactionC {
-  data?: any;
+  data?: ITransaction;
 }
 
 const Transaction: FunctionComponent<ITransactionC> = ({ data = {} }) => {
@@ -31,12 +31,12 @@ const Transaction: FunctionComponent<ITransactionC> = ({ data = {} }) => {
               )?.title
             }
           </Text>
-          <Text style={styles.transactionInfoDate}>{toDateFormat(data.date)}</Text>
+          <Text style={styles.transactionInfoDate}>{toDateFormat(data.date || "")}</Text>
         </View>
       </View>
       <Text style={styles.transactionText}>
         {data.actionType === "income" ? "+ " : "- "}
-        {toPriceFormat(data.amount)} ₽
+        {toPriceFormat(data.amount || 0)} ₽
       </Text>
     </View>
   );

@@ -7,7 +7,7 @@ import VisaSVG from "components/SVGs/Visa";
 import PayPalSVG from "components/SVGs/PayPal";
 
 interface ICard {
-  onPressHandler?: () => any;
+  onPressHandler?: () => void;
   paymentSystem?: string;
   number?: string;
   balance?: number;

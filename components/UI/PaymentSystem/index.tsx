@@ -46,7 +46,7 @@ const PayPalSystem: FunctionComponent<{ isActive: boolean }> = ({ isActive }) =>
 interface IPaymentSystem {
   system: "visa" | "paypal";
   isActive?: boolean;
-  onPress?: () => any;
+  onPress?: () => void;
 }
 
 const PaymentSystem: FunctionComponent<IPaymentSystem> = ({

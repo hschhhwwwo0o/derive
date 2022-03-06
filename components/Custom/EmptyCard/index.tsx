@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import AppConstants from "styles/constants";
 
 interface IEmptyCard {
-  onPressHandler: () => any;
+  onPressHandler: () => void;
 }
 
 const EmptyCard: FunctionComponent<IEmptyCard> = ({ onPressHandler = () => {} }) => {
