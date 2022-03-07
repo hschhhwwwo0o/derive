@@ -53,7 +53,7 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           setActiveSkin(Number(result.rows._array[0].colorId));
           setActivePaymentSystem(result.rows._array[0].paymentSystem);
           setCardNumber(String(result.rows._array[0].number));
-          setEndDate(result.rows._array[0].endDate);
+          setEndDate(result.rows._array[0].endDate.replace("/", "").replace("/", ""));
         }
       );
     });
@@ -72,20 +72,30 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         <View style={styles.mt}>
           <Label>Edit card info</Label>
           <View style={styles.cardInfoContent}>
-            <Input
-              mask="9999 9999 9999 9999"
-              state={cardNumber}
-              setState={setCardNumber}
-              keyboardType="decimal-pad"
-              placeholder="Enter card number..."
-            />
-            <Input
-              mask="99/99/9999"
-              state={endDate}
-              setState={setEndDate}
-              keyboardType="decimal-pad"
-              placeholder="Enter end date..."
-            />
+            {Boolean(cardNumber) ? (
+              <Input
+                defaultValue={cardNumber}
+                mask="9999 9999 9999 9999"
+                state={cardNumber}
+                setState={setCardNumber}
+                keyboardType="decimal-pad"
+                placeholder="Enter card number..."
+              />
+            ) : (
+              <Input state={cardNumber} setState={setCardNumber} placeholder="Enter card number..." />
+            )}
+            {Boolean(endDate) ? (
+              <Input
+                defaultValue={endDate}
+                mask="99/99/9999"
+                state={endDate}
+                setState={setEndDate}
+                keyboardType="decimal-pad"
+                placeholder="Enter end date..."
+              />
+            ) : (
+              <Input state={endDate} setState={setEndDate} placeholder="Enter end date..." />
+            )}
           </View>
         </View>
         <View style={styles.mt}>

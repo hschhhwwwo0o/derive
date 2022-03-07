@@ -9,6 +9,7 @@ interface IInput {
   placeholder: string;
   keyboardType?: "default" | "decimal-pad" | "number-pad";
   mask?: string;
+  defaultValue?: string;
 }
 
 const Input: FunctionComponent<IInput> = ({
@@ -17,6 +18,7 @@ const Input: FunctionComponent<IInput> = ({
   state = "",
   setState = () => {},
   mask = "",
+  defaultValue = "",
 }) => {
   return (
     <>
@@ -33,6 +35,7 @@ const Input: FunctionComponent<IInput> = ({
       ) : (
         <MaskedTextInput
           mask={mask}
+          defaultValue={defaultValue}
           value={state}
           onChangeText={newText => setState(newText)}
           keyboardAppearance="dark"
