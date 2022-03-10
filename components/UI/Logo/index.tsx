@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { StyleSheet, Text } from "react-native";
 import AppConstants from "styles/constants";
 
@@ -20,10 +20,10 @@ const BigLogo: FunctionComponent<ILogo> = ({ textAlign = "left" }) => {
 
 const Logo: FunctionComponent<IMainLogo> = ({ variant = "default", textAlign = "left" }) => {
   return (
-    <>
+    <Fragment>
       {variant === "default" && <DefaultLogo textAlign={textAlign} />}
       {variant === "big" && <BigLogo textAlign={textAlign} />}
-    </>
+    </Fragment>
   );
 };
 

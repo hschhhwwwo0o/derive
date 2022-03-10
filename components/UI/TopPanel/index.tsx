@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { View, StyleSheet } from "react-native";
 import BackButton from "components/UI/BackButton";
 import Logo from "components/UI/Logo";
@@ -52,12 +52,12 @@ const TopPanel: FunctionComponent<ITopPanel> = ({
   isGoBack = false,
 }) => {
   return (
-    <>
+    <Fragment>
       {withBack === true && (
         <WithBack navigation={navigation} backPathname={backPathname} backParams={backParams} isGoBack={isGoBack} />
       )}
       {withBack === false && <WithoutBack />}
-    </>
+    </Fragment>
   );
 };
 

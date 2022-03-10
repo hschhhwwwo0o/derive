@@ -1,4 +1,4 @@
-import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
+import React, { Dispatch, Fragment, FunctionComponent, SetStateAction } from "react";
 import { StyleSheet, TextInput } from "react-native";
 import { MaskedTextInput } from "react-native-mask-text";
 import AppConstants from "styles/constants";
@@ -21,7 +21,7 @@ const Input: FunctionComponent<IInput> = ({
   defaultValue = "",
 }) => {
   return (
-    <>
+    <Fragment>
       {!mask ? (
         <TextInput
           value={state}
@@ -45,7 +45,7 @@ const Input: FunctionComponent<IInput> = ({
           placeholderTextColor="#595968"
         />
       )}
-    </>
+    </Fragment>
   );
 };
 

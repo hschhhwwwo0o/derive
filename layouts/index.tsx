@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { Fragment, FunctionComponent, ReactNode } from "react";
 import { ScrollView, StatusBar, View } from "react-native";
 import AndroidSafeArea from "styles/AndroidSafeArea";
 import Layout from "styles/Layout";
@@ -10,7 +10,7 @@ interface ITheLayout {
 
 const TheLayout: FunctionComponent<ITheLayout> = ({ children, withHorizontalPaddings = true }) => {
   return (
-    <>
+    <Fragment>
       <StatusBar hidden={true} />
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={AndroidSafeArea.AndroidSafeArea}>
@@ -19,7 +19,7 @@ const TheLayout: FunctionComponent<ITheLayout> = ({ children, withHorizontalPadd
           </View>
         </View>
       </ScrollView>
-    </>
+    </Fragment>
   );
 };
 
