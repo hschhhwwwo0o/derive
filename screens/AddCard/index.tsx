@@ -18,7 +18,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
 
-  function onCreateCardHandler(): void {
+  function onCreateCardPressHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",
@@ -87,7 +87,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.createButton}>
-          <Button variant="primary" onPressHandler={onCreateCardHandler} isValidate={validateData()}>
+          <Button variant="primary" onPressHandler={onCreateCardPressHandler} isValidate={validateData()}>
             Create
           </Button>
         </View>

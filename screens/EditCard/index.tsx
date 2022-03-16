@@ -17,7 +17,7 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
 
-  function onUpdateCardHandler(): void {
+  function onUpdateCardPressHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("UPDATE cards SET number = ?, endDate = ?, paymentSystem = ?, colorId = ? WHERE id = ?", [
         cardNumber,
@@ -30,7 +30,7 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     navigation.push("Home");
   }
 
-  function onRemoveCardHandler(): void {
+  function onRemoveCardPressHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("DELETE FROM cards WHERE id = ?", [route.params.id]);
       transaction.executeSql("DELETE FROM transactions WHERE cardId = ?", [route.params.id]);
@@ -114,12 +114,12 @@ const EditCardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.createButton}>
-          <Button variant="primary" onPressHandler={onUpdateCardHandler}>
+          <Button variant="primary" onPressHandler={onUpdateCardPressHandler}>
             Save
           </Button>
         </View>
         <View style={styles.removeButton}>
-          <Button variant="danger" onPressHandler={onRemoveCardHandler}>
+          <Button variant="danger" onPressHandler={onRemoveCardPressHandler}>
             Remove
           </Button>
         </View>

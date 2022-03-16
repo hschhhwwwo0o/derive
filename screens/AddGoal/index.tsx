@@ -14,7 +14,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [goalFinalAmount, setGoalFinalAmount] = useState<string>("");
   const [goalDescription, setGoalDescription] = useState<string>("");
 
-  function insertGoal(): void {
+  function onAddGoalPressHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO goals (name, description, finalAmount, currentAmount) VALUES (?, ?, ?, ?);",
@@ -58,7 +58,7 @@ const AddGoalScreen: FunctionComponent<IScreen> = ({ navigation }) => {
           />
         </View>
         <View style={styles.createButton}>
-          <Button onPressHandler={insertGoal} isValidate={validateData()}>
+          <Button onPressHandler={onAddGoalPressHandler} isValidate={validateData()}>
             Create
           </Button>
         </View>

@@ -17,7 +17,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [cardsLength, setCardsLength] = useState<number>(0);
 
-  function goToChangeCardInformation(): void {
+  function onGoToChangeCardInformationHandler(): void {
     navigation.push("EditCard", {
       id: route.params.id,
     });
@@ -60,7 +60,7 @@ const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           paymentSystem={card?.paymentSystem}
           date={card?.endDate}
         />
-        <TouchableOpacity onPress={goToChangeCardInformation} activeOpacity={AppConstants.ActiveOpacity}>
+        <TouchableOpacity onPress={onGoToChangeCardInformationHandler} activeOpacity={AppConstants.ActiveOpacity}>
           <Text style={styles.goChange}>Change a card information</Text>
         </TouchableOpacity>
         <View style={styles.block}>
