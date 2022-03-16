@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Database from "sql";
+import initializeTables from "sql/initializeTables";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
@@ -17,15 +18,7 @@ const StartScreen: FunctionComponent<IScreen> = ({ navigation }) => {
 
   useEffect(() => {
     Database.transaction((transaction: SQLTransaction) => {
-      transaction.executeSql(
-        "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, balance INT, paymentSystem TEXT, number TEXT, endDate TEXT, colorId INT);"
-      );
-      transaction.executeSql(
-        "CREATE TABLE IF NOT EXISTS goals (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, description TEXT, finalAmount INT, currentAmount INT);"
-      );
-      transaction.executeSql(
-        "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cardId INT, amount INT, date TEXT, type TEXT, actionType TEXT);"
-      );
+      initializeTables(transaction);
       transaction.executeSql("SELECT * FROM cards", [], (transaction: SQLTransaction, result: SQLResultSet) => {
         if (result.rows.length) {
           navigation.push("Home");

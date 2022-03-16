@@ -14,7 +14,7 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");
   const [activeIncomeTypeID, setActiveIncomeTypeID] = useState<number>(returnConfigurationData().IncomeTypes[0].id);
 
-  function createTransaction(): void {
+  function onCreateTransactionPressHandler(): void {
     Database.transaction(async (transaction: SQLTransaction) => {
       await transaction.executeSql(
         "INSERT INTO transactions (cardId, amount, date, type, actionType) VALUES (?, ?, ?, ?, ?);",
@@ -71,7 +71,7 @@ const IncomeScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button onPressHandler={createTransaction} isValidate={validateData()}>
+          <Button onPressHandler={onCreateTransactionPressHandler} isValidate={validateData()}>
             Income
           </Button>
         </View>
