@@ -13,11 +13,7 @@ const Application: FunctionComponent = () => {
     "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
   });
 
-  if (!loadedFonts) {
-    return null;
-  }
-
-  const Theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: "#161622" } };
+  const Theme: typeof DefaultTheme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: "#161622" } };
 
   const StackScreenOptions: NativeStackNavigationOptions = {
     headerShown: false,
@@ -25,6 +21,7 @@ const Application: FunctionComponent = () => {
     animationTypeForReplace: "push",
   };
 
+  if (!loadedFonts) return null;
   return (
     <NavigationContainer theme={Theme}>
       <Stack.Navigator>
