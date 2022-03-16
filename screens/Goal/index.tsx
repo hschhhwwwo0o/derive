@@ -29,7 +29,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }, [navigation]);
 
-  function updateGoal(): void {
+  function onUpdateGoalPressHandler(): void {
     const currentAmount = goal?.currentAmount || 0;
     const newAmount = currentAmount + Number(amountToAdd) + -Number(amountToWithdraw);
     const completeAmount = newAmount >= 0 ? newAmount : 0;
@@ -44,7 +44,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
     });
   }
 
-  function removeGoal(): void {
+  function onRemoveGoalPressHandler(): void {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql("DELETE FROM goals WHERE id = ?", [route.params.id], () => {
         navigation.push("Home");
@@ -85,10 +85,10 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.saveButton}>
-          <Button onPressHandler={updateGoal}>Save</Button>
+          <Button onPressHandler={onUpdateGoalPressHandler}>Save</Button>
         </View>
         <View style={styles.removeButton}>
-          <Button onPressHandler={removeGoal} variant="danger">
+          <Button onPressHandler={onRemoveGoalPressHandler} variant="danger">
             Remove
           </Button>
         </View>

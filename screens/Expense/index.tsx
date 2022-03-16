@@ -14,7 +14,7 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");
   const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(returnConfigurationData().ExpenseTypes[0].id);
 
-  function createTransaction(): void {
+  function onCreateTransactionPressHandler(): void {
     Database.transaction(async (transaction: SQLTransaction) => {
       await transaction.executeSql(
         "INSERT INTO transactions (cardId, amount, date, type, actionType) VALUES (?, ?, ?, ?, ?);",
@@ -71,7 +71,7 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button variant="danger" onPressHandler={createTransaction} isValidate={validateData()}>
+          <Button variant="danger" onPressHandler={onCreateTransactionPressHandler} isValidate={validateData()}>
             Expense
           </Button>
         </View>
