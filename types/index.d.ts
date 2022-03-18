@@ -41,4 +41,4 @@ interface ITransaction {
   actionType: string;
 }
 
-type IPaymentSystem = "Visa" | "Paypal";
+type IPaymentSystem = "Visa" | "Paypal" | "Mir";
