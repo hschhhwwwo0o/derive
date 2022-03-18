@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppConstants from "styles/constants";
+import returnConfigurationData from "libs/config";
 import toPriceFormat from "libs/toPriceFormat";
 import toDateFormat from "libs/toDateFormat";
-import returnConfigurationData from "libs/config";
 
 interface ITransactionC {
   navigation: INavigation;
