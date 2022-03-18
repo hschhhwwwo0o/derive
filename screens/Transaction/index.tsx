@@ -1,15 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import AppConstants from "styles/constants";
-import TheLayout from "layouts";
-import TopPanel from "components/UI/TopPanel";
-import returnConfigurationData from "libs/config";
-import Label from "components/UI/Label";
-import Transaction from "components/Custom/Transaction";
-import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import Database from "sql";
+import { SQLResultSet, SQLTransaction } from "expo-sqlite";
+import returnConfigurationData from "libs/config";
 import toPriceFormat from "libs/toPriceFormat";
 import toDateFormat from "libs/toDateFormat";
+import AppConstants from "styles/constants";
+import TheLayout from "layouts";
+import Transaction from "components/Custom/Transaction";
+import TopPanel from "components/UI/TopPanel";
+import Label from "components/UI/Label";
 
 const TransactionScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [currentTransaction, setCurrentTransaction] = useState<ITransaction>();

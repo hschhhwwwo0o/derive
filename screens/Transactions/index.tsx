@@ -3,9 +3,9 @@ import { StyleSheet, View } from "react-native";
 import TheLayout from "layouts";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
+import Transaction from "components/Custom/Transaction";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
-import Transaction from "components/Custom/Transaction";
 
 const TransactionsScreen: FunctionComponent<IScreen> = ({ navigation }) => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);

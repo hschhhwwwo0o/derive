@@ -2,13 +2,13 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
+import toPriceFormat from "libs/toPriceFormat";
 import TheLayout from "layouts";
+import Goal from "components/Custom/Goal";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
-import Goal from "components/Custom/Goal";
-import toPriceFormat from "libs/toPriceFormat";
 
 const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [goal, setGoal] = useState<IGoal>();

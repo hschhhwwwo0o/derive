@@ -4,13 +4,13 @@ import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import AppConstants from "styles/constants";
 import TheLayout from "layouts";
-import TopPanel from "components/UI/TopPanel";
-import Label from "components/UI/Label";
 import Card from "components/Custom/Card";
 import IncomeButton from "components/Custom/IncomeButton";
 import TransferButton from "components/Custom/TransferButton";
 import ExpenseButton from "components/Custom/ExpenseButton";
 import Transaction from "components/Custom/Transaction";
+import TopPanel from "components/UI/TopPanel";
+import Label from "components/UI/Label";
 
 const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [card, setCard] = useState<ICard>();

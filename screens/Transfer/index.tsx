@@ -4,12 +4,12 @@ import Database from "sql";
 import { SQLResultSet, SQLTransaction } from "expo-sqlite";
 import TheLayout from "layouts";
 import AppConstants from "styles/constants";
+import EmptyCard from "components/Custom/EmptyCard";
+import Card from "components/Custom/Card";
 import TopPanel from "components/UI/TopPanel";
 import Label from "components/UI/Label";
 import Button from "components/UI/Button";
 import Input from "components/UI/Input";
-import EmptyCard from "components/Custom/EmptyCard";
-import Card from "components/Custom/Card";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [cards, setCards] = useState<ICard[]>([]);
