@@ -16,7 +16,9 @@ To test the application, you can use the free application available in the Googl
 
 ## Design
 
-The design is all done by me. Icons to take from [Flaticon], [IconIcons] <br /> Finance icon pack:
+Dérive on Behance: https://www.behance.net/gallery/140338383/Drive
+
+Icons to take from [Flaticon], [IconIcons] <br /> Finance icon pack:
 https://icon-icons.com/ru/pack/Smooth-3D-Finance/3279
 
 Design instruments: [Figma]
