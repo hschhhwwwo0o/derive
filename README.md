@@ -35,6 +35,5 @@ Design instruments: [Figma]
 
 Made with love ❤️
 
-I'm on Telegram: **@hschhhwwwo0o** \
 I'm on Behance: **https://www.behance.net/aftertaste** \
 I'm on Dribbble: **https://dribbble.com/ssandry0**
