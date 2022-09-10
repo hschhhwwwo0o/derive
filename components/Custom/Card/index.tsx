@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   minCard: {
     height: 175,
     width: "100%",
-    borderRadius: 20,
+    borderRadius: 14,
     paddingHorizontal: 24,
     display: "flex",
     flexDirection: "column",

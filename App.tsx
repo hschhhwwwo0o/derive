@@ -18,7 +18,7 @@ const Application: FunctionComponent = () => {
 
   const StackScreenOptions: NativeStackNavigationOptions = {
     headerShown: false,
-    animation: "fade_from_bottom",
+    animation: "fade",
     animationTypeForReplace: "push",
   };
 

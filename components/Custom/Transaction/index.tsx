@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderRadius: 16,
+    borderRadius: 14,
     marginTop: 12,
   },
   transactionInfo: {

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   expandButton: {
     height: Dimensions.get("window").width / 2 - 38,
     width: Dimensions.get("window").width / 2 - 38,
-    borderRadius: 20,
+    borderRadius: 14,
     paddingLeft: 25,
     paddingTop: 26,
   },

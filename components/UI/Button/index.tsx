@@ -67,7 +67,7 @@ const Button: FunctionComponent<IMainButton> = ({
 const styles = StyleSheet.create({
   defaultButton: {
     paddingVertical: 24,
-    borderRadius: 20,
+    borderRadius: 14,
     shadowColor: "#eeeeee",
     shadowOffset: {
       width: 0,
