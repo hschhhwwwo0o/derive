@@ -54,10 +54,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: AppConstants.FontBold,
     color: "#9393A2",
-    paddingVertical: 18,
+    paddingVertical: 16,
     paddingHorizontal: 18,
     backgroundColor: "#1E1E2D",
-    borderRadius: 20,
+    borderRadius: 14,
   },
 });
 

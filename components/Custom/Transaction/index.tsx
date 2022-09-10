@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#1E1E2D",
     height: 75,
     width: "100%",
-    paddingHorizontal: 23,
+    paddingHorizontal: 12,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderRadius: 20,
+    borderRadius: 16,
     marginTop: 12,
   },
   transactionInfo: {
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
   transactionText: {
     fontFamily: AppConstants.FontExtra,
     color: "#E2E2E2",
+    fontSize: 12,
   },
 });
 

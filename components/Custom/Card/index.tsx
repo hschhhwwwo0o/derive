@@ -61,7 +61,7 @@ const Card: FunctionComponent<ICard> = ({
 
 const styles = StyleSheet.create({
   minCard: {
-    height: 195,
+    height: 175,
     width: "100%",
     borderRadius: 20,
     paddingHorizontal: 24,

@@ -71,7 +71,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
             />
           </View>
         </View>
-        <View style={styles.mt}>
+        <View style={{ marginTop: 35 }}>
           <Label>Payment System</Label>
           <View style={styles.paymentSystems}>
             <PaymentSystem
@@ -98,24 +98,24 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   body: {
-    marginTop: 46,
+    marginTop: 32,
   },
   mt: {
-    marginTop: 42,
+    marginTop: 25,
   },
   createButton: {
-    marginTop: 82,
-    paddingBottom: 43,
+    marginTop: 60,
+    paddingBottom: 35,
   },
   skins: {
     marginTop: 23,
-    height: 195,
+    height: 175,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   cardInfoContent: {
     marginTop: 23,
-    height: 215,
+    height: 205,
     flexDirection: "column",
     justifyContent: "space-between",
   },

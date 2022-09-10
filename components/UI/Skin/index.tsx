@@ -28,9 +28,9 @@ const Skin: FunctionComponent<ISkin> = ({ id, state, colors = [], setState = () 
 
 const styles = StyleSheet.create({
   skin: {
-    height: 195,
+    height: 160,
     backgroundColor: "green",
-    width: Dimensions.get("window").width / 5 - 21,
+    width: Dimensions.get("window").width / 5 - 20,
     borderRadius: 20,
   },
   withShadow: {

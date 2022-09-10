@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { createNativeStackNavigator, NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import router from "router";
+import { StatusBar } from "expo-status-bar";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,15 +24,23 @@ const Application: FunctionComponent = () => {
 
   if (!loadedFonts) return null;
   return (
-    <NavigationContainer theme={Theme}>
-      <Stack.Navigator>
-        {router.map(route => {
-          return (
-            <Stack.Screen key={route.name} name={route.name} component={route.component} options={StackScreenOptions} />
-          );
-        })}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Fragment>
+      <StatusBar backgroundColor="#161622" style="light" />
+      <NavigationContainer theme={Theme}>
+        <Stack.Navigator>
+          {router.map(route => {
+            return (
+              <Stack.Screen
+                key={route.name}
+                name={route.name}
+                component={route.component}
+                options={StackScreenOptions}
+              />
+            );
+          })}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Fragment>
   );
 };
 
