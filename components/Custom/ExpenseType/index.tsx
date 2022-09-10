@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   incomeType: {
     width: Dimensions.get("window").width / 2.8 - 38,
     height: Dimensions.get("window").width / 2.8 - 38,
-    borderRadius: 20,
+    borderRadius: 14,
     marginTop: 15,
     display: "flex",
     alignItems: "center",

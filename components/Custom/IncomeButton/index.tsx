@@ -21,7 +21,6 @@ const IncomeButton: FunctionComponent<IIncomeButton> = ({ navigation, route }) =
       <LinearGradient style={[styles.expandButton, styles.shadow]} colors={["#CCF0FA", "#E5E5E5"]}>
         <BigBlackPlus />
         <Text style={styles.header}>Income</Text>
-        <Text style={styles.desc}>Add a transaction</Text>
       </LinearGradient>
     </TouchableOpacity>
   );
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
   expandButton: {
     height: Dimensions.get("window").width / 2 - 38,
     width: Dimensions.get("window").width / 2 - 38,
-    borderRadius: 20,
+    borderRadius: 14,
     paddingLeft: 25,
     paddingTop: 26,
   },

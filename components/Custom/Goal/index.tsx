@@ -67,19 +67,19 @@ const Goal: FunctionComponent<IGoal> = ({ navigation, name, finalAmount, current
 const styles = StyleSheet.create({
   block: {
     backgroundColor: "#1E1E2D",
-    borderRadius: 20,
+    borderRadius: 14,
     height: 75,
     marginTop: 12,
   },
   textBlock: {
-    borderRadius: 20,
+    borderRadius: 14,
     height: 75,
     alignItems: "center",
     justifyContent: "center",
     marginTop: -75,
   },
   gradient: {
-    borderRadius: 20,
+    borderRadius: 14,
     height: 75,
   },
   textContent: {

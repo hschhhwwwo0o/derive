@@ -62,9 +62,9 @@ const MinCard: FunctionComponent<IMinCard> = ({
 
 const styles = StyleSheet.create({
   minCard: {
-    height: 195,
+    height: 175,
     width: 161,
-    borderRadius: 20,
+    borderRadius: 14,
     marginLeft: 12,
     paddingHorizontal: 24,
     display: "flex",

@@ -23,12 +23,12 @@ const AddCard: FunctionComponent<IAddCard> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   addCard: {
-    height: 195,
+    height: 175,
     width: 55,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#1F202F",
-    borderRadius: 20,
+    borderRadius: 14,
   },
 });
 

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   emptyCard: {
     height: 195,
     width: "100%",
-    borderRadius: 20,
+    borderRadius: 14,
     backgroundColor: AppConstants.BackgroundSecondColor,
   },
 });

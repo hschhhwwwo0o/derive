@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   button: {
     height: (Dimensions.get("window").width / 2 - 38) / 2 - 7,
     width: Dimensions.get("window").width / 2 - 38,
-    borderRadius: 20,
+    borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
   },

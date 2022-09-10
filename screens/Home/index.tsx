@@ -119,16 +119,16 @@ const styles = StyleSheet.create({
     marginTop: 46,
   },
   body: {
-    marginTop: 22,
+    marginTop: 10,
     paddingHorizontal: AppConstants.PaddingHorizontal,
     paddingBottom: 40,
   },
   cardsContainer: {
     paddingLeft: AppConstants.PaddingHorizontal,
-    height: 220,
+    height: 200,
   },
   goalsContent: {
-    marginTop: 11,
+    marginTop: 5,
   },
   addGoal: {
     marginTop: 12,

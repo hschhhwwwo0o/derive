@@ -86,10 +86,10 @@ const styles = StyleSheet.create({
     paddingBottom: 39,
   },
   headerInput: {
-    marginTop: 23,
+    marginTop: 15,
   },
   headerType: {
-    marginTop: 39,
+    marginTop: 25,
   },
   bodyTypes: {
     display: "flex",
