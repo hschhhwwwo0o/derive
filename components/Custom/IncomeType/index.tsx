@@ -26,9 +26,9 @@ const IncomeType: FunctionComponent<IIncomeType> = ({ onPressHandler = () => {},
 
 const styles = StyleSheet.create({
   incomeType: {
-    width: Dimensions.get("window").width / 2.8 - 38,
-    height: Dimensions.get("window").width / 2.8 - 38,
-    borderRadius: 14,
+    width: Dimensions.get("window").width / 2.8 - 33,
+    height: Dimensions.get("window").width / 2.8 - 33,
+    borderRadius: 12,
     marginTop: 15,
     display: "flex",
     alignItems: "center",
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
   image: {
-    width: Dimensions.get("window").width / 4 - 38,
-    height: Dimensions.get("window").width / 4 - 38,
+    width: Dimensions.get("window").width / 4 - 33,
+    height: Dimensions.get("window").width / 4 - 33,
   },
   text: {
     marginTop: 8,

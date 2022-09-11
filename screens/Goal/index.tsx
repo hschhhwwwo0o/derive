@@ -99,11 +99,11 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   body: {
-    marginTop: 46,
+    marginTop: 35,
     paddingBottom: 46,
   },
   goalProgress: {
-    marginTop: 23,
+    marginTop: 8,
   },
   progress: {
     height: 75,
@@ -123,16 +123,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   left: {
-    marginTop: 19,
+    marginTop: 12,
     fontFamily: "Lato-Bold",
     color: "#F9F9F9",
     fontSize: 12,
   },
   action: {
-    marginTop: 23,
+    marginTop: 26,
   },
   actionInput: {
-    marginTop: 23,
+    marginTop: 18,
   },
   saveButton: {
     marginTop: 82,
