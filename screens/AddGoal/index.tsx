@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
     marginTop: 39,
   },
   goalName: {
-    marginTop: 12,
+    marginTop: 10,
   },
   goalDescription: {
-    marginTop: 12,
+    marginTop: 10,
   },
   finalAmount: {
     marginTop: 23,
