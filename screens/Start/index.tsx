@@ -55,15 +55,15 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     justifyContent: "space-between",
-    paddingBottom: 43,
+    paddingBottom: 25,
   },
   bodyText: {
     fontFamily: AppConstants.FontRegular,
     color: "#F9F9F9",
-    marginTop: 13,
+    marginTop: 10,
   },
   bodyButton: {
-    marginTop: 60,
+    marginTop: 45,
   },
   footer: {
     height: 40,

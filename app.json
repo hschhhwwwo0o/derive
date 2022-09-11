@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "backgroundColor": "#161622",
+    "primaryColor": "#161622",
     "icon": "./assets/derive-icon.png",
     "splash": {
       "image": "./assets/splash-derive.png",

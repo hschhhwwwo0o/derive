@@ -66,7 +66,7 @@ const PaymentSystem: FunctionComponent<IPaymentSystem> = ({
 
 const styles = StyleSheet.create({
   tag: {
-    width: Dimensions.get("window").width / 2 - 37,
+    width: Dimensions.get("window").width / 2 - 35,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 18,
