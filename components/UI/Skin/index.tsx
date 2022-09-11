@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     height: 160,
     backgroundColor: "green",
     width: Dimensions.get("window").width / 5 - 20,
-    borderRadius: 20,
+    borderRadius: 40,
   },
   withShadow: {
     opacity: 1,

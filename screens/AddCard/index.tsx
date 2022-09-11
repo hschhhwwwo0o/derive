@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   cardInfoContent: {
     marginTop: 23,
-    height: 205,
+    height: 200,
     flexDirection: "column",
     justifyContent: "space-between",
   },
