@@ -12,9 +12,9 @@ import Button from "components/UI/Button";
 import Input from "components/UI/Input";
 
 const TransferScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
+  const [sum, setSum] = useState<string>("");
   const [cards, setCards] = useState<ICard[]>([]);
   const [selectedCard, setSelectedCard] = useState<ICard>();
-  const [sum, setSum] = useState<string>("");
   const [isOpenChooseCardScreen, setIsOpenChooseCardScreen] = useState<boolean>(false);
 
   function onChooseCardPressHandler(): void {
