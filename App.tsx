@@ -1,9 +1,12 @@
 import React, { Fragment, FunctionComponent } from "react";
+
+import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
+
+/** Navigation */
 import { createNativeStackNavigator, NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import router from "router";
-import { StatusBar } from "expo-status-bar";
 
 const Stack = createNativeStackNavigator();
 
