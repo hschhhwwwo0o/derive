@@ -14,8 +14,8 @@ import Label from "components/UI/Label";
 
 const CardScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [card, setCard] = useState<ICard>();
-  const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [cardsLength, setCardsLength] = useState<number>(0);
+  const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   function onGoToChangeCardInformationHandler(): void {
     navigation.push("EditCard", {

@@ -12,13 +12,13 @@ import Button from "components/UI/Button";
 
 const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [sum, setSum] = useState<string>("");
-  const [activeExpenseTypeID, setActiveExpenseTypeID] = useState<number>(returnConfigurationData().ExpenseTypes[0].id);
+  const [expenseTypeID, setExpenseTypeID] = useState<number>(returnConfigurationData().ExpenseTypes[0].id);
 
   function onCreateTransactionPressHandler(): void {
     Database.transaction(async (transaction: SQLTransaction) => {
       await transaction.executeSql(
         "INSERT INTO transactions (cardId, amount, date, type, actionType) VALUES (?, ?, ?, ?, ?);",
-        [route.params.cardId, sum, `${new Date().getTime()}`, activeExpenseTypeID, "expense"]
+        [route.params.cardId, sum, `${new Date().getTime()}`, expenseTypeID, "expense"]
       );
       await transaction.executeSql(
         "SELECT * FROM cards WHERE id = ?",
@@ -56,14 +56,14 @@ const ExpenseScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         <View style={styles.headerType}>
           <Label>Expense Type</Label>
           <View style={styles.bodyTypes}>
-            {returnConfigurationData().ExpenseTypes.map(expenseType => {
+            {returnConfigurationData().ExpenseTypes.map(_expenseType => {
               return (
                 <ExpenseType
-                  isActive={expenseType.id === activeExpenseTypeID}
-                  key={expenseType.id}
-                  data={expenseType}
+                  isActive={_expenseType.id === expenseTypeID}
+                  key={_expenseType.id}
+                  data={_expenseType}
                   onPressHandler={() => {
-                    setActiveExpenseTypeID(expenseType.id);
+                    setExpenseTypeID(_expenseType.id);
                   }}
                 />
               );

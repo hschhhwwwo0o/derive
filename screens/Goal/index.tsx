@@ -12,7 +12,7 @@ import Button from "components/UI/Button";
 
 const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
   const [goal, setGoal] = useState<IGoal>();
-  const [left, setLeft] = useState<number>(0);
+  const [leftAmount, setLeftAmount] = useState<number>(0);
   const [amountToAdd, setAmountToAdd] = useState<string>("");
   const [amountToWithdraw, setAmountToWithdraw] = useState<string>("");
 
@@ -23,7 +23,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
         [route.params.id],
         (transaction: SQLTransaction, result: SQLResultSet) => {
           setGoal(result.rows._array[0]);
-          setLeft(result.rows._array[0].finalAmount - result.rows._array[0].currentAmount);
+          setLeftAmount(result.rows._array[0].finalAmount - result.rows._array[0].currentAmount);
         }
       );
     });
@@ -61,7 +61,7 @@ const GoalScreen: FunctionComponent<IScreen> = ({ navigation, route }) => {
           <Goal type="B" currentAmount={goal?.currentAmount} finalAmount={goal?.finalAmount} name={goal?.name} />
         </View>
         <Text style={styles.goalDescription}>{goal?.description}</Text>
-        <Text style={styles.left}>Left: {toPriceFormat(left)} ₽</Text>
+        <Text style={styles.left}>Left: {toPriceFormat(leftAmount)} ₽</Text>
         <View style={styles.action}>
           <Label>Add amount</Label>
           <View style={styles.actionInput}>

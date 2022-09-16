@@ -12,8 +12,8 @@ import Button from "components/UI/Button";
 import PaymentSystem from "components/UI/PaymentSystem";
 
 const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
-  const [activePaymentSystem, setActivePaymentSystem] = useState<IPaymentSystem>("Visa");
-  const [activeSkin, setActiveSkin] = useState<number>(0);
+  const [paymentSystem, setPaymentSystem] = useState<IPaymentSystem>("Visa");
+  const [skinID, setSkinID] = useState<number>(0);
   const [initialSum, setInitialSum] = useState<string>("");
   const [cardNumber, setCardNumber] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
@@ -22,7 +22,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
     Database.transaction((transaction: SQLTransaction) => {
       transaction.executeSql(
         "INSERT INTO cards (balance, paymentSystem, number, endDate, colorId) VALUES (?, ?, ?, ?, ?);",
-        [initialSum, activePaymentSystem, cardNumber, endDate, activeSkin]
+        [initialSum, paymentSystem, cardNumber, endDate, skinID]
       );
     });
     navigation.push("Home");
@@ -43,7 +43,7 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <Label>Choose skin</Label>
         <View style={styles.skins}>
           {AppConstants.CardSkins.map(skin => {
-            return <Skin key={skin.id} setState={setActiveSkin} state={activeSkin} {...skin} />;
+            return <Skin key={skin.id} setState={setSkinID} state={skinID} colors={skin.colors} id={skin.id} />;
           })}
         </View>
         <View style={styles.mt}>
@@ -74,15 +74,11 @@ const AddCardScreen: FunctionComponent<IScreen> = ({ navigation }) => {
         <View style={{ marginTop: 35 }}>
           <Label>Payment System</Label>
           <View style={styles.paymentSystems}>
-            <PaymentSystem
-              system="visa"
-              isActive={activePaymentSystem === "Visa"}
-              onPress={() => setActivePaymentSystem("Visa")}
-            />
+            <PaymentSystem system="visa" isActive={paymentSystem === "Visa"} onPress={() => setPaymentSystem("Visa")} />
             <PaymentSystem
               system="paypal"
-              isActive={activePaymentSystem === "Paypal"}
-              onPress={() => setActivePaymentSystem("Paypal")}
+              isActive={paymentSystem === "Paypal"}
+              onPress={() => setPaymentSystem("Paypal")}
             />
           </View>
         </View>
