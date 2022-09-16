@@ -2,13 +2,12 @@ import React, { Fragment, FunctionComponent } from "react";
 
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import AppConstants from "styles/constants";
 
 /** Navigation */
 import { createNativeStackNavigator, NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import router from "router";
-
-const Stack = createNativeStackNavigator();
 
 const Application: FunctionComponent = () => {
   /** Load fonts */
@@ -18,8 +17,15 @@ const Application: FunctionComponent = () => {
     "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
   });
 
-  /** Configure application */
-  const AppTheme: typeof DefaultTheme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: "#161622" } };
+  /** Configure application theme */
+  const backgroundColor: string = AppConstants.BackgroundColor;
+  const AppTheme: typeof DefaultTheme = {
+    ...DefaultTheme,
+    colors: { ...DefaultTheme.colors, background: backgroundColor },
+  };
+
+  /** Configure application navigation */
+  const Stack = createNativeStackNavigator();
   const StackScreenOptions: NativeStackNavigationOptions = {
     headerShown: false,
     animation: "fade",
@@ -30,7 +36,7 @@ const Application: FunctionComponent = () => {
   if (!loadedFonts) return null;
   return (
     <Fragment>
-      <StatusBar backgroundColor="#161622" style="light" />
+      <StatusBar backgroundColor={backgroundColor} style="light" />
       <NavigationContainer theme={AppTheme}>
         <Stack.Navigator>
           {router.map(route => {
